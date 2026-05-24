@@ -2,16 +2,121 @@ import { Meta } from '@storybook/blocks';
 
 <Meta title="Introduction" />
 
-# Design System
+# mfp-design-system
 
-Welcome to the design system. Components are built with [Lit](https://lit.dev/)
-and consume design tokens from `@mfp-design-system/tokens`.
+A Lit-based design system, organized as a pnpm monorepo. Every package publishes to npm under the **`@mfp-design-system`** scope and works in any framework that supports custom elements (Vue, Nuxt, Angular, React 19+, plain HTML).
 
-## Where to look
+Each component:
 
-- **Tokens** — color, spacing, typography, and other primitives.
-- **Components** — Lit-based custom elements built on top of tokens.
+- Renders into a Shadow DOM so app styles can't leak in or out by accident
+- Consumes design tokens via CSS custom properties (with safe fallback values)
+- Ships with TypeScript types, Storybook stories, and a Web Test Runner suite
+- Is themeable — see [Themes](#themes) below
 
-Stories are discovered from both this app's `stories/` folder and from
-`packages/*/src/**/*.stories.ts` so each package can ship its own stories
-alongside its source.
+## What's in here
+
+### Tokens
+
+**[`@mfp-design-system/tokens`](?path=/docs/themes-showcase--docs)** — primitives the components are built on. Colors (base ramps, semantic, status), spacing, radius, typography, shadows, motion, z-index, breakpoints, letter-spacing, and a semantic brand layer that drives theming.
+
+### Components
+
+19 component packages, grouped by role:
+
+| Role | Components |
+| --- | --- |
+| **Action** | `mfp-button`, `mfp-icon-button` |
+| **Form input** | `mfp-input`, `mfp-textarea`, `mfp-select`, `mfp-checkbox`, `mfp-switch`, `mfp-radio` |
+| **Form wrapper** | `mfp-form-field` |
+| **Overlays** | `mfp-modal`, `mfp-tooltip`, `mfp-toast` |
+| **Feedback** | `mfp-alert`, `mfp-spinner`, `mfp-badge` |
+| **Layout** | `mfp-card`, `mfp-divider`, `mfp-avatar` |
+| **Organization** | `mfp-tabs` (`mfp-tab` + `mfp-tab-panel`) |
+
+Browse them in the sidebar under **Components/**. Each story page has live controls, code examples, and an auto-generated docs page.
+
+## Quick start (in any app)
+
+```sh
+npm install @mfp-design-system/tokens @mfp-design-system/button
+```
+
+```ts
+// At your app's entry point
+import '@mfp-design-system/tokens/css';
+import '@mfp-design-system/tokens/themes/blue'; // pick a theme — see below
+import '@mfp-design-system/button';
+```
+
+```html
+<mfp-button variant="primary">Save</mfp-button>
+```
+
+### Framework notes
+
+- **Vue 3 / Nuxt** — tell the compiler about the prefix:
+  ```ts
+  compilerOptions: { isCustomElement: (tag) => tag.startsWith('mfp-') }
+  ```
+- **Angular** — add `CUSTOM_ELEMENTS_SCHEMA` to any module/standalone component that uses `<mfp-*>` tags
+- **React 19+** — works natively
+- **Plain HTML** — just use the tags
+
+## Themes
+
+Each consuming app can pick a brand theme that overrides the design system's default colors. Components consume semantic tokens (`--color-brand-primary`, `--color-brand-primary-hover`, etc.) so a single import re-themes every primary button, focus ring, checked state, and toggle.
+
+```ts
+import '@mfp-design-system/tokens/themes/warm'; // chrissys / fourseasonsstudio
+```
+
+Five themes ship today:
+
+| Theme | Intended for |
+| --- | --- |
+| `blue` | default (matches "no theme") |
+| `warm` | fourseasonsstudio — terracotta + cream/brown |
+| `orange` | garage-sales — Tailwind orange-500 |
+| `earth` | lessonforge — warm neutrals + blue accent |
+| `portfolio` | melissapula.io — navy |
+
+In this Storybook, use the **Theme** dropdown in the toolbar at the top to flip any open story between themes. Or visit **Themes / Showcase** for a side-by-side comparison.
+
+## Forms
+
+Six components participate in native HTML form submission via `ElementInternals`:
+
+- `mfp-button` (type=submit/reset triggers form.requestSubmit / .reset)
+- `mfp-input`, `mfp-textarea`, `mfp-select` (value submitted under `name`)
+- `mfp-checkbox`, `mfp-switch`, `mfp-radio` (value submitted when checked/on)
+
+Inside a `<form>`, `new FormData(form).get('email')` Just Works. `required` triggers native validation. `error` becomes a custom validity message.
+
+```html
+<form @submit.prevent="onSubmit">
+    <mfp-input name="email" type="email" required label="Email" />
+    <mfp-button type="submit" variant="primary">Sign up</mfp-button>
+</form>
+```
+
+## A few architectural notes
+
+- **Brand colors are themed via a semantic layer**, not literal hex. Component styles reach for `var(--color-brand-primary)`, not `#2563eb`. Themes only need to override ~5 brand tokens to re-skin the whole UI.
+- **Status colors are universal across themes** — `success` is green everywhere, `error` is red. These represent meaning, not brand.
+- **Components default to safe fallback values** so they look reasonable even if you forget to load `tokens/css`. The fallbacks match the blue/default theme.
+- **`tokens` is an _optional_ peer dependency** for every component. You can install one component package and ship without tokens; loading tokens just gives you the canonical look.
+
+## Storybook tips
+
+- **Theme toolbar** at the top: the paintbrush dropdown swaps the active theme on any story
+- **Controls panel** at the bottom: tweak component props live
+- **Docs** tab on each component: auto-generated API table + every story rendered
+
+## Where the source lives
+
+- `packages/<name>/` — one package per component, each its own workspace
+- `apps/storybook/` — this app
+- Stories are discovered from both `apps/storybook/stories/**/*` and `packages/*/src/**/*.stories.ts` so each component package ships its own stories next to the source
+- Tests live alongside source as `*.test.ts` and run via Web Test Runner; CI runs them on every PR
+
+The repo: [github.com/melissapula/design-system](https://github.com/melissapula/design-system)
