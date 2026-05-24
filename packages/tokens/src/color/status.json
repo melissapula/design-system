@@ -1,30 +1,30 @@
 {
-  "color": {
-    "status": {
-      "success": {
-        "bg": { "$value": "#dcfce7", "$type": "color" },
-        "fg": { "$value": "#166534", "$type": "color" },
-        "border": { "$value": "#86efac", "$type": "color" },
-        "solid": { "$value": "#16a34a", "$type": "color" }
-      },
-      "warning": {
-        "bg": { "$value": "#fef3c7", "$type": "color" },
-        "fg": { "$value": "#92400e", "$type": "color" },
-        "border": { "$value": "#fcd34d", "$type": "color" },
-        "solid": { "$value": "#f59e0b", "$type": "color" }
-      },
-      "error": {
-        "bg": { "$value": "#fee2e2", "$type": "color" },
-        "fg": { "$value": "#991b1b", "$type": "color" },
-        "border": { "$value": "#fca5a5", "$type": "color" },
-        "solid": { "$value": "#dc2626", "$type": "color" }
-      },
-      "info": {
-        "bg": { "$value": "#dbeafe", "$type": "color" },
-        "fg": { "$value": "#1e40af", "$type": "color" },
-        "border": { "$value": "#93c5fd", "$type": "color" },
-        "solid": { "$value": "#2563eb", "$type": "color" }
-      }
+    "color": {
+        "status": {
+            "success": {
+                "bg": { "$value": "#dcfce7", "$type": "color" },
+                "fg": { "$value": "#166534", "$type": "color" },
+                "border": { "$value": "#86efac", "$type": "color" },
+                "solid": { "$value": "#16a34a", "$type": "color" }
+            },
+            "warning": {
+                "bg": { "$value": "#fef3c7", "$type": "color" },
+                "fg": { "$value": "#92400e", "$type": "color" },
+                "border": { "$value": "#fcd34d", "$type": "color" },
+                "solid": { "$value": "#f59e0b", "$type": "color" }
+            },
+            "error": {
+                "bg": { "$value": "#fee2e2", "$type": "color" },
+                "fg": { "$value": "#991b1b", "$type": "color" },
+                "border": { "$value": "#fca5a5", "$type": "color" },
+                "solid": { "$value": "#dc2626", "$type": "color" }
+            },
+            "info": {
+                "bg": { "$value": "#dbeafe", "$type": "color" },
+                "fg": { "$value": "#1e40af", "$type": "color" },
+                "border": { "$value": "#93c5fd", "$type": "color" },
+                "solid": { "$value": "#2563eb", "$type": "color" }
+            }
+        }
     }
-  }
 }

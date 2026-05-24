@@ -52,19 +52,19 @@ For custom styling, the inner `<button>` is exposed as a CSS shadow part:
 
 ```css
 mfp-button::part(button) {
-  border-radius: 999px;
+    border-radius: 999px;
 }
 ```
 
 ## Framework notes
 
 - **Vue 3 / Nuxt**: tell the template compiler that `mfp-` tags are custom elements:
-  ```ts
-  // vite.config.ts or nuxt.config.ts
-  compilerOptions: {
-    isCustomElement: (tag) => tag.startsWith('mfp-'),
-  }
-  ```
+    ```ts
+    // vite.config.ts or nuxt.config.ts
+    compilerOptions: {
+      isCustomElement: (tag) => tag.startsWith('mfp-'),
+    }
+    ```
 - **Angular**: add `CUSTOM_ELEMENTS_SCHEMA` to any module/standalone component that uses `<mfp-button>`.
 - **React**: works natively in React 19+; for older React, listen for the `click` event via a ref.
 

@@ -1,46 +1,46 @@
 {
-  "name": "@mfp-design-system/tokens",
-  "version": "0.2.0",
-  "description": "Design tokens for the mfp-design-system, built with Style Dictionary.",
-  "license": "MIT",
-  "type": "module",
-  "sideEffects": [
-    "*.css"
-  ],
-  "files": [
-    "build",
-    "README.md"
-  ],
-  "exports": {
-    ".": {
-      "types": "./build/ts/tokens.d.ts",
-      "import": "./build/js/tokens.js",
-      "default": "./build/js/tokens.js"
+    "name": "@mfp-design-system/tokens",
+    "version": "0.2.0",
+    "description": "Design tokens for the mfp-design-system, built with Style Dictionary.",
+    "license": "MIT",
+    "type": "module",
+    "sideEffects": [
+        "*.css"
+    ],
+    "files": [
+        "build",
+        "README.md"
+    ],
+    "exports": {
+        ".": {
+            "types": "./build/ts/tokens.d.ts",
+            "import": "./build/js/tokens.js",
+            "default": "./build/js/tokens.js"
+        },
+        "./css": {
+            "default": "./build/css/tokens.css"
+        },
+        "./json": {
+            "default": "./build/json/tokens.json"
+        }
     },
-    "./css": {
-      "default": "./build/css/tokens.css"
+    "main": "./build/js/tokens.js",
+    "module": "./build/js/tokens.js",
+    "types": "./build/ts/tokens.d.ts",
+    "scripts": {
+        "build": "node scripts/build.mjs",
+        "dev": "node scripts/build.mjs --watch",
+        "clean": "rimraf build",
+        "lint": "eslint . --max-warnings=0",
+        "typecheck": "tsc --noEmit",
+        "test": "echo \"no tests yet\""
     },
-    "./json": {
-      "default": "./build/json/tokens.json"
+    "devDependencies": {
+        "rimraf": "^6.0.1",
+        "style-dictionary": "^4.2.0",
+        "typescript": "^5.6.3"
+    },
+    "publishConfig": {
+        "access": "public"
     }
-  },
-  "main": "./build/js/tokens.js",
-  "module": "./build/js/tokens.js",
-  "types": "./build/ts/tokens.d.ts",
-  "scripts": {
-    "build": "node scripts/build.mjs",
-    "dev": "node scripts/build.mjs --watch",
-    "clean": "rimraf build",
-    "lint": "eslint . --max-warnings=0",
-    "typecheck": "tsc --noEmit",
-    "test": "echo \"no tests yet\""
-  },
-  "devDependencies": {
-    "rimraf": "^6.0.1",
-    "style-dictionary": "^4.2.0",
-    "typescript": "^5.6.3"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
 }

@@ -27,11 +27,11 @@ shape:
 
 ```json
 {
-  "color": {
-    "brand": {
-      "500": { "$value": "#3b82f6", "$type": "color" }
+    "color": {
+        "brand": {
+            "500": { "$value": "#3b82f6", "$type": "color" }
+        }
     }
-  }
 }
 ```
 
