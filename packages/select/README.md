@@ -71,7 +71,15 @@ mfp-select::part(chevron) {
 
 Same as the rest of the suite — Vue/Nuxt need `isCustomElement`, Angular needs `CUSTOM_ELEMENTS_SCHEMA`.
 
+## Forms
+
+`<mfp-select>` is form-associated via `ElementInternals`:
+
+- Its `value` is submitted with the form under the configured `name`
+- `required` triggers native `valueMissing` validation
+- `error` (when set) becomes a custom validity message
+- `checkValidity()` and `reportValidity()` mirror the native HTMLSelectElement methods
+
 ## Known limitations
 
 - Single-select only. Multi-select via the native `<select multiple>` UI is uglier than most teams want — multi-select is on the roadmap as a separate component (`<mfp-multi-select>`) with a checkbox-list pattern.
-- Form submission via native form: the inner `<select>` is in shadow DOM, so it does not participate in native form submission yet. Listen for `change` events; full `ElementInternals` form-association is on the roadmap for all form components.

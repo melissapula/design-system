@@ -68,6 +68,17 @@ mfp-button::part(button) {
 - **Angular**: add `CUSTOM_ELEMENTS_SCHEMA` to any module/standalone component that uses `<mfp-button>`.
 - **React**: works natively in React 19+; for older React, listen for the `click` event via a ref.
 
-## Known limitations
+## Forms
 
-- The button does not yet participate in HTML form submission (no `ElementInternals` form-association). It works fine for click handlers; if you need it inside a `<form>` with submit semantics, wrap submission in your own handler for now. This is on the roadmap.
+`<mfp-button>` is form-associated via `ElementInternals`. Inside a `<form>`:
+
+- `type="submit"` triggers `form.requestSubmit()` (full native flow including validation and the `submit` event)
+- `type="reset"` triggers `form.reset()`
+- The `form` getter returns the associated `<form>` element if any
+
+```html
+<form @submit.prevent="onSubmit">
+    <mfp-input name="email" type="email" required label="Email"></mfp-input>
+    <mfp-button type="submit" variant="primary">Sign up</mfp-button>
+</form>
+```

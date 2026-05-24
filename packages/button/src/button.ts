@@ -7,6 +7,20 @@ export type ButtonType = 'button' | 'submit' | 'reset';
 
 @customElement('mfp-button')
 export class MfpButton extends LitElement {
+    static formAssociated = true;
+
+    private _internals: ElementInternals;
+
+    constructor() {
+        super();
+        this._internals = this.attachInternals();
+    }
+
+    /** The associated <form>, if any. */
+    get form(): HTMLFormElement | null {
+        return this._internals.form;
+    }
+
     static override styles = css`
         :host {
             display: inline-block;
@@ -141,14 +155,27 @@ export class MfpButton extends LitElement {
     @property()
     type: ButtonType = 'button';
 
+    private _onClick = () => {
+        if (this.disabled || this.loading) return;
+        if (this.type === 'submit') {
+            this.form?.requestSubmit();
+        } else if (this.type === 'reset') {
+            this.form?.reset();
+        }
+    };
+
     override render() {
         const isInactive = this.disabled || this.loading;
+        // The inner button is always type="button" so it can't trigger native
+        // form behavior from inside shadow DOM. The host handles submit/reset
+        // via the click handler above and ElementInternals.form.
         return html`
             <button
-                type=${this.type}
+                type="button"
                 ?disabled=${isInactive}
                 aria-busy=${this.loading ? 'true' : 'false'}
                 part="button"
+                @click=${this._onClick}
             >
                 ${this.loading ? html`<span class="spinner" aria-hidden="true"></span>` : ''}
                 <slot></slot>

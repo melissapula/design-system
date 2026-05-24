@@ -172,6 +172,50 @@ export class MfpSelect extends LitElement {
     @property({ type: Boolean, reflect: true })
     required = false;
 
+    static formAssociated = true;
+
+    private _internals: ElementInternals;
+
+    constructor() {
+        super();
+        this._internals = this.attachInternals();
+    }
+
+    /** The associated <form>, if any. */
+    get form(): HTMLFormElement | null {
+        return this._internals.form;
+    }
+
+    checkValidity(): boolean {
+        return this._internals.checkValidity();
+    }
+
+    reportValidity(): boolean {
+        return this._internals.reportValidity();
+    }
+
+    private _syncFormValue() {
+        this._internals.setFormValue(this.value);
+        if (this.error) {
+            this._internals.setValidity({ customError: true }, this.error);
+        } else if (this.required && !this.value) {
+            this._internals.setValidity({ valueMissing: true }, 'Please select an option.');
+        } else {
+            this._internals.setValidity({});
+        }
+    }
+
+    override willUpdate(changed: Map<string, unknown>) {
+        if (changed.has('value') || changed.has('required') || changed.has('error')) {
+            this._syncFormValue();
+        }
+    }
+
+    override connectedCallback() {
+        super.connectedCallback();
+        this._syncFormValue();
+    }
+
     private _id = `mfp-select-${++selectIdCounter}`;
 
     @query('select')

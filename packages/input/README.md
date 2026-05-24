@@ -83,6 +83,18 @@ mfp-input::part(label) {
 - **Angular**: add `CUSTOM_ELEMENTS_SCHEMA` to modules using the component
 - **React 19+**: works natively
 
-## Known limitations
+## Forms
 
-- Does not yet participate in HTML form submission (no `ElementInternals` form-association). Listen for `input`/`change` events instead. On the roadmap, will land at the same time as Button gets it.
+`<mfp-input>` is form-associated via `ElementInternals`:
+
+- Its `value` is submitted with the form under the configured `name`
+- `required` triggers native `valueMissing` validation
+- `error` (when set) becomes a custom validity message
+- `checkValidity()` and `reportValidity()` mirror the native HTMLInputElement methods
+
+```html
+<form @submit.prevent="onSubmit">
+    <mfp-input name="email" type="email" required label="Email"></mfp-input>
+    <mfp-button type="submit">Submit</mfp-button>
+</form>
+```

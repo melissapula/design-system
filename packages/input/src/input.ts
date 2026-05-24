@@ -165,7 +165,55 @@ export class MfpInput extends LitElement {
     @property({ type: Boolean, reflect: true })
     required = false;
 
+    static formAssociated = true;
+
+    private _internals: ElementInternals;
+
+    constructor() {
+        super();
+        this._internals = this.attachInternals();
+    }
+
+    /** The associated <form>, if any. */
+    get form(): HTMLFormElement | null {
+        return this._internals.form;
+    }
+
+    /** Run native HTML validation. Mirrors HTMLInputElement.checkValidity(). */
+    checkValidity(): boolean {
+        return this._internals.checkValidity();
+    }
+
+    /** Run validation and show validity UI. */
+    reportValidity(): boolean {
+        return this._internals.reportValidity();
+    }
+
     private _id = `mfp-input-${++inputIdCounter}`;
+
+    private _syncFormValue() {
+        this._internals.setFormValue(this.value);
+
+        // Validity: explicit error wins; otherwise enforce required.
+        if (this.error) {
+            this._internals.setValidity({ customError: true }, this.error);
+        } else if (this.required && !this.value) {
+            this._internals.setValidity({ valueMissing: true }, 'Please fill out this field.');
+        } else {
+            this._internals.setValidity({});
+        }
+    }
+
+    override willUpdate(changed: Map<string, unknown>) {
+        if (changed.has('value') || changed.has('required') || changed.has('error')) {
+            this._syncFormValue();
+        }
+    }
+
+    override connectedCallback() {
+        super.connectedCallback();
+        this._syncFormValue();
+    }
 
     private _onInput = (e: Event) => {
         const input = e.target as HTMLInputElement;
