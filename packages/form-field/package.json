@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/form-field",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "FormField wrapper providing label/hint/error around an arbitrary control.",
     "license": "MIT",
     "type": "module",

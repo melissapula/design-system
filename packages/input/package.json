@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/input",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Input web component for the mfp-design-system, built with Lit.",
     "license": "MIT",
     "type": "module",
