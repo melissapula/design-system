@@ -1,0 +1,29 @@
+/*
+ * Warm theme — earthy cream/brown/gold palette.
+ * Designed for chrissys-studio (warm artisan/gallery aesthetic).
+ *
+ * Overrides both brand colors AND the neutral semantic layer so the
+ * whole UI reads as warm. Apps that only want a warm accent (without
+ * shifting backgrounds and text) can copy just the --color-brand-* block.
+ */
+:root {
+    /* Brand: terracotta accent */
+    --color-brand-primary: #c4622a;
+    --color-brand-primary-hover: #a3501f;
+    --color-brand-primary-fg: #fcfaf7;
+    --color-brand-primary-subtle: #f5e6d8;
+    --color-brand-primary-emphasis: #8b6914;
+
+    /* Warm neutral palette */
+    --color-text-default: #2c2416;
+    --color-text-muted: #6b5d4f;
+    --color-text-inverse: #fcfaf7;
+    --color-text-brand: #8b6914;
+
+    --color-background-default: #fcfaf7;
+    --color-background-subtle: #f5f0e8;
+    --color-background-muted: #e4d8c4;
+
+    --color-border-default: #e4d8c4;
+    --color-border-strong: #a89470;
+}

@@ -45,7 +45,7 @@ export class MfpInput extends LitElement {
         }
 
         .control:focus-within {
-            border-color: var(--color-status-info-solid, #2563eb);
+            border-color: var(--color-brand-primary, #2563eb);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
         }
 

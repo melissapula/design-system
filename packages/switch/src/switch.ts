@@ -41,7 +41,7 @@ export class MfpSwitch extends LitElement {
             left: 2px;
             width: 16px;
             height: 16px;
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-brand-primary-fg, #ffffff);
             border-radius: 50%;
             box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.08));
             transition: transform var(--motion-duration-fast, 150ms)
@@ -49,7 +49,7 @@ export class MfpSwitch extends LitElement {
         }
 
         :host([checked]) .track {
-            background: var(--color-status-info-solid, #2563eb);
+            background: var(--color-brand-primary, #2563eb);
         }
         :host([checked]) .thumb {
             transform: translateX(16px);
@@ -67,7 +67,7 @@ export class MfpSwitch extends LitElement {
         }
 
         input:focus-visible + .track {
-            outline: 2px solid var(--color-status-info-solid, #2563eb);
+            outline: 2px solid var(--color-brand-primary, #2563eb);
             outline-offset: 2px;
         }
 

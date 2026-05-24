@@ -47,7 +47,7 @@ export class MfpButton extends LitElement {
         }
 
         button:focus-visible {
-            outline: 2px solid var(--color-status-info-solid, #2563eb);
+            outline: 2px solid var(--color-brand-primary, #2563eb);
             outline-offset: 2px;
         }
 
@@ -77,12 +77,12 @@ export class MfpButton extends LitElement {
         /* Variants — fall back to primary when no [variant] attribute is set */
         :host(:not([variant])) button,
         :host([variant='primary']) button {
-            background: var(--color-status-info-solid, #2563eb);
-            color: var(--color-neutral-0, #ffffff);
+            background: var(--color-brand-primary, #2563eb);
+            color: var(--color-brand-primary-fg, #ffffff);
         }
         :host(:not([variant])) button:hover:not(:disabled),
         :host([variant='primary']) button:hover:not(:disabled) {
-            background: var(--color-status-info-fg, #1e40af);
+            background: var(--color-brand-primary-hover, #1d4ed8);
             box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.08));
         }
 

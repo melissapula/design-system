@@ -1,0 +1,12 @@
+/*
+ * Blue theme — the design system default, made explicit.
+ * Equivalent to loading no theme file at all, but useful if you want to
+ * be explicit about which theme an app uses.
+ */
+:root {
+    --color-brand-primary: #2563eb;
+    --color-brand-primary-hover: #1d4ed8;
+    --color-brand-primary-fg: #ffffff;
+    --color-brand-primary-subtle: #eff6ff;
+    --color-brand-primary-emphasis: #1e40af;
+}

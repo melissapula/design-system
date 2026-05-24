@@ -1,0 +1,13 @@
+/*
+ * Orange theme — Tailwind orange-500 palette.
+ * Designed for garage-sales (matches its existing Tailwind theme).
+ *
+ * Keeps the design system's default neutral grays — only brand is themed.
+ */
+:root {
+    --color-brand-primary: #f97316;
+    --color-brand-primary-hover: #ea580c;
+    --color-brand-primary-fg: #ffffff;
+    --color-brand-primary-subtle: #fff7ed;
+    --color-brand-primary-emphasis: #c2410c;
+}

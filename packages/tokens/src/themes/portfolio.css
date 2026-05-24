@@ -1,0 +1,13 @@
+/*
+ * Portfolio theme — navy primary on default neutrals.
+ * Designed for melissapula.github.io (personal portfolio).
+ *
+ * The audit found #1a2744 as the dominant brand color across the portfolio.
+ */
+:root {
+    --color-brand-primary: #1a2744;
+    --color-brand-primary-hover: #2c4068;
+    --color-brand-primary-fg: #ffffff;
+    --color-brand-primary-subtle: #eef1f7;
+    --color-brand-primary-emphasis: #0f1729;
+}

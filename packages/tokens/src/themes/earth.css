@@ -1,0 +1,27 @@
+/*
+ * Earth theme — warm-neutral palette with a blue accent.
+ * Designed for lessonforge (educational, approachable, slightly warm).
+ *
+ * Keeps the default blue brand for the accent so it feels familiar,
+ * but shifts text/background/border to warm tones for a softer feel.
+ */
+:root {
+    /* Brand stays blue — same as default — but explicitly listed */
+    --color-brand-primary: #2563eb;
+    --color-brand-primary-hover: #1d4ed8;
+    --color-brand-primary-fg: #ffffff;
+    --color-brand-primary-subtle: #eff6ff;
+    --color-brand-primary-emphasis: #1e40af;
+
+    /* Warm-neutral palette */
+    --color-text-default: #1f2937;
+    --color-text-muted: #6b6963;
+    --color-text-inverse: #fafaf7;
+
+    --color-background-default: #fafaf7;
+    --color-background-subtle: #f4f3ef;
+    --color-background-muted: #e5e3df;
+
+    --color-border-default: #e5e3df;
+    --color-border-strong: #cbd5e1;
+}

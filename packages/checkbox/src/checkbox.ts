@@ -51,18 +51,18 @@ export class MfpCheckbox extends LitElement {
         }
 
         input:focus-visible + .box {
-            outline: 2px solid var(--color-status-info-solid, #2563eb);
+            outline: 2px solid var(--color-brand-primary, #2563eb);
             outline-offset: 2px;
         }
 
         :host([checked]) .box,
         :host([indeterminate]) .box {
-            background: var(--color-status-info-solid, #2563eb);
-            border-color: var(--color-status-info-solid, #2563eb);
+            background: var(--color-brand-primary, #2563eb);
+            border-color: var(--color-brand-primary, #2563eb);
         }
 
         .check {
-            color: var(--color-neutral-0, #ffffff);
+            color: var(--color-brand-primary-fg, #ffffff);
             display: none;
         }
         :host([checked]) .check {
@@ -75,7 +75,7 @@ export class MfpCheckbox extends LitElement {
         .indeterminate-mark {
             width: 10px;
             height: 2px;
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-brand-primary-fg, #ffffff);
             border-radius: 1px;
             display: none;
         }

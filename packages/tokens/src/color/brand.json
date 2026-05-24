@@ -1,0 +1,26 @@
+{
+    "color": {
+        "brand": {
+            "primary": {
+                "$value": "{color.brand.600}",
+                "$type": "color"
+            },
+            "primary-hover": {
+                "$value": "{color.brand.700}",
+                "$type": "color"
+            },
+            "primary-fg": {
+                "$value": "{color.neutral.0}",
+                "$type": "color"
+            },
+            "primary-subtle": {
+                "$value": "{color.brand.50}",
+                "$type": "color"
+            },
+            "primary-emphasis": {
+                "$value": "{color.brand.800}",
+                "$type": "color"
+            }
+        }
+    }
+}

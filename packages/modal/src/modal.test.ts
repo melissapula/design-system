@@ -25,14 +25,13 @@ describe('<mfp-modal>', () => {
         const dialog = el.shadowRoot!.querySelector('dialog')!;
         expect(dialog.open).to.equal(true);
 
-        let closed = false;
-        el.addEventListener('close', () => (closed = true));
+        // Wait for the close event explicitly rather than guessing at timing
+        const closePromise = new Promise<void>((resolve) =>
+            el.addEventListener('close', () => resolve(), { once: true }),
+        );
         el.close();
-        await el.updateComplete;
-        // close event fires after the native dialog's close event propagates
-        await new Promise((r) => setTimeout(r, 0));
+        await closePromise;
         expect(el.open).to.equal(false);
-        expect(closed).to.equal(true);
     });
 
     it('reflects the open attribute', async () => {

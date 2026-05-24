@@ -120,7 +120,7 @@ export class MfpModal extends LitElement {
             color: var(--color-text-default, #111827);
         }
         .close:focus-visible {
-            outline: 2px solid var(--color-status-info-solid, #2563eb);
+            outline: 2px solid var(--color-brand-primary, #2563eb);
             outline-offset: 2px;
         }
 

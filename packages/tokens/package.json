@@ -22,7 +22,12 @@
         },
         "./json": {
             "default": "./build/json/tokens.json"
-        }
+        },
+        "./themes/blue": "./build/themes/blue.css",
+        "./themes/warm": "./build/themes/warm.css",
+        "./themes/orange": "./build/themes/orange.css",
+        "./themes/earth": "./build/themes/earth.css",
+        "./themes/portfolio": "./build/themes/portfolio.css"
     },
     "main": "./build/js/tokens.js",
     "module": "./build/js/tokens.js",
