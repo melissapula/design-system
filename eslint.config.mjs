@@ -47,5 +47,17 @@ export default [
             globals: { ...globals.node },
         },
     },
+    {
+        // Tests use Chai's getter-based assertions (.to.exist, .to.be.true) which
+        // trigger no-unused-expressions. The rule isn't helpful here.
+        files: ['**/*.test.{ts,tsx,js,mjs,cjs}'],
+        languageOptions: {
+            globals: { ...globals.mocha },
+        },
+        rules: {
+            '@typescript-eslint/no-unused-expressions': 'off',
+            'no-unused-expressions': 'off',
+        },
+    },
     prettier,
 ];
