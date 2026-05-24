@@ -10,6 +10,15 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
+        "@mfp-design-system/button": "workspace:*",
+        "@mfp-design-system/card": "workspace:*",
+        "@mfp-design-system/checkbox": "workspace:*",
+        "@mfp-design-system/form-field": "workspace:*",
+        "@mfp-design-system/icon-button": "workspace:*",
+        "@mfp-design-system/input": "workspace:*",
+        "@mfp-design-system/modal": "workspace:*",
+        "@mfp-design-system/select": "workspace:*",
+        "@mfp-design-system/switch": "workspace:*",
         "@mfp-design-system/tokens": "workspace:*",
         "lit": "^3.2.1"
     },

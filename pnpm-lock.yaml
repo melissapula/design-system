@@ -71,6 +71,33 @@ importers:
 
   apps/storybook:
     dependencies:
+      '@mfp-design-system/button':
+        specifier: workspace:*
+        version: link:../../packages/button
+      '@mfp-design-system/card':
+        specifier: workspace:*
+        version: link:../../packages/card
+      '@mfp-design-system/checkbox':
+        specifier: workspace:*
+        version: link:../../packages/checkbox
+      '@mfp-design-system/form-field':
+        specifier: workspace:*
+        version: link:../../packages/form-field
+      '@mfp-design-system/icon-button':
+        specifier: workspace:*
+        version: link:../../packages/icon-button
+      '@mfp-design-system/input':
+        specifier: workspace:*
+        version: link:../../packages/input
+      '@mfp-design-system/modal':
+        specifier: workspace:*
+        version: link:../../packages/modal
+      '@mfp-design-system/select':
+        specifier: workspace:*
+        version: link:../../packages/select
+      '@mfp-design-system/switch':
+        specifier: workspace:*
+        version: link:../../packages/switch
       '@mfp-design-system/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
