@@ -10,16 +10,26 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
+        "@mfp-design-system/alert": "workspace:*",
+        "@mfp-design-system/avatar": "workspace:*",
+        "@mfp-design-system/badge": "workspace:*",
         "@mfp-design-system/button": "workspace:*",
         "@mfp-design-system/card": "workspace:*",
         "@mfp-design-system/checkbox": "workspace:*",
+        "@mfp-design-system/divider": "workspace:*",
         "@mfp-design-system/form-field": "workspace:*",
         "@mfp-design-system/icon-button": "workspace:*",
         "@mfp-design-system/input": "workspace:*",
         "@mfp-design-system/modal": "workspace:*",
+        "@mfp-design-system/radio": "workspace:*",
         "@mfp-design-system/select": "workspace:*",
+        "@mfp-design-system/spinner": "workspace:*",
         "@mfp-design-system/switch": "workspace:*",
+        "@mfp-design-system/tabs": "workspace:*",
+        "@mfp-design-system/textarea": "workspace:*",
+        "@mfp-design-system/toast": "workspace:*",
         "@mfp-design-system/tokens": "workspace:*",
+        "@mfp-design-system/tooltip": "workspace:*",
         "lit": "^3.2.1"
     },
     "devDependencies": {
@@ -29,6 +39,7 @@
         "@storybook/blocks": "^8.4.4",
         "@storybook/web-components": "^8.4.4",
         "@storybook/web-components-vite": "^8.4.4",
+        "@types/node": "^25.9.1",
         "storybook": "^8.4.4",
         "typescript": "^5.6.3",
         "vite": "^5.4.10"

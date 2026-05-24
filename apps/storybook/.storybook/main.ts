@@ -10,15 +10,25 @@ import type { StorybookConfig } from '@storybook/web-components-vite';
  * so `customElements.define('mfp-button', ...)` only runs once.
  */
 const componentPackages = [
+    'alert',
+    'avatar',
+    'badge',
     'button',
     'card',
     'checkbox',
+    'divider',
     'form-field',
     'icon-button',
     'input',
     'modal',
+    'radio',
     'select',
+    'spinner',
     'switch',
+    'tabs',
+    'textarea',
+    'toast',
+    'tooltip',
 ] as const;
 
 const config: StorybookConfig = {
