@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/select",
-    "version": "0.2.0",
+    "version": "1.0.0",
     "description": "Select dropdown web component for the mfp-design-system, built with Lit.",
     "license": "MIT",
     "type": "module",
@@ -32,7 +32,7 @@
         "lit": "^3.2.1"
     },
     "peerDependencies": {
-        "@mfp-design-system/tokens": "^0.2.0"
+        "@mfp-design-system/tokens": "^0.3.0"
     },
     "peerDependenciesMeta": {
         "@mfp-design-system/tokens": {

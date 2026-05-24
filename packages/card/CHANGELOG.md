@@ -1,5 +1,12 @@
 # @mfp-design-system/card
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [a039a63]
+    - @mfp-design-system/tokens@0.3.0
+
 ## 0.1.0
 
 ### Minor Changes
