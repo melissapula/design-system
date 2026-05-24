@@ -106,10 +106,10 @@ const preview: Preview = {
                 icon: 'paintbrush',
                 items: [
                     { value: 'blue', title: 'Blue (default)' },
-                    { value: 'warm', title: 'Warm — chrissys' },
+                    { value: 'warm', title: 'Warm — fourseasonsstudio' },
                     { value: 'orange', title: 'Orange — garage-sales' },
                     { value: 'earth', title: 'Earth — lessonforge' },
-                    { value: 'portfolio', title: 'Portfolio — navy' },
+                    { value: 'portfolio', title: 'Navy — portfolio' },
                 ],
                 dynamicTitle: true,
             },

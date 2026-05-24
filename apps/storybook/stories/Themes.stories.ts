@@ -28,10 +28,10 @@ type Story = StoryObj;
 
 const themes = [
     { name: 'blue', label: 'Blue (default)' },
-    { name: 'warm', label: 'Warm — chrissys' },
+    { name: 'warm', label: 'Warm — fourseasonsstudio' },
     { name: 'orange', label: 'Orange — garage-sales' },
     { name: 'earth', label: 'Earth — lessonforge' },
-    { name: 'portfolio', label: 'Portfolio — navy' },
+    { name: 'portfolio', label: 'Navy — portfolio' },
 ];
 
 const sampleComposition = (label: string) => html`

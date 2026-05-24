@@ -30,13 +30,13 @@ import '@mfp-design-system/tokens/themes/warm'; // brand overrides for this app
 
 Themes ship with the package:
 
-| Subpath              | Intended for    | Brand color                                     |
-| -------------------- | --------------- | ----------------------------------------------- |
-| `./themes/blue`      | (default)       | `#2563eb` blue                                  |
-| `./themes/warm`      | chrissys-studio | `#c4622a` terracotta + warm cream/brown palette |
-| `./themes/orange`    | garage-sales    | `#f97316` orange                                |
-| `./themes/earth`     | lessonforge     | Blue accent on warm neutrals                    |
-| `./themes/portfolio` | melissapula.io  | `#1a2744` navy                                  |
+| Subpath              | Intended for      | Brand color                                     |
+| -------------------- | ----------------- | ----------------------------------------------- |
+| `./themes/blue`      | (default)         | `#2563eb` blue                                  |
+| `./themes/warm`      | fourseasonsstudio | `#c4622a` terracotta + warm cream/brown palette |
+| `./themes/orange`    | garage-sales      | `#f97316` orange                                |
+| `./themes/earth`     | lessonforge       | Blue accent on warm neutrals                    |
+| `./themes/portfolio` | melissapula.io    | `#1a2744` navy                                  |
 
 ### Authoring a new theme
 
