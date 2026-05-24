@@ -1,0 +1,13 @@
+{
+  "font": {
+    "letterSpacing": {
+      "tighter": { "$value": "-0.05em", "$type": "dimension" },
+      "tight": { "$value": "-0.02em", "$type": "dimension" },
+      "normal": { "$value": "0", "$type": "dimension" },
+      "wide": { "$value": "0.025em", "$type": "dimension" },
+      "wider": { "$value": "0.05em", "$type": "dimension" },
+      "widest": { "$value": "0.1em", "$type": "dimension" },
+      "ultra": { "$value": "0.15em", "$type": "dimension" }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "shadow": {
+    "xs": { "$value": "0 1px 2px rgba(0, 0, 0, 0.05)", "$type": "string" },
+    "sm": { "$value": "0 2px 8px rgba(0, 0, 0, 0.08)", "$type": "string" },
+    "md": { "$value": "0 4px 12px rgba(0, 0, 0, 0.10)", "$type": "string" },
+    "lg": { "$value": "0 8px 24px rgba(0, 0, 0, 0.15)", "$type": "string" },
+    "xl": { "$value": "0 16px 48px rgba(0, 0, 0, 0.20)", "$type": "string" },
+    "inset": { "$value": "inset 0 2px 4px rgba(0, 0, 0, 0.06)", "$type": "string" },
+    "none": { "$value": "none", "$type": "string" }
+  }
+}

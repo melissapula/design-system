@@ -8,13 +8,21 @@
       "4": { "$value": "16px", "$type": "dimension" },
       "5": { "$value": "20px", "$type": "dimension" },
       "6": { "$value": "24px", "$type": "dimension" },
+      "7": { "$value": "28px", "$type": "dimension" },
       "8": { "$value": "32px", "$type": "dimension" },
+      "9": { "$value": "36px", "$type": "dimension" },
       "10": { "$value": "40px", "$type": "dimension" },
       "12": { "$value": "48px", "$type": "dimension" },
-      "16": { "$value": "64px", "$type": "dimension" }
+      "14": { "$value": "56px", "$type": "dimension" },
+      "16": { "$value": "64px", "$type": "dimension" },
+      "18": { "$value": "72px", "$type": "dimension" },
+      "20": { "$value": "80px", "$type": "dimension" },
+      "24": { "$value": "96px", "$type": "dimension" },
+      "30": { "$value": "120px", "$type": "dimension" }
     },
     "radius": {
       "none": { "$value": "0px", "$type": "dimension" },
+      "xs": { "$value": "2px", "$type": "dimension" },
       "sm": { "$value": "4px", "$type": "dimension" },
       "md": { "$value": "8px", "$type": "dimension" },
       "lg": { "$value": "12px", "$type": "dimension" },
