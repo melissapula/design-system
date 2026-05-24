@@ -23,15 +23,45 @@ Each component:
 
 19 component packages, grouped by role:
 
-| Role | Components |
-| --- | --- |
-| **Action** | `mfp-button`, `mfp-icon-button` |
-| **Form input** | `mfp-input`, `mfp-textarea`, `mfp-select`, `mfp-checkbox`, `mfp-switch`, `mfp-radio` |
-| **Form wrapper** | `mfp-form-field` |
-| **Overlays** | `mfp-modal`, `mfp-tooltip`, `mfp-toast` |
-| **Feedback** | `mfp-alert`, `mfp-spinner`, `mfp-badge` |
-| **Layout** | `mfp-card`, `mfp-divider`, `mfp-avatar` |
-| **Organization** | `mfp-tabs` (`mfp-tab` + `mfp-tab-panel`) |
+**Action**
+
+- `mfp-button` — primary / secondary / danger / ghost
+- `mfp-icon-button` — same variants, square aspect, requires `aria-label`
+
+**Form input**
+
+- `mfp-input` — single-line text (text / email / password / number / search / tel / url)
+- `mfp-textarea` — multi-line text
+- `mfp-select` — wraps native `<select>` for free a11y
+- `mfp-checkbox` — with `indeterminate` state
+- `mfp-switch` — toggle, `role="switch"`
+- `mfp-radio` — single radio; siblings sharing `name` auto-deselect
+
+**Form wrapper**
+
+- `mfp-form-field` — label / hint / error wrapper for arbitrary controls
+
+**Overlays**
+
+- `mfp-modal` — built on native `<dialog>`; focus trap + scroll lock for free
+- `mfp-tooltip` — hover / focus tooltip with 4 placements
+- `mfp-toast` — programmatic `showToast({ message, variant })` API
+
+**Feedback**
+
+- `mfp-alert` — banner using status colors; optional dismiss
+- `mfp-spinner` — standalone loading indicator
+- `mfp-badge` — pill / chip in 6 variants
+
+**Layout**
+
+- `mfp-card` — container with header / body / footer slots
+- `mfp-divider` — horizontal or vertical separator with optional label
+- `mfp-avatar` — image with initials fallback; optional status dot
+
+**Organization**
+
+- `mfp-tabs` — orchestrator for `mfp-tab` + `mfp-tab-panel` with full keyboard nav
 
 Browse them in the sidebar under **Components/**. Each story page has live controls, code examples, and an auto-generated docs page.
 
@@ -72,13 +102,11 @@ import '@mfp-design-system/tokens/themes/warm'; // chrissys / fourseasonsstudio
 
 Five themes ship today:
 
-| Theme | Intended for |
-| --- | --- |
-| `blue` | default (matches "no theme") |
-| `warm` | fourseasonsstudio — terracotta + cream/brown |
-| `orange` | garage-sales — Tailwind orange-500 |
-| `earth` | lessonforge — warm neutrals + blue accent |
-| `portfolio` | melissapula.io — navy |
+- **`blue`** — default (matches "no theme"); explicit if you want to be unambiguous
+- **`warm`** — for **fourseasonsstudio**; terracotta brand + cream / brown neutrals
+- **`orange`** — for **garage-sales**; Tailwind orange-500 brand
+- **`earth`** — for **lessonforge**; warm neutrals with a blue accent
+- **`portfolio`** — for **melissapula.io**; navy brand
 
 In this Storybook, use the **Theme** dropdown in the toolbar at the top to flip any open story between themes. Or visit **Themes / Showcase** for a side-by-side comparison.
 
