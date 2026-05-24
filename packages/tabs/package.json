@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/tabs",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Tabs (mfp-tabs / mfp-tab / mfp-tab-panel) for the mfp-design-system.",
     "license": "MIT",
     "type": "module",

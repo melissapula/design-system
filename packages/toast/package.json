@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/toast",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Toast notification web component with programmatic showToast() API.",
     "license": "MIT",
     "type": "module",

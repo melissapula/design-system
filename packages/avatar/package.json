@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/avatar",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Avatar (image + initials fallback) web component for the mfp-design-system.",
     "license": "MIT",
     "type": "module",
