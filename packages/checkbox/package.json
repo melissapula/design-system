@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/checkbox",
-    "version": "0.0.0",
+    "version": "0.1.0",
     "description": "Checkbox web component for the mfp-design-system, built with Lit.",
     "license": "MIT",
     "type": "module",
