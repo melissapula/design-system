@@ -9,6 +9,16 @@ describe('<mfp-modal>', () => {
         expect(el.shadowRoot?.querySelector('dialog')?.open).to.equal(false);
     });
 
+    it('the inner dialog is not visible when closed', async () => {
+        // Regression: an earlier version applied `display: flex` to the
+        // bare `dialog` selector, overriding the UA rule
+        // `dialog:not([open]) { display: none }`, so the modal rendered
+        // visible in normal flow at mount. Lock that down here.
+        const el = await fixture<MfpModal>(html`<mfp-modal>Hello</mfp-modal>`);
+        const dialog = el.shadowRoot!.querySelector('dialog')!;
+        expect(getComputedStyle(dialog).display).to.equal('none');
+    });
+
     it('opens via show()', async () => {
         const el = await fixture<MfpModal>(html`<mfp-modal>Hello</mfp-modal>`);
         el.show();

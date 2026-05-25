@@ -26,7 +26,13 @@ export class MfpModal extends LitElement {
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
         }
 
-        dialog {
+        /*
+         * Layout styles are scoped to [open] so the native UA rule
+         * 'dialog:not([open]) { display: none }' keeps an unopened dialog
+         * hidden. Setting 'display: flex' unconditionally would override
+         * that and the modal would render visible in normal flow at mount.
+         */
+        dialog[open] {
             padding: 0;
             border: none;
             background: var(--color-neutral-0, #ffffff);
@@ -40,12 +46,14 @@ export class MfpModal extends LitElement {
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            animation: mfp-modal-fade-in var(--motion-duration-fast, 150ms)
+                var(--motion-easing-decelerate, ease-out) forwards;
         }
 
-        :host([size='sm']) dialog {
+        :host([size='sm']) dialog[open] {
             max-width: min(calc(100vw - 32px), 360px);
         }
-        :host([size='lg']) dialog {
+        :host([size='lg']) dialog[open] {
             max-width: min(calc(100vw - 32px), 720px);
         }
 
@@ -53,11 +61,6 @@ export class MfpModal extends LitElement {
             background: rgba(0, 0, 0, 0.5);
             animation: mfp-modal-fade-in var(--motion-duration-fast, 150ms)
                 var(--motion-easing-standard, ease) forwards;
-        }
-
-        dialog[open] {
-            animation: mfp-modal-fade-in var(--motion-duration-fast, 150ms)
-                var(--motion-easing-decelerate, ease-out) forwards;
         }
 
         @keyframes mfp-modal-fade-in {
