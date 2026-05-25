@@ -10,6 +10,7 @@ import type { StorybookConfig } from '@storybook/web-components-vite';
  * so `customElements.define('mfp-button', ...)` only runs once.
  */
 const componentPackages = [
+    'accordion',
     'alert',
     'avatar',
     'badge',

@@ -10,6 +10,7 @@
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
+        "@mfp-design-system/accordion": "workspace:*",
         "@mfp-design-system/alert": "workspace:*",
         "@mfp-design-system/avatar": "workspace:*",
         "@mfp-design-system/badge": "workspace:*",
