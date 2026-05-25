@@ -24,6 +24,7 @@ const componentPackages = [
     'radio',
     'select',
     'spinner',
+    'stepper',
     'switch',
     'tabs',
     'textarea',

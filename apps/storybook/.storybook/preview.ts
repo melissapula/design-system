@@ -96,6 +96,15 @@ const preview: Preview = {
                 { name: 'dark', value: '#111111' },
             ],
         },
+        options: {
+            // Sidebar ordering: Introduction first, then Components alphabetically,
+            // then Themes, then anything else (alphabetical). Within each section,
+            // entries are alphabetized too.
+            storySort: {
+                order: ['Introduction', 'Components', 'Themes', '*'],
+                method: 'alphabetical',
+            },
+        },
     },
     globalTypes: {
         theme: {

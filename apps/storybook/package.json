@@ -24,6 +24,7 @@
         "@mfp-design-system/radio": "workspace:*",
         "@mfp-design-system/select": "workspace:*",
         "@mfp-design-system/spinner": "workspace:*",
+        "@mfp-design-system/stepper": "workspace:*",
         "@mfp-design-system/switch": "workspace:*",
         "@mfp-design-system/tabs": "workspace:*",
         "@mfp-design-system/textarea": "workspace:*",
