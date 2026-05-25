@@ -233,13 +233,27 @@ export class MfpSelect extends LitElement {
         );
     };
 
-    /** Move slotted <option> elements into the real <select> when they change. */
+    /**
+     * Move slotted <option> elements into the real <select> when they change.
+     *
+     * IMPORTANT: do not use `select.textContent = ''` to clear children. The
+     * placeholder ChildPart in the template (`${this.placeholder ? html`...`
+     * : nothing}`) leaves invisible Lit marker comment nodes inside the
+     * <select> — wiping textContent removes them, and the next Lit re-render
+     * crashes trying to find its markers. Instead, tag cloned options with
+     * a data attribute on insertion and only remove those on subsequent
+     * slot changes.
+     */
     private _onSlotChange = (e: Event) => {
         const slot = e.target as HTMLSlotElement;
         const select = this._selectEl;
         if (!select) return;
 
         const currentValue = this.value;
+
+        // Remove only previously-cloned options (NOT the placeholder, NOT Lit markers)
+        select.querySelectorAll('[data-mfp-cloned]').forEach((n) => n.remove());
+
         const optionLikeNodes = slot
             .assignedNodes({ flatten: true })
             .filter(
@@ -249,12 +263,10 @@ export class MfpSelect extends LitElement {
                         (n as HTMLElement).tagName === 'OPTGROUP'),
             );
 
-        // Replace existing real options (other than the placeholder, which lives in the template)
-        const placeholder = select.querySelector('option[data-mfp-placeholder]');
-        select.textContent = '';
-        if (placeholder) select.appendChild(placeholder);
         for (const node of optionLikeNodes) {
-            select.appendChild(node.cloneNode(true));
+            const clone = node.cloneNode(true) as HTMLElement;
+            clone.setAttribute('data-mfp-cloned', '');
+            select.appendChild(clone);
         }
 
         // Restore the value (reflect attribute → DOM value)
