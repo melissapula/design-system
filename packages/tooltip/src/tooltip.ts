@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { styleMap } from 'lit/directives/style-map.js';
 
 export type TooltipPlacement = 'top' | 'bottom' | 'left' | 'right';
 
@@ -37,7 +38,8 @@ export class MfpTooltip extends LitElement {
             line-height: var(--font-line-height-tight, 1.2);
             padding: var(--size-spacing-2, 8px) var(--size-spacing-3, 12px);
             border-radius: var(--size-radius-sm, 4px);
-            max-width: 240px;
+            /* max-width comes from the maxWidth property, applied as an
+               inline style in render(). The 240px default lives there. */
             white-space: normal;
             opacity: 0;
             pointer-events: none;
@@ -82,6 +84,19 @@ export class MfpTooltip extends LitElement {
     @property() content = '';
     @property({ reflect: true }) placement: TooltipPlacement = 'top';
 
+    /**
+     * Max width of the tooltip bubble. Accepts a number (becomes px) or a
+     * string with any CSS length unit (rem, em, %, ch, etc.). Default 240px.
+     */
+    @property({ attribute: 'max-width' }) maxWidth: string | number = '240px';
+
+    /**
+     * Min width of the tooltip bubble. Prevents short labels (e.g. "Save")
+     * from rendering as a tiny pill. Accepts number (px) or any CSS length.
+     * Default 80px; pass 0 to remove the constraint.
+     */
+    @property({ attribute: 'min-width' }) minWidth: string | number = '80px';
+
     @state() private _visible = false;
     private _id = `mfp-tooltip-${++tooltipIdCounter}`;
 
@@ -121,7 +136,18 @@ export class MfpTooltip extends LitElement {
         if (first) first.setAttribute('aria-describedby', this._id);
     };
 
+    private _normalizeLength(v: string | number): string {
+        if (typeof v === 'number') return `${v}px`;
+        // Digit-only string (e.g. "400" from HTML attribute) → treat as px.
+        // String with a unit (e.g. "20rem", "50%") → use as-is.
+        return /^\d+(\.\d+)?$/.test(v) ? `${v}px` : v;
+    }
+
     override render() {
+        const bubbleStyle = styleMap({
+            maxWidth: this._normalizeLength(this.maxWidth),
+            minWidth: this._normalizeLength(this.minWidth),
+        });
         return html`
             <slot @slotchange=${this._onSlotChange}></slot>
             <span
@@ -130,6 +156,7 @@ export class MfpTooltip extends LitElement {
                 class="bubble"
                 part="bubble"
                 data-visible=${this._visible ? 'true' : 'false'}
+                style=${bubbleStyle}
             >
                 ${this.content}
             </span>

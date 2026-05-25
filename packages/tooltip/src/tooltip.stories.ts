@@ -32,6 +32,49 @@ export const Bottom: Story = { args: { placement: 'bottom' } };
 export const Left: Story = { args: { placement: 'left' } };
 export const Right: Story = { args: { placement: 'right' } };
 
+export const ShortLabel: Story = {
+    parameters: { controls: { disable: true } },
+    render: () => html`
+        <div style="padding: 60px; display: flex; gap: 60px; align-items: flex-end;">
+            <mfp-tooltip content="Save">
+                <button>Save (default min-width)</button>
+            </mfp-tooltip>
+            <mfp-tooltip content="Save" min-width="0">
+                <button>Save (no min)</button>
+            </mfp-tooltip>
+        </div>
+    `,
+};
+
+export const CustomWidth: Story = {
+    parameters: { controls: { disable: true } },
+    render: () => html`
+        <div style="padding: 60px; display: flex; gap: 60px; align-items: flex-end;">
+            <mfp-tooltip content="Default 240px max-width. Lorem ipsum dolor sit amet consectetur.">
+                <button>Default</button>
+            </mfp-tooltip>
+            <mfp-tooltip
+                max-width="120"
+                content="Narrow 120px. Lorem ipsum dolor sit amet consectetur adipiscing elit."
+            >
+                <button>Narrow (120)</button>
+            </mfp-tooltip>
+            <mfp-tooltip
+                max-width="400"
+                content="Wide 400px. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            >
+                <button>Wide (400)</button>
+            </mfp-tooltip>
+            <mfp-tooltip
+                max-width="20rem"
+                content="String unit (20rem). Lorem ipsum dolor sit amet consectetur adipiscing elit."
+            >
+                <button>String (20rem)</button>
+            </mfp-tooltip>
+        </div>
+    `,
+};
+
 export const Placements: Story = {
     parameters: { controls: { disable: true } },
     render: () => html`
