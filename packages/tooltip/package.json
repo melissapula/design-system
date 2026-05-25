@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/tooltip",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Tooltip web component for the mfp-design-system.",
     "license": "MIT",
     "type": "module",

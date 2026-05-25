@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/badge",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Badge / pill / chip web component for the mfp-design-system, built with Lit.",
     "license": "MIT",
     "type": "module",
