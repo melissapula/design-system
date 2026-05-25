@@ -182,9 +182,9 @@ export class MfpStep extends LitElement {
             display: none;
         }
 
-        /* Completed-state connector picks up the brand color */
+        /* Completed-state connector picks up the success color */
         :host([status='completed']) .connector {
-            background: var(--color-brand-primary, #2563eb);
+            background: var(--color-status-success-solid, #16a34a);
         }
 
         .circle {
@@ -207,16 +207,20 @@ export class MfpStep extends LitElement {
                 color var(--motion-duration-fast, 150ms) var(--motion-easing-standard, ease);
         }
 
+        /*
+         * Status colors map to meaning, not brand: green = success/done,
+         * yellow = in-progress/warning-adjacent, red = error.
+         */
         :host([status='completed']) .circle {
-            background: var(--color-brand-primary, #2563eb);
-            border-color: var(--color-brand-primary, #2563eb);
-            color: var(--color-brand-primary-fg, #ffffff);
+            background: var(--color-status-success-solid, #16a34a);
+            border-color: var(--color-status-success-solid, #16a34a);
+            color: var(--color-neutral-0, #ffffff);
         }
 
         :host([status='current']) .circle {
             background: var(--color-neutral-0, #ffffff);
-            border-color: var(--color-brand-primary, #2563eb);
-            color: var(--color-brand-primary, #2563eb);
+            border-color: var(--color-status-warning-solid, #f59e0b);
+            color: var(--color-status-warning-fg, #92400e);
         }
 
         :host([status='error']) .circle {
@@ -225,7 +229,7 @@ export class MfpStep extends LitElement {
             color: var(--color-neutral-0, #ffffff);
         }
 
-        /* Pulsing dot at the center of the current step */
+        /* Pulsing dot at the center of the current step (in-progress yellow) */
         :host([status='current']) .pulse {
             position: absolute;
             top: 50%;
@@ -234,7 +238,7 @@ export class MfpStep extends LitElement {
             height: 8px;
             margin: -4px 0 0 -4px;
             border-radius: 50%;
-            background: var(--color-brand-primary, #2563eb);
+            background: var(--color-status-warning-solid, #f59e0b);
             animation: mfp-step-pulse var(--motion-duration-slowest, 1000ms) ease-in-out infinite;
         }
 

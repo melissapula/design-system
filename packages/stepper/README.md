@@ -24,12 +24,12 @@ import '@mfp-design-system/tokens/css';
 </mfp-stepper>
 ```
 
-Each step's status is derived automatically:
+Each step's status is derived automatically. Status colors map to **meaning**, not brand — green for success, yellow for in-progress, red for error:
 
-- `index < current` → **completed** (checkmark, brand color)
-- `index === current` → **current** (pulsing dot, brand color outline)
+- `index < current` → **completed** (checkmark, green)
+- `index === current` → **current** (yellow outline, pulsing yellow dot)
 - `index > current` → **pending** (step number, muted)
-- any step with `[error]` → **error** (X mark, error color) — overrides the derived status
+- any step with `[error]` → **error** (X mark, red) — overrides the derived status
 
 ## API
 
