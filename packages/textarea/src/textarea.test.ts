@@ -38,4 +38,17 @@ describe('<mfp-textarea>', () => {
         await el.updateComplete;
         expect(el.checkValidity()).to.equal(true);
     });
+
+    it('the inner textarea fits inside its .control wrapper (box-sizing regression)', async () => {
+        // Regression: without box-sizing: border-box, width: 100% + padding
+        // pushed the textarea wider than .control, so the native resize handle
+        // appeared outside the bordered area.
+        const el = await fixture<MfpTextarea>(html`
+            <mfp-textarea style="width: 400px;"></mfp-textarea>
+        `);
+        await el.updateComplete;
+        const control = el.shadowRoot!.querySelector('.control') as HTMLElement;
+        const textarea = el.shadowRoot!.querySelector('textarea') as HTMLTextAreaElement;
+        expect(textarea.offsetWidth).to.be.at.most(control.offsetWidth);
+    });
 });

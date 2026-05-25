@@ -55,6 +55,13 @@ export class MfpTextarea extends LitElement {
         textarea {
             display: block;
             width: 100%;
+            /*
+             * Shadow DOM doesn't inherit a global "box-sizing: border-box"
+             * from the consuming app. Without this, "width: 100%" + padding
+             * makes the textarea element overflow the .control wrapper,
+             * and the native resize handle ends up outside the visible border.
+             */
+            box-sizing: border-box;
             background: transparent;
             border: none;
             outline: none;
