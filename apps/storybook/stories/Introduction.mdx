@@ -85,9 +85,11 @@ import '@mfp-design-system/button';
 ### Framework notes
 
 - **Vue 3 / Nuxt** — tell the compiler about the prefix:
-  ```ts
-  compilerOptions: { isCustomElement: (tag) => tag.startsWith('mfp-') }
-  ```
+    ```ts
+    compilerOptions: {
+        isCustomElement: (tag) => tag.startsWith('mfp-');
+    }
+    ```
 - **Angular** — add `CUSTOM_ELEMENTS_SCHEMA` to any module/standalone component that uses `<mfp-*>` tags
 - **React 19+** — works natively
 - **Plain HTML** — just use the tags
