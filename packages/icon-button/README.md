@@ -30,13 +30,13 @@ The `label` attribute becomes the button's `aria-label` — required because the
 
 ## API
 
-| Attribute  | Type                                              | Default     | Description                                                                             |
-| ---------- | ------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------- |
-| `label`    | `string`                                          | `''`        | **Required** — becomes the button's `aria-label`. A warning fires in dev if it's empty. |
-| `variant`  | `'primary' \| 'secondary' \| 'danger' \| 'ghost'` | `'primary'` | Visual style (same palette as `<mfp-button>`)                                           |
-| `size`     | `'sm' \| 'md' \| 'lg'`                            | `'md'`      | Square: 32px / 40px / 48px                                                              |
-| `disabled` | `boolean`                                         | `false`     | Disables the button                                                                     |
-| `type`     | `'button' \| 'submit' \| 'reset'`                 | `'button'`  | Native button `type`                                                                    |
+| Attribute  | Type                                              | Default    | Description                                                                                                                                                                  |
+| ---------- | ------------------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`    | `string`                                          | `''`       | **Required** — becomes the button's `aria-label`. A warning fires in dev if it's empty.                                                                                      |
+| `variant`  | `'primary' \| 'secondary' \| 'danger' \| 'ghost'` | `'ghost'`  | Visual style. Default is transparent with a faint hover background (matches Material/Shoelace/Radix). Filled variants are opt-in for FAB-style or prominent toolbar buttons. |
+| `size`     | `'sm' \| 'md' \| 'lg'`                            | `'md'`     | Square: 32px / 40px / 48px                                                                                                                                                   |
+| `disabled` | `boolean`                                         | `false`    | Disables the button                                                                                                                                                          |
+| `type`     | `'button' \| 'submit' \| 'reset'`                 | `'button'` | Native button `type`                                                                                                                                                         |
 
 ### Shadow parts
 

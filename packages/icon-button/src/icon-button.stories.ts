@@ -23,7 +23,7 @@ const meta: Meta<Args> = {
         icon: { control: 'text', description: 'Emoji / glyph used as the icon slot content' },
     },
     args: {
-        variant: 'primary',
+        variant: 'ghost',
         size: 'md',
         disabled: false,
         label: 'Search',

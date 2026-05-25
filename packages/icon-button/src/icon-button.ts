@@ -42,6 +42,16 @@ export class MfpIconButton extends LitElement {
         ::slotted(*) {
             width: 1em;
             height: 1em;
+            /*
+             * Center the icon's content within its 1em x 1em box. Without
+             * this, slotted spans/emojis sit on the text baseline and look
+             * vertically offset; SVGs inherit text-bottom alignment and
+             * end up bottom-aligned. inline-flex + line-height: 1 normalizes.
+             */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
         }
 
         /* Sizes — square aspect, font-size sets icon size */
@@ -62,13 +72,16 @@ export class MfpIconButton extends LitElement {
             font-size: 24px;
         }
 
-        /* Variants — same palette as <mfp-button> */
-        :host(:not([variant])) button,
+        /*
+         * Variants. Default is ghost: transparent background with a faint
+         * hover hit-target — matches industry convention (Material, Shoelace,
+         * Radix all default icon buttons to no chrome). Filled variants are
+         * opt-in for FAB-style or prominent toolbar actions.
+         */
         :host([variant='primary']) button {
             background: var(--color-brand-primary, #2563eb);
             color: var(--color-brand-primary-fg, #ffffff);
         }
-        :host(:not([variant])) button:hover:not(:disabled),
         :host([variant='primary']) button:hover:not(:disabled) {
             background: var(--color-brand-primary-hover, #1d4ed8);
         }
@@ -107,7 +120,7 @@ export class MfpIconButton extends LitElement {
     `;
 
     @property({ reflect: true })
-    variant: IconButtonVariant = 'primary';
+    variant: IconButtonVariant = 'ghost';
 
     @property({ reflect: true })
     size: IconButtonSize = 'md';
