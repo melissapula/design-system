@@ -1,5 +1,13 @@
 # @mfp-design-system/textarea
 
+## 0.1.1
+
+### Patch Changes
+
+- 3de0a25: Widen `@mfp-design-system/tokens` peer-dependency range to `^0.4.0` to match the rest of the package family. Ten packages had drifted on `^0.2.0`, preventing installation alongside other DS components in apps consuming the current `tokens@0.4.x`.
+
+    No behavior change — pure metadata fix.
+
 ## 0.1.0
 
 ### Minor Changes
