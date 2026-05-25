@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/modal",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Modal dialog web component for the mfp-design-system, built with Lit on top of the native <dialog>.",
     "license": "MIT",
     "type": "module",
@@ -32,7 +32,7 @@
         "lit": "^3.2.1"
     },
     "peerDependencies": {
-        "@mfp-design-system/tokens": "^0.3.0"
+        "@mfp-design-system/tokens": "^0.4.0"
     },
     "peerDependenciesMeta": {
         "@mfp-design-system/tokens": {
