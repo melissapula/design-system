@@ -1,5 +1,12 @@
 # @mfp-design-system/switch
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [d78d5ff]
+    - @mfp-design-system/tokens@0.4.0
+
 ## 1.0.0
 
 ### Patch Changes
