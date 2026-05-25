@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/modal",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Modal dialog web component for the mfp-design-system, built with Lit on top of the native <dialog>.",
     "license": "MIT",
     "type": "module",
