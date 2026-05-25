@@ -5,7 +5,8 @@
             "fast": { "$value": "150ms", "$type": "duration" },
             "normal": { "$value": "200ms", "$type": "duration" },
             "slow": { "$value": "300ms", "$type": "duration" },
-            "slower": { "$value": "500ms", "$type": "duration" }
+            "slower": { "$value": "500ms", "$type": "duration" },
+            "slowest": { "$value": "1000ms", "$type": "duration" }
         },
         "easing": {
             "linear": { "$value": "cubic-bezier(0, 0, 1, 1)", "$type": "string" },

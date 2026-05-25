@@ -4,6 +4,7 @@
             "default": { "$value": "{color.neutral.900}", "$type": "color" },
             "muted": { "$value": "{color.neutral.600}", "$type": "color" },
             "inverse": { "$value": "{color.neutral.0}", "$type": "color" },
+            "inverse-muted": { "$value": "{color.neutral.300}", "$type": "color" },
             "brand": { "$value": "{color.brand.700}", "$type": "color" }
         },
         "background": {
