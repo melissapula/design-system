@@ -18,6 +18,7 @@
         "format:check": "prettier --check .",
         "test": "wtr",
         "typecheck": "pnpm -r run typecheck",
+        "audit-peers": "node scripts/audit-peer-deps.mjs",
         "storybook": "pnpm --filter @mfp-design-system/storybook run dev",
         "build-storybook": "pnpm --filter @mfp-design-system/storybook run build",
         "changeset": "changeset",

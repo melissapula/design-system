@@ -210,6 +210,88 @@ importers:
         specifier: ^5.6.3
         version: 5.9.3
 
+  packages/all:
+    dependencies:
+      '@mfp-design-system/accordion':
+        specifier: workspace:*
+        version: link:../accordion
+      '@mfp-design-system/alert':
+        specifier: workspace:*
+        version: link:../alert
+      '@mfp-design-system/avatar':
+        specifier: workspace:*
+        version: link:../avatar
+      '@mfp-design-system/badge':
+        specifier: workspace:*
+        version: link:../badge
+      '@mfp-design-system/button':
+        specifier: workspace:*
+        version: link:../button
+      '@mfp-design-system/card':
+        specifier: workspace:*
+        version: link:../card
+      '@mfp-design-system/checkbox':
+        specifier: workspace:*
+        version: link:../checkbox
+      '@mfp-design-system/divider':
+        specifier: workspace:*
+        version: link:../divider
+      '@mfp-design-system/footer':
+        specifier: workspace:*
+        version: link:../footer
+      '@mfp-design-system/form-field':
+        specifier: workspace:*
+        version: link:../form-field
+      '@mfp-design-system/icon-button':
+        specifier: workspace:*
+        version: link:../icon-button
+      '@mfp-design-system/input':
+        specifier: workspace:*
+        version: link:../input
+      '@mfp-design-system/modal':
+        specifier: workspace:*
+        version: link:../modal
+      '@mfp-design-system/nav':
+        specifier: workspace:*
+        version: link:../nav
+      '@mfp-design-system/radio':
+        specifier: workspace:*
+        version: link:../radio
+      '@mfp-design-system/select':
+        specifier: workspace:*
+        version: link:../select
+      '@mfp-design-system/spinner':
+        specifier: workspace:*
+        version: link:../spinner
+      '@mfp-design-system/stepper':
+        specifier: workspace:*
+        version: link:../stepper
+      '@mfp-design-system/switch':
+        specifier: workspace:*
+        version: link:../switch
+      '@mfp-design-system/tabs':
+        specifier: workspace:*
+        version: link:../tabs
+      '@mfp-design-system/textarea':
+        specifier: workspace:*
+        version: link:../textarea
+      '@mfp-design-system/toast':
+        specifier: workspace:*
+        version: link:../toast
+      '@mfp-design-system/tokens':
+        specifier: ^0.4.0
+        version: 0.4.0
+      '@mfp-design-system/tooltip':
+        specifier: workspace:*
+        version: link:../tooltip
+    devDependencies:
+      rimraf:
+        specifier: ^6.0.1
+        version: 6.1.3
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
+
   packages/avatar:
     dependencies:
       lit:
@@ -1316,6 +1398,9 @@ packages:
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
+
+  '@mfp-design-system/tokens@0.4.0':
+    resolution: {integrity: sha512-5ddEAfPnmRLd6fJjUBK+94F34LiBTnkA7CbB0Xw/B2Ht6aXTTkCyKHAyTXr9TdM7dufnft2L95LUeHO9CyP+6w==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -4841,6 +4926,8 @@ snapshots:
       '@types/mdx': 2.0.13
       '@types/react': 19.2.15
       react: 19.2.6
+
+  '@mfp-design-system/tokens@0.4.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
