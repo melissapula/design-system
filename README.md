@@ -10,7 +10,7 @@ Live Storybook: built from this repo's `apps/storybook/` workspace — run `pnpm
 
 ### Tokens
 
-- **`@mfp-design-system/tokens`** — colors (brand, neutral, semantic, status), spacing, radius, typography, shadows, motion, z-index, breakpoints, letter-spacing, plus 5 named themes. Built with Style Dictionary into CSS variables, ES modules, TypeScript types, and JSON.
+- **`@mfp-design-system/tokens`** — colors (brand, neutral, semantic, status), spacing, radius, typography, shadows, motion, z-index, breakpoints, letter-spacing, plus 6 named themes. Built with Style Dictionary into CSS variables, ES modules, TypeScript types, and JSON.
 
 ### Components (alphabetical)
 
@@ -42,13 +42,16 @@ Live Storybook: built from this repo's `apps/storybook/` workspace — run `pnpm
 
 ### Themes
 
-| Theme       | Intended for                              |
-| ----------- | ----------------------------------------- |
-| `blue`      | default (explicit)                        |
-| `warm`      | fourseasonsstudio (cream / terracotta)    |
-| `orange`    | garage-sales                              |
-| `earth`     | lessonforge (warm neutrals + blue accent) |
-| `portfolio` | melissapula.io (navy)                     |
+Theme names are the **color** — any app can pick any theme; the "intended for" column just notes where each color came from.
+
+| Theme        | Intended for                              |
+| ------------ | ----------------------------------------- |
+| `blue`       | default                                   |
+| `terracotta` | fourseasonsstudio (cream / terracotta)    |
+| `orange`     | garage-sales                              |
+| `sand`       | lessonforge (warm neutrals + blue accent) |
+| `navy`       | portfolio (melissapula.io)                |
+| `emerald`    | frula-homes (fsbo-platform)               |
 
 ## Using it in an app
 
@@ -59,7 +62,7 @@ npm install @mfp-design-system/tokens @mfp-design-system/button
 ```ts
 // app entry
 import '@mfp-design-system/tokens/css';
-import '@mfp-design-system/tokens/themes/warm'; // pick one theme
+import '@mfp-design-system/tokens/themes/terracotta'; // pick one theme
 import '@mfp-design-system/button';
 ```
 
@@ -88,7 +91,7 @@ Authoring new themes: drop a file in `packages/tokens/src/themes/<name>.css`, ad
 
 ```
 packages/
-  tokens/             design tokens (Style Dictionary) + 5 themes
+  tokens/             design tokens (Style Dictionary) + 6 themes
   <component>/        one package per component
                       ├── src/<name>.ts         Lit element
                       ├── src/<name>.stories.ts Storybook stories

@@ -25,18 +25,21 @@ Each app can pick a brand theme that overrides the design system's default brand
 
 ```ts
 import '@mfp-design-system/tokens/css'; // base + structural tokens
-import '@mfp-design-system/tokens/themes/warm'; // brand overrides for this app
+import '@mfp-design-system/tokens/themes/terracotta'; // brand overrides for this app
 ```
 
 Themes ship with the package:
 
-| Subpath              | Intended for      | Brand color                                     |
-| -------------------- | ----------------- | ----------------------------------------------- |
-| `./themes/blue`      | (default)         | `#2563eb` blue                                  |
-| `./themes/warm`      | fourseasonsstudio | `#c4622a` terracotta + warm cream/brown palette |
-| `./themes/orange`    | garage-sales      | `#f97316` orange                                |
-| `./themes/earth`     | lessonforge       | Blue accent on warm neutrals                    |
-| `./themes/portfolio` | melissapula.io    | `#1a2744` navy                                  |
+Theme names are the **color** (not the project) so any app can pick any theme — `themes/navy` isn't locked to the portfolio.
+
+| Subpath               | Intended for      | Brand color                                     |
+| --------------------- | ----------------- | ----------------------------------------------- |
+| `./themes/blue`       | default           | `#2563eb` blue                                  |
+| `./themes/terracotta` | fourseasonsstudio | `#c4622a` terracotta + warm cream/brown palette |
+| `./themes/orange`     | garage-sales      | `#f97316` orange                                |
+| `./themes/sand`       | lessonforge       | Blue accent on warm sand neutrals               |
+| `./themes/navy`       | portfolio         | `#1a2744` navy                                  |
+| `./themes/emerald`    | frula-homes       | `#1d9e75` emerald                               |
 
 ### Authoring a new theme
 
@@ -52,7 +55,7 @@ Create `src/themes/<name>.css` and at minimum override the brand semantic tokens
 }
 ```
 
-Themes can also override neutral semantic tokens (`--color-text-default`, `--color-background-default`, `--color-border-*`) for a fuller visual identity — see `themes/warm.css` for an example.
+Themes can also override neutral semantic tokens (`--color-text-default`, `--color-background-default`, `--color-border-*`) for a fuller visual identity — see `themes/terracotta.css` for an example.
 
 Status colors (`--color-status-success-*`, `--color-status-error-*`, etc.) are universal across themes — success is green everywhere, regardless of brand.
 

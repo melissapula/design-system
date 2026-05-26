@@ -20,7 +20,7 @@ const themeStyles = `
     --color-brand-primary-emphasis: #1e40af;
 }
 
-[data-theme='warm'] {
+[data-theme='terracotta'] {
     --color-brand-primary: #c4622a;
     --color-brand-primary-hover: #a3501f;
     --color-brand-primary-fg: #fcfaf7;
@@ -48,7 +48,7 @@ const themeStyles = `
     --color-brand-primary-emphasis: #c2410c;
 }
 
-[data-theme='earth'] {
+[data-theme='sand'] {
     --color-brand-primary: #2563eb;
     --color-brand-primary-hover: #1d4ed8;
     --color-brand-primary-fg: #ffffff;
@@ -67,12 +67,20 @@ const themeStyles = `
     --color-border-strong: #cbd5e1;
 }
 
-[data-theme='portfolio'] {
+[data-theme='navy'] {
     --color-brand-primary: #1a2744;
     --color-brand-primary-hover: #2c4068;
     --color-brand-primary-fg: #ffffff;
     --color-brand-primary-subtle: #eef1f7;
     --color-brand-primary-emphasis: #0f1729;
+}
+
+[data-theme='emerald'] {
+    --color-brand-primary: #1d9e75;
+    --color-brand-primary-hover: #177e5d;
+    --color-brand-primary-fg: #ffffff;
+    --color-brand-primary-subtle: #e8f7f1;
+    --color-brand-primary-emphasis: #125f46;
 }
 `;
 
@@ -114,11 +122,12 @@ const preview: Preview = {
                 title: 'Theme',
                 icon: 'paintbrush',
                 items: [
-                    { value: 'blue', title: 'Blue (default)' },
-                    { value: 'warm', title: 'Warm — fourseasonsstudio' },
+                    { value: 'blue', title: 'Blue — default' },
+                    { value: 'terracotta', title: 'Terracotta — fourseasonsstudio' },
                     { value: 'orange', title: 'Orange — garage-sales' },
-                    { value: 'earth', title: 'Earth — lessonforge' },
-                    { value: 'portfolio', title: 'Navy — portfolio' },
+                    { value: 'sand', title: 'Sand — lessonforge' },
+                    { value: 'navy', title: 'Navy — portfolio' },
+                    { value: 'emerald', title: 'Emerald — frula-homes' },
                 ],
                 dynamicTitle: true,
             },

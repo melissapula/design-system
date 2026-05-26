@@ -1,10 +1,11 @@
 /*
- * Warm theme — earthy cream/brown/gold palette.
+ * Terracotta theme — earthy cream/brown/gold palette.
  * Designed for fourseasonsstudio (warm artisan/gallery aesthetic).
  *
  * Overrides both brand colors AND the neutral semantic layer so the
- * whole UI reads as warm. Apps that only want a warm accent (without
- * shifting backgrounds and text) can copy just the --color-brand-* block.
+ * whole UI reads as warm. Apps that only want the terracotta accent
+ * (without shifting backgrounds and text) can copy just the
+ * --color-brand-* block.
  */
 :root {
     /* Brand: terracotta accent */

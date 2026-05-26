@@ -24,10 +24,11 @@
             "default": "./build/json/tokens.json"
         },
         "./themes/blue": "./build/themes/blue.css",
-        "./themes/warm": "./build/themes/warm.css",
+        "./themes/terracotta": "./build/themes/terracotta.css",
         "./themes/orange": "./build/themes/orange.css",
-        "./themes/earth": "./build/themes/earth.css",
-        "./themes/portfolio": "./build/themes/portfolio.css"
+        "./themes/sand": "./build/themes/sand.css",
+        "./themes/navy": "./build/themes/navy.css",
+        "./themes/emerald": "./build/themes/emerald.css"
     },
     "main": "./build/js/tokens.js",
     "module": "./build/js/tokens.js",

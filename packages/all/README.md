@@ -23,7 +23,7 @@ npm install @mfp-design-system/all @mfp-design-system/tokens
 ```ts
 // One side-effect import registers every <mfp-*> element
 import '@mfp-design-system/tokens/css';
-import '@mfp-design-system/tokens/themes/warm'; // pick a theme
+import '@mfp-design-system/tokens/themes/terracotta'; // pick a theme
 import '@mfp-design-system/all';
 ```
 

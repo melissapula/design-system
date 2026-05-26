@@ -21,12 +21,12 @@ Each component:
 
 ### Components
 
-19 component packages, grouped by role:
+23 component packages, grouped by role:
 
 **Action**
 
 - `mfp-button` — primary / secondary / danger / ghost
-- `mfp-icon-button` — same variants, square aspect, requires `aria-label`
+- `mfp-icon-button` — icon-only, ghost-by-default, requires `aria-label`
 
 **Form input**
 
@@ -61,7 +61,14 @@ Each component:
 
 **Organization**
 
-- `mfp-tabs` — orchestrator for `mfp-tab` + `mfp-tab-panel` with full keyboard nav
+- `mfp-tabs` — `<mfp-tabs>` + `<mfp-tab>` + `<mfp-tab-panel>`; full keyboard nav
+- `mfp-accordion` — `<mfp-accordion>` + `<mfp-accordion-item>`; FAQ-style exclusive mode
+- `mfp-stepper` — `<mfp-stepper>` + `<mfp-step>`; status colors for completed / current / error
+
+**Navigation & chrome**
+
+- `mfp-nav` — `<mfp-nav-bar>` + `<mfp-side-nav>` + `<mfp-nav-item>`; brand variant
+- `mfp-footer` — app footer shell; `default` / `brand` / `dark` variants
 
 Browse them in the sidebar under **Components/**. Each story page has live controls, code examples, and an auto-generated docs page.
 
@@ -74,7 +81,7 @@ npm install @mfp-design-system/tokens @mfp-design-system/button
 ```ts
 // At your app's entry point
 import '@mfp-design-system/tokens/css';
-import '@mfp-design-system/tokens/themes/blue'; // pick a theme — see below
+import '@mfp-design-system/tokens/themes/terracotta'; // pick a theme — see below
 import '@mfp-design-system/button';
 ```
 
@@ -99,22 +106,23 @@ import '@mfp-design-system/button';
 Each consuming app can pick a brand theme that overrides the design system's default colors. Components consume semantic tokens (`--color-brand-primary`, `--color-brand-primary-hover`, etc.) so a single import re-themes every primary button, focus ring, checked state, and toggle.
 
 ```ts
-import '@mfp-design-system/tokens/themes/warm'; // chrissys / fourseasonsstudio
+import '@mfp-design-system/tokens/themes/terracotta'; // fourseasonsstudio brand
 ```
 
-Five themes ship today:
+Theme names are the **color**, not a project — `themes/navy` isn't locked to the portfolio, any app can pick any theme. Six themes ship today:
 
 - **`blue`** — default (matches "no theme"); explicit if you want to be unambiguous
-- **`warm`** — for **fourseasonsstudio**; terracotta brand + cream / brown neutrals
+- **`terracotta`** — for **fourseasonsstudio**; terracotta brand + cream / brown neutrals
 - **`orange`** — for **garage-sales**; Tailwind orange-500 brand
-- **`earth`** — for **lessonforge**; warm neutrals with a blue accent
-- **`portfolio`** — for **melissapula.io**; navy brand
+- **`sand`** — for **lessonforge**; warm sand neutrals with a blue accent
+- **`navy`** — for **melissapula.io** portfolio; navy brand
+- **`emerald`** — for **frula-homes** (fsbo-platform); emerald-green brand
 
 In this Storybook, use the **Theme** dropdown in the toolbar at the top to flip any open story between themes. Or visit **Themes / Showcase** for a side-by-side comparison.
 
 ## Forms
 
-Six components participate in native HTML form submission via `ElementInternals`:
+Seven components participate in native HTML form submission via `ElementInternals`:
 
 - `mfp-button` (type=submit/reset triggers form.requestSubmit / .reset)
 - `mfp-input`, `mfp-textarea`, `mfp-select` (value submitted under `name`)

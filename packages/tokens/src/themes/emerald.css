@@ -1,0 +1,20 @@
+/*
+ * Emerald theme — fresh emerald-green brand on default neutrals.
+ * Designed for Frula Homes (fsbo-platform real-estate app).
+ *
+ * Source of truth: fsbo-platform/apps/web/tailwind.config.ts defines a
+ * `brand` color ramp around #1D9E75. This theme mirrors that ramp into
+ * the design system's semantic brand layer so every <mfp-*> component
+ * automatically uses the emerald accent for primary buttons, focus
+ * rings, stepper progress, etc.
+ *
+ * Keeps the default neutral palette — doesn't shift text / background /
+ * border colors away from cool gray, just the brand accent.
+ */
+:root {
+    --color-brand-primary: #1d9e75;
+    --color-brand-primary-hover: #177e5d;
+    --color-brand-primary-fg: #ffffff;
+    --color-brand-primary-subtle: #e8f7f1;
+    --color-brand-primary-emphasis: #125f46;
+}

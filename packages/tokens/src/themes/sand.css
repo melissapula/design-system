@@ -1,9 +1,10 @@
 /*
- * Earth theme — warm-neutral palette with a blue accent.
+ * Sand theme — warm-neutral palette with a blue accent.
  * Designed for lessonforge (educational, approachable, slightly warm).
  *
  * Keeps the default blue brand for the accent so it feels familiar,
- * but shifts text/background/border to warm tones for a softer feel.
+ * but shifts text/background/border to warm sand tones for a softer
+ * overall feel.
  */
 :root {
     /* Brand stays blue — same as default — but explicitly listed */

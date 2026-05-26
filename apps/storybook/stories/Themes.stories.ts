@@ -27,11 +27,12 @@ export default meta;
 type Story = StoryObj;
 
 const themes = [
-    { name: 'blue', label: 'Blue (default)' },
-    { name: 'warm', label: 'Warm — fourseasonsstudio' },
+    { name: 'blue', label: 'Blue — default' },
+    { name: 'terracotta', label: 'Terracotta — fourseasonsstudio' },
     { name: 'orange', label: 'Orange — garage-sales' },
-    { name: 'earth', label: 'Earth — lessonforge' },
-    { name: 'portfolio', label: 'Navy — portfolio' },
+    { name: 'sand', label: 'Sand — lessonforge' },
+    { name: 'navy', label: 'Navy — portfolio' },
+    { name: 'emerald', label: 'Emerald — frula-homes' },
 ];
 
 const sampleComposition = (label: string) => html`
