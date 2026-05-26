@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/all",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "description": "Meta-package — depends on and re-exports every component. One install gets the whole design system.",
     "license": "MIT",
     "type": "module",
@@ -54,7 +54,7 @@
         "@mfp-design-system/tooltip": "workspace:*"
     },
     "peerDependencies": {
-        "@mfp-design-system/tokens": "^0.4.0"
+        "@mfp-design-system/tokens": "^0.5.0"
     },
     "peerDependenciesMeta": {
         "@mfp-design-system/tokens": {

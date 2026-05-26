@@ -1,5 +1,12 @@
 # @mfp-design-system/radio
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [67b5fd0]
+    - @mfp-design-system/tokens@0.5.0
+
 ## 0.1.1
 
 ### Patch Changes
