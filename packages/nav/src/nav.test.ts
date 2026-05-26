@@ -68,6 +68,69 @@ describe('<mfp-nav-bar>', () => {
         await el.updateComplete;
         expect(el.hasAttribute('sticky')).to.equal(true);
     });
+
+    describe('responsive collapse', () => {
+        it('exposes a menu-toggle button with correct aria attributes', async () => {
+            const el = await fixture<MfpNavBar>(html`
+                <mfp-nav-bar>
+                    <mfp-nav-item href="/a">A</mfp-nav-item>
+                </mfp-nav-bar>
+            `);
+            await el.updateComplete;
+            const toggle = el.shadowRoot!.querySelector<HTMLButtonElement>('.menu-toggle')!;
+            expect(toggle.getAttribute('aria-expanded')).to.equal('false');
+            expect(toggle.getAttribute('aria-controls')).to.equal('mfp-nav-menu');
+            expect(toggle.getAttribute('aria-label')).to.equal('Open menu');
+        });
+
+        it('toggles menuOpen + aria-expanded when the hamburger is clicked', async () => {
+            const el = await fixture<MfpNavBar>(html`<mfp-nav-bar></mfp-nav-bar>`);
+            await el.updateComplete;
+            const toggle = el.shadowRoot!.querySelector<HTMLButtonElement>('.menu-toggle')!;
+            toggle.click();
+            await el.updateComplete;
+            expect(el.menuOpen).to.equal(true);
+            expect(toggle.getAttribute('aria-expanded')).to.equal('true');
+            expect(toggle.getAttribute('aria-label')).to.equal('Close menu');
+            toggle.click();
+            await el.updateComplete;
+            expect(el.menuOpen).to.equal(false);
+        });
+
+        it('closes the menu when Escape is pressed', async () => {
+            const el = await fixture<MfpNavBar>(html`<mfp-nav-bar></mfp-nav-bar>`);
+            el.menuOpen = true;
+            await el.updateComplete;
+            document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+            await el.updateComplete;
+            expect(el.menuOpen).to.equal(false);
+        });
+
+        it('closes the menu when an item is activated', async () => {
+            const el = await fixture<MfpNavBar>(html`
+                <mfp-nav-bar>
+                    <mfp-nav-item href="#one">One</mfp-nav-item>
+                </mfp-nav-bar>
+            `);
+            el.menuOpen = true;
+            await el.updateComplete;
+            const item = el.querySelector('mfp-nav-item')!;
+            // Click bubbles up through the menu wrapper, where the bar listens.
+            item.dispatchEvent(new MouseEvent('click', { bubbles: true, composed: true }));
+            await el.updateComplete;
+            expect(el.menuOpen).to.equal(false);
+        });
+
+        it('reflects menu-open as an attribute for CSS hooks', async () => {
+            const el = await fixture<MfpNavBar>(html`<mfp-nav-bar></mfp-nav-bar>`);
+            el.menuOpen = true;
+            await el.updateComplete;
+            expect(el.hasAttribute('menu-open')).to.equal(true);
+            el.menuOpen = false;
+            await el.updateComplete;
+            expect(el.hasAttribute('menu-open')).to.equal(false);
+        });
+    });
 });
 
 describe('<mfp-side-nav>', () => {

@@ -44,6 +44,20 @@ import '@mfp-design-system/tokens/css';
 
 Set `sticky` on the bar to pin it to the top of the viewport while scrolling.
 
+#### Responsive collapse
+
+Below `breakpoint` (default `768px`), the nav items + actions collapse into a hamburger-toggleable dropdown anchored to the bottom of the bar. Items automatically switch to vertical orientation in the dropdown. Close triggers: tapping the hamburger again, activating any nav item, pressing `Escape`, or clicking outside the bar.
+
+```html
+<!-- Collapse below 640px instead of the 768px default -->
+<mfp-nav-bar breakpoint="640">…</mfp-nav-bar>
+
+<!-- Disable responsive collapse entirely -->
+<mfp-nav-bar breakpoint="0">…</mfp-nav-bar>
+```
+
+The breakpoint is measured against the **bar's own width** (via `ResizeObserver`), not the viewport — so a bar inside a narrow column will collapse independently. The hamburger button is exposed as the `menu-toggle` shadow part and the dropdown panel as the `menu` shadow part for custom styling.
+
 ### Side nav
 
 ```html
@@ -83,12 +97,16 @@ Side nav default width is `240px`; override with inline style if needed: `style=
 
 ### `<mfp-nav-bar>`
 
-| Attribute | Type                   | Default     |
-| --------- | ---------------------- | ----------- |
-| `sticky`  | boolean                | `false`     |
-| `variant` | `'default' \| 'brand'` | `'default'` |
+| Attribute    | Type                   | Default     | Description                                                                       |
+| ------------ | ---------------------- | ----------- | --------------------------------------------------------------------------------- |
+| `sticky`     | boolean                | `false`     | Pins the bar to the top while scrolling                                           |
+| `variant`    | `'default' \| 'brand'` | `'default'` | `brand` uses the active theme's brand color as the bar background                 |
+| `breakpoint` | number                 | `768`       | Width (px) below which the bar collapses into a hamburger. `0` disables.          |
+| `menu-open`  | boolean                | `false`     | Whether the collapsed dropdown is open. Reflected for CSS / programmatic control. |
 
 Slots: `brand`, _(default)_, `actions`.
+
+Shadow parts: `menu-toggle` (hamburger button), `menu` (dropdown panel that contains nav + actions when collapsed).
 
 ### `<mfp-side-nav>`
 
@@ -108,13 +126,14 @@ Width: default `240px`; override with inline style.
 
 When set, the bar/side panel uses the active theme's `--color-brand-primary` as its background and `--color-brand-primary-fg` as its text. Combined with your app's theme import:
 
-| Theme       | Brand-variant bar color |
-| ----------- | ----------------------- |
-| `blue`      | `#2563eb`               |
-| `warm`      | `#c4622a` (terracotta)  |
-| `orange`    | `#f97316`               |
-| `portfolio` | `#1a2744` (navy)        |
-| `earth`     | `#2563eb`               |
+| Theme        | Brand-variant bar color |
+| ------------ | ----------------------- |
+| `blue`       | `#2563eb`               |
+| `terracotta` | `#c4622a`               |
+| `orange`     | `#f97316`               |
+| `sand`       | `#2563eb`               |
+| `navy`       | `#1a2744`               |
+| `emerald`    | `#1d9e75`               |
 
 Nested `<mfp-nav-item>`s automatically restyle for the new surface — hover/active states become translucent overlays instead of subtle background tints, so they remain visible on the brand color. This is wired via CSS custom properties that the parent nav sets and the items consume.
 
@@ -146,6 +165,7 @@ Or use `<mfp-nav-item href="/lessons">` with a global click handler that preempt
 - Disabled items get `aria-disabled="true"` (anchors) or the native `disabled` attribute (buttons)
 - Focus rings use `--color-brand-primary` and respect `:focus-visible`
 - Respects `prefers-reduced-motion`
+- The responsive hamburger button uses `aria-expanded` / `aria-controls` / `aria-label` (toggles between "Open menu" / "Close menu"); `Escape` closes the dropdown and returns focus to the toggle
 
 ## Framework notes
 

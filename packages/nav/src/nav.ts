@@ -21,12 +21,19 @@ export type NavVariant = 'default' | 'brand';
  *   </mfp-nav-bar>
  *
  * Set `sticky` to keep the bar pinned to the top while scrolling.
+ *
+ * **Responsive**: below `breakpoint` (default 768px) the nav items and
+ * actions collapse into a hamburger-toggleable dropdown panel anchored
+ * to the bottom of the bar. Item `orientation` flips to `vertical`
+ * automatically. Close triggers: hamburger click, item activation,
+ * Escape key, or click outside the bar.
  */
 @customElement('mfp-nav-bar')
 export class MfpNavBar extends LitElement {
     static override styles = css`
         :host {
             display: block;
+            position: relative;
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
             /*
              * Surface tokens — these cascade into <mfp-nav-item>'s shadow DOM
@@ -74,6 +81,16 @@ export class MfpNavBar extends LitElement {
             display: flex;
             align-items: center;
             min-width: 0;
+            flex: 0 1 auto;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: var(--size-spacing-4, 16px);
+            flex: 1 1 auto;
+            min-width: 0;
+            justify-content: space-between;
         }
 
         .nav {
@@ -89,39 +106,217 @@ export class MfpNavBar extends LitElement {
             display: flex;
             align-items: center;
             gap: var(--size-spacing-2, 8px);
+            flex: 0 0 auto;
+        }
+
+        .menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            margin-left: auto;
+            background: none;
+            border: 1px solid transparent;
+            border-radius: var(--size-radius-md, 8px);
+            color: inherit;
+            cursor: pointer;
+            transition:
+                background var(--motion-duration-fast, 150ms) var(--motion-easing-standard, ease),
+                border-color var(--motion-duration-fast, 150ms) var(--motion-easing-standard, ease);
+        }
+
+        .menu-toggle:hover {
+            background: var(--mfp-nav-item-hover-bg, var(--color-background-subtle, #f9fafb));
+        }
+
+        .menu-toggle:focus-visible {
+            outline: 2px solid var(--color-brand-primary, #2563eb);
+            outline-offset: 2px;
+        }
+
+        .menu-toggle svg {
+            width: 22px;
+            height: 22px;
         }
 
         ::slotted([slot='brand']) {
             font-size: var(--font-size-lg, 18px);
             color: inherit;
             text-decoration: none;
+            white-space: nowrap;
+        }
+
+        /*
+         * Collapsed (mobile) layout — triggered by JS adding [data-collapsed]
+         * when the host's width drops below the breakpoint. Pure-CSS @media
+         * queries can't use a JS-configurable breakpoint, and container
+         * queries don't help here because the nav-item orientation flip
+         * has to happen in JS anyway (the orientation lives on the child
+         * element's attribute, not in styles we control from here).
+         */
+        :host([data-collapsed]) .menu-toggle {
+            display: inline-flex;
+        }
+
+        :host([data-collapsed]) .menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0;
+            padding: var(--size-spacing-2, 8px);
+            background: inherit;
+            border-top: 1px solid var(--color-border-default, #e5e7eb);
+            box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+            z-index: var(--z-dropdown, 100);
+        }
+
+        :host([variant='brand'][data-collapsed]) .menu {
+            border-top-color: var(--color-brand-primary-emphasis, #1e40af);
+        }
+
+        :host([data-collapsed][menu-open]) .menu {
+            display: flex;
+        }
+
+        :host([data-collapsed]) .nav,
+        :host([data-collapsed]) .actions {
+            flex-direction: column;
+            align-items: stretch;
+            flex: 0 0 auto;
+            width: 100%;
+            overflow: visible;
+            gap: var(--size-spacing-1, 4px);
         }
     `;
 
     @property({ type: Boolean, reflect: true }) sticky = false;
     @property({ reflect: true }) variant: NavVariant = 'default';
 
+    /**
+     * Width (px) below which the bar collapses into a hamburger-toggleable
+     * dropdown. Set to 0 to disable responsive collapse entirely.
+     */
+    @property({ type: Number }) breakpoint = 768;
+
+    /**
+     * Whether the collapsed dropdown menu is open. No effect above the
+     * breakpoint. Reflected for CSS / test hooks.
+     */
+    @property({ type: Boolean, reflect: true, attribute: 'menu-open' })
+    menuOpen = false;
+
     @queryAssignedElements({ selector: 'mfp-nav-item' })
     private _items!: MfpNavItem[];
 
-    private _syncOrientation() {
-        for (const item of this._items) item.orientation = 'horizontal';
+    private _ro?: ResizeObserver;
+    private _isCollapsed = false;
+
+    private _syncOrientation(orientation: NavOrientation) {
+        for (const item of this._items) item.orientation = orientation;
     }
+
+    private _setCollapsed(collapsed: boolean) {
+        if (collapsed === this._isCollapsed) return;
+        this._isCollapsed = collapsed;
+        this.toggleAttribute('data-collapsed', collapsed);
+        this._syncOrientation(collapsed ? 'vertical' : 'horizontal');
+        if (!collapsed) this.menuOpen = false;
+    }
+
+    private _onResize = (entries: ResizeObserverEntry[]) => {
+        if (!this.breakpoint) return;
+        const entry = entries[0];
+        if (!entry) return;
+        this._setCollapsed(entry.contentRect.width < this.breakpoint);
+    };
+
+    private _onDocumentClick = (e: MouseEvent) => {
+        if (!this.menuOpen) return;
+        if (!e.composedPath().includes(this)) this.menuOpen = false;
+    };
+
+    private _onKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape' && this.menuOpen) {
+            this.menuOpen = false;
+            this.renderRoot.querySelector<HTMLButtonElement>('.menu-toggle')?.focus();
+        }
+    };
+
+    private _onToggleClick = () => {
+        this.menuOpen = !this.menuOpen;
+    };
+
+    // Auto-close after the user activates a nav item — collapsed dropdowns
+    // exist so the user can navigate, and the navigation has now happened.
+    private _onMenuClick = (e: Event) => {
+        if (!this.menuOpen) return;
+        const target = e.target as HTMLElement;
+        if (target.closest('mfp-nav-item')) this.menuOpen = false;
+    };
 
     override firstUpdated() {
-        this._syncOrientation();
+        this._syncOrientation('horizontal');
     }
 
-    private _onSlotChange = () => this._syncOrientation();
+    override connectedCallback() {
+        super.connectedCallback();
+        this._ro = new ResizeObserver(this._onResize);
+        this._ro.observe(this);
+        document.addEventListener('click', this._onDocumentClick);
+        document.addEventListener('keydown', this._onKeyDown);
+    }
+
+    override disconnectedCallback() {
+        super.disconnectedCallback();
+        this._ro?.disconnect();
+        document.removeEventListener('click', this._onDocumentClick);
+        document.removeEventListener('keydown', this._onKeyDown);
+    }
+
+    private _onSlotChange = () => {
+        this._syncOrientation(this._isCollapsed ? 'vertical' : 'horizontal');
+    };
 
     override render() {
         return html`
             <nav class="bar" aria-label="Main">
                 <div class="brand"><slot name="brand"></slot></div>
-                <div class="nav" role="navigation">
-                    <slot @slotchange=${this._onSlotChange}></slot>
+                <button
+                    class="menu-toggle"
+                    type="button"
+                    part="menu-toggle"
+                    aria-label=${this.menuOpen ? 'Close menu' : 'Open menu'}
+                    aria-expanded=${this.menuOpen ? 'true' : 'false'}
+                    aria-controls="mfp-nav-menu"
+                    @click=${this._onToggleClick}
+                >
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        ${this.menuOpen
+                            ? html`<path
+                                  d="M6 6L18 18M6 18L18 6"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                              ></path>`
+                            : html`<path
+                                  d="M4 7H20M4 12H20M4 17H20"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                              ></path>`}
+                    </svg>
+                </button>
+                <div class="menu" id="mfp-nav-menu" part="menu" @click=${this._onMenuClick}>
+                    <div class="nav" role="navigation">
+                        <slot @slotchange=${this._onSlotChange}></slot>
+                    </div>
+                    <div class="actions"><slot name="actions"></slot></div>
                 </div>
-                <div class="actions"><slot name="actions"></slot></div>
             </nav>
         `;
     }

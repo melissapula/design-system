@@ -37,6 +37,35 @@ export const NavBar: Story = {
     `,
 };
 
+export const NavBarResponsive: Story = {
+    parameters: { controls: { disable: true } },
+    render: () => html`
+        <p style="padding: 16px 24px 0; font-size: 14px; color: #6b7280; margin: 0;">
+            Resize the preview panel below 768px — the nav items and actions collapse into a
+            hamburger-toggleable dropdown. Customize the breakpoint with the
+            <code>breakpoint</code> attribute (px, e.g. <code>breakpoint="640"</code>).
+        </p>
+        <div style="margin-top: 16px; resize: horizontal; overflow: auto; max-width: 100%;">
+            <mfp-nav-bar>
+                <a slot="brand" href="/" style="color: inherit; text-decoration: none;">
+                    <strong>LessonForge</strong>
+                </a>
+                <mfp-nav-item href="#" active>Lessons</mfp-nav-item>
+                <mfp-nav-item href="#">Reviews</mfp-nav-item>
+                <mfp-nav-item href="#">Library</mfp-nav-item>
+                <mfp-nav-item href="#">Settings</mfp-nav-item>
+                <div slot="actions">
+                    <mfp-icon-button label="Search">
+                        <span aria-hidden="true">🔍</span>
+                    </mfp-icon-button>
+                    <mfp-avatar name="Melissa Pula" size="sm"></mfp-avatar>
+                </div>
+            </mfp-nav-bar>
+        </div>
+        <div style="padding: 24px; color: #6b7280;">Page content goes here.</div>
+    `,
+};
+
 export const NavBarSticky: Story = {
     render: () => html`
         <div style="height: 200vh;">
