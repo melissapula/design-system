@@ -119,7 +119,15 @@ export class MfpNavBar extends LitElement {
             background: none;
             border: 1px solid transparent;
             border-radius: var(--size-radius-md, 8px);
-            color: inherit;
+            /*
+             * Pull from the same surface token the nav items use — this
+             * is set by the host's variant selectors above (white for the
+             * brand variant, dark for default), so the hamburger glyph
+             * always contrasts with the bar's background. "color: inherit"
+             * was unreliable here because "currentColor" in the SVG didn't
+             * always resolve through the host → button chain.
+             */
+            color: var(--mfp-nav-item-fg-strong, var(--color-text-default, #111827));
             cursor: pointer;
             transition:
                 background var(--motion-duration-fast, 150ms) var(--motion-easing-standard, ease),
@@ -169,13 +177,22 @@ export class MfpNavBar extends LitElement {
             align-items: stretch;
             gap: 0;
             padding: var(--size-spacing-2, 8px);
-            background: inherit;
+            /*
+             * Explicit background, not "inherit". "inherit" would resolve
+             * from .bar (the parent), which has no explicit background and
+             * therefore computes to transparent — making the dropdown panel
+             * see-through and the page content visible behind it.
+             */
+            background: var(--color-background-default, #ffffff);
+            color: var(--color-text-default, #111827);
             border-top: 1px solid var(--color-border-default, #e5e7eb);
             box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
             z-index: var(--z-dropdown, 100);
         }
 
         :host([variant='brand'][data-collapsed]) .menu {
+            background: var(--color-brand-primary, #2563eb);
+            color: var(--color-brand-primary-fg, #ffffff);
             border-top-color: var(--color-brand-primary-emphasis, #1e40af);
         }
 
@@ -295,20 +312,17 @@ export class MfpNavBar extends LitElement {
                     aria-controls="mfp-nav-menu"
                     @click=${this._onToggleClick}
                 >
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        aria-hidden="true"
+                    >
                         ${this.menuOpen
-                            ? html`<path
-                                  d="M6 6L18 18M6 18L18 6"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                              ></path>`
-                            : html`<path
-                                  d="M4 7H20M4 12H20M4 17H20"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                              ></path>`}
+                            ? html`<path d="M6 6L18 18M6 18L18 6"></path>`
+                            : html`<path d="M4 7H20M4 12H20M4 17H20"></path>`}
                     </svg>
                 </button>
                 <div class="menu" id="mfp-nav-menu" part="menu" @click=${this._onMenuClick}>
