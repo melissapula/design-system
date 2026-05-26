@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/all",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Meta-package — depends on and re-exports every component. One install gets the whole design system.",
     "license": "MIT",
     "type": "module",

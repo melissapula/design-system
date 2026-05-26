@@ -1,5 +1,12 @@
 # @mfp-design-system/all
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [c6a5e40]
+    - @mfp-design-system/nav@1.1.3
+
 ## 1.0.3
 
 ### Patch Changes
