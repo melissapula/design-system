@@ -1,4 +1,4 @@
-import { LitElement, html, css, nothing } from 'lit';
+import { LitElement, html, svg, css, nothing } from 'lit';
 import { customElement, property, queryAssignedElements } from 'lit/decorators.js';
 
 export type NavOrientation = 'horizontal' | 'vertical';
@@ -350,15 +350,19 @@ export class MfpNavBar extends LitElement {
                 >
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         ${this.menuOpen
-                            ? html`<g transform="rotate(45 12 12)">
+                            ? svg`
+                                  <g transform="rotate(45 12 12)">
                                       <rect x="3" y="11" width="18" height="2" rx="1"></rect>
                                   </g>
                                   <g transform="rotate(-45 12 12)">
                                       <rect x="3" y="11" width="18" height="2" rx="1"></rect>
-                                  </g>`
-                            : html`<rect x="3" y="6" width="18" height="2" rx="1"></rect>
+                                  </g>
+                              `
+                            : svg`
+                                  <rect x="3" y="6" width="18" height="2" rx="1"></rect>
                                   <rect x="3" y="11" width="18" height="2" rx="1"></rect>
-                                  <rect x="3" y="16" width="18" height="2" rx="1"></rect>`}
+                                  <rect x="3" y="16" width="18" height="2" rx="1"></rect>
+                              `}
                     </svg>
                 </button>
                 <div class="menu" id="mfp-nav-menu" part="menu" @click=${this._onMenuClick}>

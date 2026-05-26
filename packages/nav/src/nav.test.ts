@@ -121,6 +121,20 @@ describe('<mfp-nav-bar>', () => {
             expect(el.menuOpen).to.equal(false);
         });
 
+        it('renders the hamburger icon in the correct SVG namespace', async () => {
+            // Regression: the conditional inside the <svg> previously used Lit's
+            // `html` tag, which creates elements in the HTML namespace. SVG-
+            // namespaced <rect> elements only render if created via the SVG
+            // namespace — anything else paints as zero-width unknown nodes.
+            const el = await fixture<MfpNavBar>(html`<mfp-nav-bar></mfp-nav-bar>`);
+            await el.updateComplete;
+            const rects = el.shadowRoot!.querySelectorAll('.menu-toggle svg rect');
+            expect(rects.length).to.be.greaterThan(0);
+            for (const rect of rects) {
+                expect(rect.namespaceURI).to.equal('http://www.w3.org/2000/svg');
+            }
+        });
+
         it('reflects menu-open as an attribute for CSS hooks', async () => {
             const el = await fixture<MfpNavBar>(html`<mfp-nav-bar></mfp-nav-bar>`);
             el.menuOpen = true;
