@@ -22,7 +22,7 @@
         "storybook": "pnpm --filter @mfp-design-system/storybook run dev",
         "build-storybook": "pnpm --filter @mfp-design-system/storybook run build",
         "changeset": "changeset",
-        "version-packages": "changeset version",
+        "version-packages": "changeset version && pnpm install --lockfile-only",
         "release": "pnpm build && changeset publish",
         "prepare": "husky"
     },

@@ -54,7 +54,7 @@
         "@mfp-design-system/tooltip": "workspace:*"
     },
     "peerDependencies": {
-        "@mfp-design-system/tokens": "^0.5.0"
+        "@mfp-design-system/tokens": "workspace:^"
     },
     "peerDependenciesMeta": {
         "@mfp-design-system/tokens": {

@@ -279,8 +279,8 @@ importers:
         specifier: workspace:*
         version: link:../toast
       '@mfp-design-system/tokens':
-        specifier: ^0.4.0
-        version: 0.4.0
+        specifier: workspace:^
+        version: link:../tokens
       '@mfp-design-system/tooltip':
         specifier: workspace:*
         version: link:../tooltip
@@ -1398,9 +1398,6 @@ packages:
     peerDependencies:
       '@types/react': '>=16'
       react: '>=16'
-
-  '@mfp-design-system/tokens@0.4.0':
-    resolution: {integrity: sha512-5ddEAfPnmRLd6fJjUBK+94F34LiBTnkA7CbB0Xw/B2Ht6aXTTkCyKHAyTXr9TdM7dufnft2L95LUeHO9CyP+6w==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -4926,8 +4923,6 @@ snapshots:
       '@types/mdx': 2.0.13
       '@types/react': 19.2.15
       react: 19.2.6
-
-  '@mfp-design-system/tokens@0.4.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:

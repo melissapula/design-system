@@ -45,6 +45,10 @@ async function main() {
         if (pkg.name === PEER_DEP_KEY) continue; // tokens doesn't peer on itself
         const range = pkg.peerDependencies?.[PEER_DEP_KEY];
         if (!range) continue; // package doesn't depend on tokens — skip
+        // Workspace-protocol ranges (`workspace:*`, `workspace:^`, `workspace:~`)
+        // are rewritten by pnpm to the current published version at `pnpm publish`
+        // time, so they can't drift. Skip them — they're always in sync by design.
+        if (range.startsWith('workspace:')) continue;
         observed.set(pkg.name, range);
     }
 
