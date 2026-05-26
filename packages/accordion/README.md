@@ -63,7 +63,7 @@ import '@mfp-design-system/tokens/css';
 
 ### Events
 
-- `toggle` on `<mfp-accordion-item>` — fires when open state changes. `event.detail.open` is the new state.
+- `mfp-toggle` on `<mfp-accordion-item>` — fires when open state changes. `event.detail.open` is the new state. (Named `mfp-toggle` instead of `toggle` to avoid TypeScript's `ToggleEvent` type collision on the native `<details>` toggle event.)
 
 ### Slots (on item)
 

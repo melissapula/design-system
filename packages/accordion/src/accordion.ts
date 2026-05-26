@@ -165,9 +165,14 @@ export class MfpAccordionItem extends LitElement {
                 detail: { open: this.open },
             }),
         );
-        // Public-facing event for consumers.
+        // Public-facing event for consumers. Named `mfp-toggle` (not just
+        // `toggle`) to avoid colliding with the native ToggleEvent that
+        // lib.dom.d.ts maps `addEventListener('toggle', ...)` to — a
+        // collision that forced consumers to cast through `unknown` to
+        // reach `.detail.open`. With this name, `(e as CustomEvent).detail`
+        // works directly.
         this.dispatchEvent(
-            new CustomEvent('toggle', {
+            new CustomEvent('mfp-toggle', {
                 bubbles: true,
                 composed: true,
                 detail: { open: this.open },

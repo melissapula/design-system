@@ -21,17 +21,14 @@ describe('<mfp-accordion-item>', () => {
         expect(el.shadowRoot?.querySelector('details')?.open).to.equal(true);
     });
 
-    it('fires toggle event when opened by click', async () => {
+    it('fires mfp-toggle event when opened by click', async () => {
         const el = await fixture<MfpAccordionItem>(html`
             <mfp-accordion-item label="One">body</mfp-accordion-item>
         `);
         await el.updateComplete;
         let eventOpen: boolean | undefined;
-        el.addEventListener('toggle', (e) => {
-            // The component dispatches a CustomEvent named 'toggle' to be
-            // ergonomic, but TS's lib.dom.d.ts types listeners for 'toggle'
-            // as the native ToggleEvent. Cast through unknown.
-            eventOpen = (e as unknown as CustomEvent<{ open: boolean }>).detail.open;
+        el.addEventListener('mfp-toggle', (e) => {
+            eventOpen = (e as CustomEvent<{ open: boolean }>).detail.open;
         });
         // Simulate user clicking the summary — sets details.open then fires toggle
         const details = el.shadowRoot!.querySelector('details')!;
