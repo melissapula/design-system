@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/tokens",
-    "version": "0.4.0",
+    "version": "0.5.0",
     "description": "Design tokens for the mfp-design-system, built with Style Dictionary.",
     "license": "MIT",
     "type": "module",

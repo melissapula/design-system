@@ -1,5 +1,12 @@
 # @mfp-design-system/checkbox
 
+## 3.0.0
+
+### Patch Changes
+
+- Updated dependencies [67b5fd0]
+    - @mfp-design-system/tokens@0.5.0
+
 ## 2.0.0
 
 ### Patch Changes

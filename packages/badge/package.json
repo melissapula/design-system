@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/badge",
-    "version": "0.1.1",
+    "version": "1.0.0",
     "description": "Badge / pill / chip web component for the mfp-design-system, built with Lit.",
     "license": "MIT",
     "type": "module",
@@ -32,7 +32,7 @@
         "lit": "^3.2.1"
     },
     "peerDependencies": {
-        "@mfp-design-system/tokens": "^0.4.0"
+        "@mfp-design-system/tokens": "^0.5.0"
     },
     "peerDependenciesMeta": {
         "@mfp-design-system/tokens": {
