@@ -1,0 +1,9 @@
+#
+# Pre-push gate: runs the same checks CI runs, so failures surface here
+# instead of after you've pushed and waited for GitHub Actions.
+#
+# Mirrors .github/workflows/ci.yml. Skip with `git push --no-verify` if
+# you intentionally want to push a WIP branch (don't skip on main).
+#
+
+pnpm validate

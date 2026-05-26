@@ -1,5 +1,40 @@
 {
     "extends": "../../tsconfig.base.json",
-    "compilerOptions": { "noEmit": true },
+    "compilerOptions": {
+        "noEmit": true,
+        /*
+         * Resolve workspace package names to each component's source entry,
+         * so typecheck succeeds without first building every component's
+         * dist/ directory. Path mappings are TypeScript-only — emitted JS
+         * keeps the literal `@mfp-design-system/...` imports, which then
+         * resolve via node_modules / pnpm workspace at runtime.
+         */
+        "baseUrl": ".",
+        "paths": {
+            "@mfp-design-system/accordion": ["../accordion/src/index.ts"],
+            "@mfp-design-system/alert": ["../alert/src/index.ts"],
+            "@mfp-design-system/avatar": ["../avatar/src/index.ts"],
+            "@mfp-design-system/badge": ["../badge/src/index.ts"],
+            "@mfp-design-system/button": ["../button/src/index.ts"],
+            "@mfp-design-system/card": ["../card/src/index.ts"],
+            "@mfp-design-system/checkbox": ["../checkbox/src/index.ts"],
+            "@mfp-design-system/divider": ["../divider/src/index.ts"],
+            "@mfp-design-system/footer": ["../footer/src/index.ts"],
+            "@mfp-design-system/form-field": ["../form-field/src/index.ts"],
+            "@mfp-design-system/icon-button": ["../icon-button/src/index.ts"],
+            "@mfp-design-system/input": ["../input/src/index.ts"],
+            "@mfp-design-system/modal": ["../modal/src/index.ts"],
+            "@mfp-design-system/nav": ["../nav/src/index.ts"],
+            "@mfp-design-system/radio": ["../radio/src/index.ts"],
+            "@mfp-design-system/select": ["../select/src/index.ts"],
+            "@mfp-design-system/spinner": ["../spinner/src/index.ts"],
+            "@mfp-design-system/stepper": ["../stepper/src/index.ts"],
+            "@mfp-design-system/switch": ["../switch/src/index.ts"],
+            "@mfp-design-system/tabs": ["../tabs/src/index.ts"],
+            "@mfp-design-system/textarea": ["../textarea/src/index.ts"],
+            "@mfp-design-system/toast": ["../toast/src/index.ts"],
+            "@mfp-design-system/tooltip": ["../tooltip/src/index.ts"]
+        }
+    },
     "include": ["src/**/*"]
 }

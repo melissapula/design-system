@@ -122,19 +122,27 @@ pnpm storybook     # http://localhost:6006
 
 ### Scripts
 
-| Script                 | What it does                                                  |
-| ---------------------- | ------------------------------------------------------------- |
-| `pnpm build`           | Build all workspace packages                                  |
-| `pnpm dev`             | Run `dev` in every package, in parallel                       |
-| `pnpm lint`            | ESLint across the repo                                        |
-| `pnpm format`          | Prettier-format all files                                     |
-| `pnpm format:check`    | CI-style format check                                         |
-| `pnpm typecheck`       | TypeScript check on every package                             |
-| `pnpm test`            | Web Test Runner across all packages (Chromium via Playwright) |
-| `pnpm storybook`       | Run Storybook locally                                         |
-| `pnpm build-storybook` | Build static Storybook output                                 |
-| `pnpm changeset`       | Create a new changeset                                        |
-| `pnpm release`         | Build and publish (CI uses this; don't run manually)          |
+| Script                 | What it does                                                               |
+| ---------------------- | -------------------------------------------------------------------------- |
+| `pnpm build`           | Build all workspace packages                                               |
+| `pnpm dev`             | Run `dev` in every package, in parallel                                    |
+| `pnpm lint`            | ESLint across the repo                                                     |
+| `pnpm format`          | Prettier-format all files                                                  |
+| `pnpm format:check`    | CI-style format check                                                      |
+| `pnpm typecheck`       | TypeScript check on every package                                          |
+| `pnpm test`            | Web Test Runner across all packages (Chromium via Playwright)              |
+| `pnpm storybook`       | Run Storybook locally                                                      |
+| `pnpm build-storybook` | Build static Storybook output                                              |
+| `pnpm changeset`       | Create a new changeset                                                     |
+| `pnpm validate`        | Run the full CI gate locally (audit, format, lint, typecheck, build, test) |
+| `pnpm release`         | Build and publish (CI uses this; don't run manually)                       |
+
+### Pre-commit / pre-push gates
+
+- **Pre-commit** (husky): runs lint-staged — Prettier + ESLint on staged files only. Fast.
+- **Pre-push** (husky): runs `pnpm validate` — the full CI gate (audit-peers, format:check, lint, typecheck, build, test). Slow but catches everything CI would catch before you wait on GitHub.
+
+If you need to push WIP for backup, skip the pre-push hook with `git push --no-verify`. Don't skip on `main` — broken main blocks the release workflow.
 
 ### Testing
 
