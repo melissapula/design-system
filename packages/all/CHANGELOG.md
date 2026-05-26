@@ -1,5 +1,14 @@
 # @mfp-design-system/all
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [a4a374c]
+- Updated dependencies [6f8500f]
+    - @mfp-design-system/accordion@2.0.0
+    - @mfp-design-system/nav@1.1.0
+
 ## 1.0.0
 
 ### Patch Changes
