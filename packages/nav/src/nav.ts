@@ -196,18 +196,54 @@ export class MfpNavBar extends LitElement {
             border-top-color: var(--color-brand-primary-emphasis, #1e40af);
         }
 
+        /*
+         * Belt-and-suspenders: explicit color override for the hamburger
+         * under the brand variant. Relying on the surface-token cascade
+         * was unreliable in some consuming apps, so set the color directly
+         * with a higher-specificity selector that wins.
+         */
+        :host([variant='brand']) .menu-toggle {
+            color: var(--color-brand-primary-fg, #ffffff);
+        }
+
         :host([data-collapsed][menu-open]) .menu {
             display: flex;
         }
 
-        :host([data-collapsed]) .nav,
-        :host([data-collapsed]) .actions {
+        /*
+         * Nav items: stack vertically, full-width, in the collapsed dropdown.
+         */
+        :host([data-collapsed]) .nav {
             flex-direction: column;
             align-items: stretch;
             flex: 0 0 auto;
             width: 100%;
             overflow: visible;
             gap: var(--size-spacing-1, 4px);
+        }
+
+        /*
+         * Actions: their own row at the bottom of the dropdown, right-
+         * aligned (where users expect "secondary chrome" — theme picker,
+         * user menu, etc. — to live on mobile). Separated from the nav
+         * items above by a subtle hairline so it doesn't look like part
+         * of the nav list.
+         */
+        :host([data-collapsed]) .actions {
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            flex: 0 0 auto;
+            width: 100%;
+            overflow: visible;
+            gap: var(--size-spacing-2, 8px);
+            margin-top: var(--size-spacing-2, 8px);
+            padding-top: var(--size-spacing-3, 12px);
+            border-top: 1px solid var(--color-border-default, rgba(128, 128, 128, 0.2));
+        }
+
+        :host([variant='brand'][data-collapsed]) .actions {
+            border-top-color: rgba(255, 255, 255, 0.15);
         }
     `;
 
@@ -312,17 +348,17 @@ export class MfpNavBar extends LitElement {
                     aria-controls="mfp-nav-menu"
                     @click=${this._onToggleClick}
                 >
-                    <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        aria-hidden="true"
-                    >
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         ${this.menuOpen
-                            ? html`<path d="M6 6L18 18M6 18L18 6"></path>`
-                            : html`<path d="M4 7H20M4 12H20M4 17H20"></path>`}
+                            ? html`<g transform="rotate(45 12 12)">
+                                      <rect x="3" y="11" width="18" height="2" rx="1"></rect>
+                                  </g>
+                                  <g transform="rotate(-45 12 12)">
+                                      <rect x="3" y="11" width="18" height="2" rx="1"></rect>
+                                  </g>`
+                            : html`<rect x="3" y="6" width="18" height="2" rx="1"></rect>
+                                  <rect x="3" y="11" width="18" height="2" rx="1"></rect>
+                                  <rect x="3" y="16" width="18" height="2" rx="1"></rect>`}
                     </svg>
                 </button>
                 <div class="menu" id="mfp-nav-menu" part="menu" @click=${this._onMenuClick}>
