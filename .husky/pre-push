@@ -5,5 +5,15 @@
 # Mirrors .github/workflows/ci.yml. Skip with `git push --no-verify` if
 # you intentionally want to push a WIP branch (don't skip on main).
 #
+# Skipped automatically when invoked from inside a CI environment —
+# the release workflow does its own `git push` to changeset-release/main
+# and CI doesn't install Playwright browsers, so running `pnpm test`
+# there would fail spuriously. CI has its own validation gates.
+#
+
+if [ -n "$CI" ]; then
+    echo "pre-push: skipping in CI (\$CI is set) — release workflow handles its own validation"
+    exit 0
+fi
 
 pnpm validate
