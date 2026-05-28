@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/spinner",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "Spinner / loading indicator web component for the mfp-design-system.",
     "license": "MIT",
     "type": "module",

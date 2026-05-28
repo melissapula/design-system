@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/divider",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "Divider / separator web component for the mfp-design-system.",
     "license": "MIT",
     "type": "module",
