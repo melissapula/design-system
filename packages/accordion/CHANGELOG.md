@@ -1,5 +1,12 @@
 # @mfp-design-system/accordion
 
+## 3.0.0
+
+### Patch Changes
+
+- Updated dependencies [4c41382]
+    - @mfp-design-system/tokens@0.6.0
+
 ## 2.0.0
 
 ### Major Changes

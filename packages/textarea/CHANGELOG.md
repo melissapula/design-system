@@ -1,5 +1,12 @@
 # @mfp-design-system/textarea
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [4c41382]
+    - @mfp-design-system/tokens@0.6.0
+
 ## 1.0.0
 
 ### Patch Changes
