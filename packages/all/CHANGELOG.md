@@ -1,5 +1,14 @@
 # @mfp-design-system/all
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [36c75b7]
+    - @mfp-design-system/modal@6.0.1
+    - @mfp-design-system/tooltip@4.0.1
+    - @mfp-design-system/toast@4.0.1
+
 ## 4.0.0
 
 ### Patch Changes
