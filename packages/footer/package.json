@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/footer",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "Footer shell for app chrome. Default slot for content; brand variant for themed background.",
     "license": "MIT",
     "type": "module",

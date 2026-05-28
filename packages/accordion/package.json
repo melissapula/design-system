@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/accordion",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "Accordion (mfp-accordion + mfp-accordion-item) for disclosure UIs like FAQs and settings sections.",
     "license": "MIT",
     "type": "module",

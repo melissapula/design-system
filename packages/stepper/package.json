@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/stepper",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "Stepper (mfp-stepper / mfp-step) for multi-step flows: onboarding, checkout, forms.",
     "license": "MIT",
     "type": "module",
