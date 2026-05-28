@@ -24,11 +24,12 @@ export class MfpFooter extends LitElement {
         :host {
             display: block;
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-body-sm, 14px);
             line-height: var(--font-line-height-normal, 1.5);
             background: var(--color-background-subtle, #f9fafb);
             color: var(--color-text-muted, #6b7280);
-            border-top: 1px solid var(--color-border-default, #e5e7eb);
+            border-top: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
         }
 
         :host([variant='brand']) {
@@ -47,8 +48,8 @@ export class MfpFooter extends LitElement {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: var(--size-spacing-4, 16px);
-            padding: var(--size-spacing-4, 16px) var(--size-spacing-5, 20px);
+            gap: var(--space-inline-md, 16px);
+            padding: var(--space-component-md, 16px) var(--space-component-lg, 20px);
             flex-wrap: wrap;
         }
 

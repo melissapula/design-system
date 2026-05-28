@@ -44,7 +44,8 @@ export class MfpNavBar extends LitElement {
              */
             background: var(--color-background-default, #ffffff);
             color: var(--color-text-default, #111827);
-            border-bottom: 1px solid var(--color-border-default, #e5e7eb);
+            border-bottom: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
             --mfp-nav-item-fg: var(--color-text-muted, #6b7280);
             --mfp-nav-item-fg-strong: var(--color-text-default, #111827);
             --mfp-nav-item-hover-bg: var(--color-background-subtle, #f9fafb);
@@ -117,8 +118,8 @@ export class MfpNavBar extends LitElement {
             height: 40px;
             margin-left: auto;
             background: none;
-            border: 1px solid transparent;
-            border-radius: var(--size-radius-md, 8px);
+            border: var(--size-border-width-thin, 1px) solid transparent;
+            border-radius: var(--radius-control, 8px);
             /*
              * Pull from the same surface token the nav items use — this
              * is set by the host's variant selectors above (white for the
@@ -139,8 +140,9 @@ export class MfpNavBar extends LitElement {
         }
 
         .menu-toggle:focus-visible {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
-            outline-offset: 2px;
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
+            outline-offset: var(--focus-ring-offset, 2px);
         }
 
         .menu-toggle svg {
@@ -149,7 +151,7 @@ export class MfpNavBar extends LitElement {
         }
 
         ::slotted([slot='brand']) {
-            font-size: var(--font-size-lg, 18px);
+            font-size: var(--text-body-lg, 18px);
             color: inherit;
             text-decoration: none;
             white-space: nowrap;
@@ -185,8 +187,9 @@ export class MfpNavBar extends LitElement {
              */
             background: var(--color-background-default, #ffffff);
             color: var(--color-text-default, #111827);
-            border-top: 1px solid var(--color-border-default, #e5e7eb);
-            box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+            border-top: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
+            box-shadow: var(--elevation-overlay, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
             z-index: var(--z-dropdown, 100);
         }
 
@@ -396,7 +399,8 @@ export class MfpSideNav extends LitElement {
             flex-direction: column;
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
             background: var(--color-background-default, #ffffff);
-            border-right: 1px solid var(--color-border-default, #e5e7eb);
+            border-right: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
             color: var(--color-text-default, #111827);
             width: 240px;
             min-height: 100%;
@@ -424,7 +428,8 @@ export class MfpSideNav extends LitElement {
         }
 
         .header {
-            border-bottom: 1px solid var(--color-border-default, #e5e7eb);
+            border-bottom: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
         }
 
         .items {
@@ -437,8 +442,9 @@ export class MfpSideNav extends LitElement {
         }
 
         .footer {
-            border-top: 1px solid var(--color-border-default, #e5e7eb);
-            font-size: var(--font-size-sm, 14px);
+            border-top: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
+            font-size: var(--text-button, 14px);
             color: var(--color-text-muted, #6b7280);
         }
 
@@ -502,7 +508,7 @@ export class MfpNavItem extends LitElement {
         :host {
             display: block;
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-button, 14px);
             font-weight: var(--font-weight-medium, 500);
             /*
              * Surface tokens — set by the parent nav (mfp-nav-bar / mfp-side-nav)
@@ -518,7 +524,7 @@ export class MfpNavItem extends LitElement {
             align-items: center;
             gap: var(--size-spacing-2, 8px);
             padding: var(--size-spacing-2, 8px) var(--size-spacing-3, 12px);
-            border-radius: var(--size-radius-md, 8px);
+            border-radius: var(--radius-control, 8px);
             color: inherit;
             background: none;
             border: none;
@@ -547,8 +553,9 @@ export class MfpNavItem extends LitElement {
 
         a:focus-visible,
         button:focus-visible {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
-            outline-offset: 2px;
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
+            outline-offset: var(--focus-ring-offset, 2px);
         }
 
         :host([active]) a,
@@ -560,7 +567,7 @@ export class MfpNavItem extends LitElement {
 
         :host([disabled]) a,
         :host([disabled]) button {
-            opacity: 0.5;
+            opacity: var(--opacity-disabled, 0.5);
             cursor: not-allowed;
             pointer-events: none;
         }

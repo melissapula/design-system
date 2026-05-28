@@ -32,8 +32,9 @@ export class MfpTabs extends LitElement {
 
         .tablist {
             display: flex;
-            gap: var(--size-spacing-1, 4px);
-            border-bottom: 1px solid var(--color-border-default, #e5e7eb);
+            gap: var(--space-inline-xs, 4px);
+            border-bottom: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
             padding-bottom: 0;
         }
 
@@ -160,12 +161,12 @@ export class MfpTab extends LitElement {
         :host {
             display: inline-block;
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-button, 14px);
             font-weight: var(--font-weight-medium, 500);
             color: var(--color-text-muted, #6b7280);
             cursor: pointer;
-            padding: var(--size-spacing-2, 8px) var(--size-spacing-4, 16px);
-            border-bottom: 2px solid transparent;
+            padding: var(--space-component-sm, 8px) var(--space-component-lg, 16px);
+            border-bottom: var(--size-border-width-medium, 2px) solid transparent;
             margin-bottom: -1px;
             transition:
                 color var(--motion-duration-fast, 150ms) var(--motion-easing-standard, ease),
@@ -183,13 +184,14 @@ export class MfpTab extends LitElement {
         }
 
         :host([disabled]) {
-            opacity: 0.5;
+            opacity: var(--opacity-disabled, 0.5);
             cursor: not-allowed;
         }
 
         :host(:focus-visible) {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
-            outline-offset: 2px;
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
+            outline-offset: var(--focus-ring-offset, 2px);
             border-radius: var(--size-radius-sm, 4px);
         }
     `;
@@ -238,7 +240,7 @@ export class MfpTabPanel extends LitElement {
     static override styles = css`
         :host {
             display: block;
-            padding: var(--size-spacing-4, 16px) 0;
+            padding: var(--space-stack-md, 16px) 0;
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
             color: var(--color-text-default, #111827);
         }

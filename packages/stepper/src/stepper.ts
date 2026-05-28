@@ -159,13 +159,13 @@ export class MfpStep extends LitElement {
             flex-direction: row;
             align-items: flex-start;
             text-align: left;
-            padding: 0 0 var(--size-spacing-5, 20px);
+            padding: 0 0 var(--space-stack-lg, 20px);
             position: relative;
         }
         :host([orientation='vertical']) .row {
             display: flex;
             align-items: flex-start;
-            gap: var(--size-spacing-3, 12px);
+            gap: var(--space-inline-md, 12px);
             width: 100%;
         }
         :host([orientation='vertical']) .connector {
@@ -173,7 +173,7 @@ export class MfpStep extends LitElement {
             top: 32px;
             bottom: 0;
             left: 15px; /* center of the 32px circle */
-            width: 2px;
+            width: var(--size-border-width-medium, 2px);
             background: var(--color-border-default, #e5e7eb);
         }
 
@@ -188,17 +188,17 @@ export class MfpStep extends LitElement {
         }
 
         .circle {
-            width: 32px;
-            height: 32px;
+            width: var(--size-control-sm, 32px);
+            height: var(--size-control-sm, 32px);
             flex: none;
-            border-radius: 50%;
+            border-radius: var(--radius-pill, 50%);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: var(--color-neutral-0, #ffffff);
-            border: 2px solid var(--color-border-default, #e5e7eb);
+            border: var(--size-border-width-medium, 2px) solid var(--color-border-default, #e5e7eb);
             color: var(--color-text-muted, #6b7280);
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-button, 14px);
             font-weight: var(--font-weight-semibold, 600);
             position: relative;
             transition:
@@ -249,7 +249,7 @@ export class MfpStep extends LitElement {
                 transform: scale(1);
             }
             50% {
-                opacity: 0.5;
+                opacity: var(--opacity-disabled, 0.5);
                 transform: scale(1.4);
             }
         }
@@ -269,7 +269,7 @@ export class MfpStep extends LitElement {
         }
         :host(:not([orientation])) .text,
         :host([orientation='horizontal']) .text {
-            margin-top: var(--size-spacing-2, 8px);
+            margin-top: var(--space-stack-sm, 8px);
             max-width: 140px;
         }
         :host([orientation='vertical']) .text {
@@ -278,7 +278,7 @@ export class MfpStep extends LitElement {
         }
 
         .label {
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-label, 14px);
             font-weight: var(--font-weight-medium, 500);
             line-height: var(--font-line-height-tight, 1.2);
             color: var(--color-text-muted, #6b7280);
@@ -290,10 +290,10 @@ export class MfpStep extends LitElement {
         }
 
         .description {
-            font-size: var(--font-size-xs, 12px);
+            font-size: var(--text-caption, 12px);
             line-height: var(--font-line-height-normal, 1.5);
             color: var(--color-text-muted, #6b7280);
-            margin-top: var(--size-spacing-1, 4px);
+            margin-top: var(--space-stack-xs, 4px);
         }
 
         /* Interactive */
@@ -301,7 +301,8 @@ export class MfpStep extends LitElement {
             cursor: pointer;
         }
         :host([clickable]) .row:focus-visible .circle {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
             outline-offset: 4px;
         }
     `;

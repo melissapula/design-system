@@ -22,8 +22,8 @@ export class MfpAccordion extends LitElement {
         :host {
             display: block;
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
-            border: 1px solid var(--color-border-default, #e5e7eb);
-            border-radius: var(--size-radius-md, 8px);
+            border: var(--size-border-width-thin, 1px) solid var(--color-border-default, #e5e7eb);
+            border-radius: var(--radius-control, 8px);
             overflow: hidden;
         }
 
@@ -32,7 +32,8 @@ export class MfpAccordion extends LitElement {
         }
 
         ::slotted(mfp-accordion-item:not(:last-of-type)) {
-            border-bottom: 1px solid var(--color-border-default, #e5e7eb);
+            border-bottom: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
         }
     `;
 
@@ -83,11 +84,11 @@ export class MfpAccordionItem extends LitElement {
         details > summary {
             list-style: none;
             cursor: pointer;
-            padding: var(--size-spacing-3, 12px) var(--size-spacing-4, 16px);
+            padding: var(--space-component-md, 12px) var(--space-component-lg, 16px);
             display: flex;
             align-items: center;
-            gap: var(--size-spacing-3, 12px);
-            font-size: var(--font-size-base, 16px);
+            gap: var(--space-inline-md, 12px);
+            font-size: var(--text-body-md, 16px);
             font-weight: var(--font-weight-medium, 500);
             line-height: var(--font-line-height-tight, 1.2);
             user-select: none;
@@ -108,7 +109,8 @@ export class MfpAccordionItem extends LitElement {
         }
 
         details > summary:focus-visible {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
             outline-offset: -2px;
         }
 
@@ -125,15 +127,15 @@ export class MfpAccordionItem extends LitElement {
         }
 
         .content {
-            padding: 0 var(--size-spacing-4, 16px) var(--size-spacing-4, 16px);
-            font-size: var(--font-size-base, 16px);
+            padding: 0 var(--space-component-lg, 16px) var(--space-component-lg, 16px);
+            font-size: var(--text-body-md, 16px);
             line-height: var(--font-line-height-normal, 1.5);
             color: var(--color-text-default, #111827);
         }
 
         :host([disabled]) details > summary {
             cursor: not-allowed;
-            opacity: 0.5;
+            opacity: var(--opacity-disabled, 0.5);
             pointer-events: none;
         }
 
