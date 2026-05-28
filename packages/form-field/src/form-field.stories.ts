@@ -4,6 +4,7 @@ import './form-field.js';
 import '@mfp-design-system/input';
 import '@mfp-design-system/select';
 import '@mfp-design-system/checkbox';
+import '@mfp-design-system/date-picker';
 
 interface Args {
     label: string;
@@ -40,7 +41,7 @@ const meta: Meta<Args> = {
             orientation=${args.orientation}
             style="max-width: 320px;"
         >
-            <input type="date" />
+            <mfp-date-picker placeholder="Select a date"></mfp-date-picker>
         </mfp-form-field>
     `,
 };

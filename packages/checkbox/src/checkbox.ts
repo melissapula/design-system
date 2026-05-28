@@ -30,7 +30,7 @@ export class MfpCheckbox extends LitElement {
             flex: none;
             border: 1.5px solid var(--color-border-strong, #9ca3af);
             border-radius: var(--size-radius-sm, 4px);
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-background-default, #ffffff);
             display: inline-flex;
             align-items: center;
             justify-content: center;

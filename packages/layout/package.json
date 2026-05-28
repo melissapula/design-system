@@ -1,10 +1,16 @@
 {
-    "name": "@mfp-design-system/form-field",
-    "version": "6.0.1",
-    "description": "FormField wrapper providing label/hint/error around an arbitrary control.",
+    "name": "@mfp-design-system/layout",
+    "version": "0.1.0",
+    "description": "Layout primitives (container, row, col) and a spacing/flex utility sheet for the mfp-design-system.",
     "license": "MIT",
     "type": "module",
-    "sideEffects": true,
+    "sideEffects": [
+        "dist/index.js",
+        "dist/container.js",
+        "dist/row.js",
+        "dist/col.js",
+        "*.css"
+    ],
     "files": [
         "dist",
         "src",
@@ -15,18 +21,19 @@
             "types": "./dist/index.d.ts",
             "import": "./dist/index.js",
             "default": "./dist/index.js"
-        }
+        },
+        "./utilities.css": "./dist/utilities.css"
     },
     "main": "./dist/index.js",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "scripts": {
-        "build": "tsc -p tsconfig.build.json",
+        "build": "tsc -p tsconfig.build.json && node scripts/copy-css.mjs",
         "dev": "tsc -p tsconfig.build.json --watch",
         "clean": "rimraf dist",
         "lint": "eslint . --max-warnings=0",
         "typecheck": "tsc --noEmit",
-        "test": "echo \"no tests yet\""
+        "test": "echo \"tests run from workspace root\""
     },
     "dependencies": {
         "lit": "^3.2.1"
@@ -40,10 +47,6 @@
         }
     },
     "devDependencies": {
-        "@mfp-design-system/checkbox": "workspace:*",
-        "@mfp-design-system/date-picker": "workspace:*",
-        "@mfp-design-system/input": "workspace:*",
-        "@mfp-design-system/select": "workspace:*",
         "@mfp-design-system/tokens": "workspace:*",
         "rimraf": "^6.0.1",
         "typescript": "^5.6.3"

@@ -78,7 +78,7 @@ export class MfpAccordionItem extends LitElement {
             display: block;
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
             color: var(--color-text-default, #111827);
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-background-default, #ffffff);
         }
 
         details > summary {

@@ -82,6 +82,94 @@ const themeStyles = `
     --color-brand-primary-subtle: #e8f7f1;
     --color-brand-primary-emphasis: #125f46;
 }
+
+[data-mode='dark'] {
+    --color-text-default: var(--color-neutral-50);
+    --color-text-muted: var(--color-neutral-400);
+    --color-text-inverse: var(--color-neutral-900);
+    --color-text-inverse-muted: var(--color-neutral-600);
+    --color-text-brand: var(--color-brand-300);
+
+    --color-background-default: var(--color-neutral-900);
+    --color-background-subtle: var(--color-neutral-800);
+    --color-background-muted: var(--color-neutral-700);
+
+    --color-border-default: var(--color-neutral-700);
+    --color-border-strong: var(--color-neutral-500);
+
+    --color-status-success-bg: #052e1c;
+    --color-status-success-fg: #86efac;
+    --color-status-success-border: #166534;
+    --color-status-success-solid: #22c55e;
+
+    --color-status-warning-bg: #3b2106;
+    --color-status-warning-fg: #fcd34d;
+    --color-status-warning-border: #92400e;
+    --color-status-warning-solid: #fbbf24;
+
+    --color-status-error-bg: #3b0a0a;
+    --color-status-error-fg: #fca5a5;
+    --color-status-error-border: #991b1b;
+    --color-status-error-solid: #ef4444;
+
+    --color-status-info-bg: #0c1e3b;
+    --color-status-info-fg: #93c5fd;
+    --color-status-info-border: #1e40af;
+    --color-status-info-solid: #3b82f6;
+
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.65);
+    --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    color-scheme: dark;
+}
+
+/* Paint the storybook canvas surface from the active mode/theme vars.
+   Wide selector list because Storybook 8 docs pages stack several
+   Emotion-themed wrappers with white backgrounds; we have to flip all
+   of them to follow the active mode.
+   - html / body — canvas-mode iframe root
+   - .sb-show-main — single-story canvas wrapper
+   - [class*='sbdocs'] — sbdocs / sbdocs-wrapper / sbdocs-content
+   - [class*='sb-preview'], [class*='sb-story'] — preview card + story container
+   - [class*='docs-story'], [class*='docs-block'] — autodocs inline wrappers
+   - .docblock-source — the "Show code" source-view block
+   The doubled selectors with html body raise specificity above Emotion's
+   inline style rules; !important covers the rest. */
+html[data-mode='dark'],
+html[data-mode='dark'] body,
+html[data-mode='dark'] .sb-show-main,
+html[data-mode='dark'] [class*='sbdocs'],
+html[data-mode='dark'] [class*='sb-preview'],
+html[data-mode='dark'] [class*='sb-story'],
+html[data-mode='dark'] [class*='docs-story'],
+html[data-mode='dark'] [class*='docs-block'],
+html[data-mode='dark'] .docblock-source,
+html[data-mode='dark'] body [class*='sbdocs'],
+html[data-mode='dark'] body [class*='docs-story'] {
+    background: var(--color-background-default) !important;
+    background-color: var(--color-background-default) !important;
+    color: var(--color-text-default) !important;
+    border-color: var(--color-border-default) !important;
+}
+
+/* Every Emotion wrapper inside the preview card carries its own white bg
+   in Storybook's light docs theme. Flip them ALL to transparent so the
+   dark parent shows through. Excludes buttons/inputs/code blocks via :not()
+   to keep the "Show code" button and any rendered <code> chrome intact. */
+html[data-mode='dark'] [class*='sbdocs-preview'] *:not(button):not(code):not(pre):not(input):not(textarea):not(select),
+html[data-mode='dark'] [class*='docs-story'] *:not(button):not(code):not(pre):not(input):not(textarea):not(select) {
+    background-color: transparent !important;
+}
+
+html[data-mode='light'],
+html[data-mode='light'] body {
+    background: var(--color-background-default);
+    color: var(--color-text-default);
+}
 `;
 
 const styleEl = document.createElement('style');
@@ -132,11 +220,25 @@ const preview: Preview = {
                 dynamicTitle: true,
             },
         },
+        mode: {
+            description: 'Light or dark mode',
+            defaultValue: 'light',
+            toolbar: {
+                title: 'Mode',
+                icon: 'circlehollow',
+                items: [
+                    { value: 'light', title: 'Light', icon: 'sun' },
+                    { value: 'dark', title: 'Dark', icon: 'moon' },
+                ],
+                dynamicTitle: true,
+            },
+        },
     },
     decorators: [
         (story, context) => {
-            const theme = (context.globals as { theme?: string }).theme ?? 'blue';
-            document.documentElement.setAttribute('data-theme', theme);
+            const globals = context.globals as { theme?: string; mode?: string };
+            document.documentElement.setAttribute('data-theme', globals.theme ?? 'blue');
+            document.documentElement.setAttribute('data-mode', globals.mode ?? 'light');
             return story();
         },
     ],

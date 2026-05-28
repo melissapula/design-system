@@ -28,7 +28,8 @@
         "./themes/orange": "./build/themes/orange.css",
         "./themes/sand": "./build/themes/sand.css",
         "./themes/navy": "./build/themes/navy.css",
-        "./themes/emerald": "./build/themes/emerald.css"
+        "./themes/emerald": "./build/themes/emerald.css",
+        "./themes/dark": "./build/themes/dark.css"
     },
     "main": "./build/js/tokens.js",
     "module": "./build/js/tokens.js",

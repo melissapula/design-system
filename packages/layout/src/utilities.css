@@ -1,0 +1,375 @@
+/*
+ * @mfp-design-system/layout/utilities.css
+ *
+ * Spacing + flex/grid utility classes driven by the design system's
+ * spacing tokens. Import once at app root:
+ *
+ *   import '@mfp-design-system/tokens/css';
+ *   import '@mfp-design-system/layout/utilities.css';
+ *
+ * Scale: xs / sm / md / lg / xl — mapped to --space-stack-* tokens
+ * (4 / 8 / 16 / 24 / 40 px under the default scale).
+ *
+ * No responsive variants. No breakpoint prefixes. This sheet is
+ * intentionally narrow — anything more complex should live in a
+ * dedicated component or use the <mfp-row>/<mfp-col> primitives.
+ */
+
+/* ---------- Padding ---------- */
+.p-xs {
+    padding: var(--space-stack-xs);
+}
+.p-sm {
+    padding: var(--space-stack-sm);
+}
+.p-md {
+    padding: var(--space-stack-md);
+}
+.p-lg {
+    padding: var(--space-stack-lg);
+}
+.p-xl {
+    padding: var(--space-stack-xl);
+}
+
+.px-xs {
+    padding-inline: var(--space-stack-xs);
+}
+.px-sm {
+    padding-inline: var(--space-stack-sm);
+}
+.px-md {
+    padding-inline: var(--space-stack-md);
+}
+.px-lg {
+    padding-inline: var(--space-stack-lg);
+}
+.px-xl {
+    padding-inline: var(--space-stack-xl);
+}
+
+.py-xs {
+    padding-block: var(--space-stack-xs);
+}
+.py-sm {
+    padding-block: var(--space-stack-sm);
+}
+.py-md {
+    padding-block: var(--space-stack-md);
+}
+.py-lg {
+    padding-block: var(--space-stack-lg);
+}
+.py-xl {
+    padding-block: var(--space-stack-xl);
+}
+
+.pt-xs {
+    padding-top: var(--space-stack-xs);
+}
+.pt-sm {
+    padding-top: var(--space-stack-sm);
+}
+.pt-md {
+    padding-top: var(--space-stack-md);
+}
+.pt-lg {
+    padding-top: var(--space-stack-lg);
+}
+.pt-xl {
+    padding-top: var(--space-stack-xl);
+}
+
+.pr-xs {
+    padding-right: var(--space-stack-xs);
+}
+.pr-sm {
+    padding-right: var(--space-stack-sm);
+}
+.pr-md {
+    padding-right: var(--space-stack-md);
+}
+.pr-lg {
+    padding-right: var(--space-stack-lg);
+}
+.pr-xl {
+    padding-right: var(--space-stack-xl);
+}
+
+.pb-xs {
+    padding-bottom: var(--space-stack-xs);
+}
+.pb-sm {
+    padding-bottom: var(--space-stack-sm);
+}
+.pb-md {
+    padding-bottom: var(--space-stack-md);
+}
+.pb-lg {
+    padding-bottom: var(--space-stack-lg);
+}
+.pb-xl {
+    padding-bottom: var(--space-stack-xl);
+}
+
+.pl-xs {
+    padding-left: var(--space-stack-xs);
+}
+.pl-sm {
+    padding-left: var(--space-stack-sm);
+}
+.pl-md {
+    padding-left: var(--space-stack-md);
+}
+.pl-lg {
+    padding-left: var(--space-stack-lg);
+}
+.pl-xl {
+    padding-left: var(--space-stack-xl);
+}
+
+/* ---------- Margin ---------- */
+.m-xs {
+    margin: var(--space-stack-xs);
+}
+.m-sm {
+    margin: var(--space-stack-sm);
+}
+.m-md {
+    margin: var(--space-stack-md);
+}
+.m-lg {
+    margin: var(--space-stack-lg);
+}
+.m-xl {
+    margin: var(--space-stack-xl);
+}
+.m-auto {
+    margin: auto;
+}
+
+.mx-xs {
+    margin-inline: var(--space-stack-xs);
+}
+.mx-sm {
+    margin-inline: var(--space-stack-sm);
+}
+.mx-md {
+    margin-inline: var(--space-stack-md);
+}
+.mx-lg {
+    margin-inline: var(--space-stack-lg);
+}
+.mx-xl {
+    margin-inline: var(--space-stack-xl);
+}
+.mx-auto {
+    margin-inline: auto;
+}
+
+.my-xs {
+    margin-block: var(--space-stack-xs);
+}
+.my-sm {
+    margin-block: var(--space-stack-sm);
+}
+.my-md {
+    margin-block: var(--space-stack-md);
+}
+.my-lg {
+    margin-block: var(--space-stack-lg);
+}
+.my-xl {
+    margin-block: var(--space-stack-xl);
+}
+
+.mt-xs {
+    margin-top: var(--space-stack-xs);
+}
+.mt-sm {
+    margin-top: var(--space-stack-sm);
+}
+.mt-md {
+    margin-top: var(--space-stack-md);
+}
+.mt-lg {
+    margin-top: var(--space-stack-lg);
+}
+.mt-xl {
+    margin-top: var(--space-stack-xl);
+}
+
+.mr-xs {
+    margin-right: var(--space-stack-xs);
+}
+.mr-sm {
+    margin-right: var(--space-stack-sm);
+}
+.mr-md {
+    margin-right: var(--space-stack-md);
+}
+.mr-lg {
+    margin-right: var(--space-stack-lg);
+}
+.mr-xl {
+    margin-right: var(--space-stack-xl);
+}
+
+.mb-xs {
+    margin-bottom: var(--space-stack-xs);
+}
+.mb-sm {
+    margin-bottom: var(--space-stack-sm);
+}
+.mb-md {
+    margin-bottom: var(--space-stack-md);
+}
+.mb-lg {
+    margin-bottom: var(--space-stack-lg);
+}
+.mb-xl {
+    margin-bottom: var(--space-stack-xl);
+}
+
+.ml-xs {
+    margin-left: var(--space-stack-xs);
+}
+.ml-sm {
+    margin-left: var(--space-stack-sm);
+}
+.ml-md {
+    margin-left: var(--space-stack-md);
+}
+.ml-lg {
+    margin-left: var(--space-stack-lg);
+}
+.ml-xl {
+    margin-left: var(--space-stack-xl);
+}
+
+/* ---------- Gap (flex/grid containers) ---------- */
+.gap-xs {
+    gap: var(--space-stack-xs);
+}
+.gap-sm {
+    gap: var(--space-stack-sm);
+}
+.gap-md {
+    gap: var(--space-stack-md);
+}
+.gap-lg {
+    gap: var(--space-stack-lg);
+}
+.gap-xl {
+    gap: var(--space-stack-xl);
+}
+
+/* ---------- Display ---------- */
+.block {
+    display: block;
+}
+.inline-block {
+    display: inline-block;
+}
+.inline {
+    display: inline;
+}
+.hidden {
+    display: none;
+}
+
+/* ---------- Flex ---------- */
+.flex {
+    display: flex;
+}
+.inline-flex {
+    display: inline-flex;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-row-reverse {
+    flex-direction: row-reverse;
+}
+.flex-col-reverse {
+    flex-direction: column-reverse;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+.flex-1 {
+    flex: 1 1 0;
+}
+.flex-auto {
+    flex: 1 1 auto;
+}
+.flex-none {
+    flex: 0 0 auto;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+.items-center {
+    align-items: center;
+}
+.items-end {
+    align-items: flex-end;
+}
+.items-stretch {
+    align-items: stretch;
+}
+.items-baseline {
+    align-items: baseline;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+.justify-center {
+    justify-content: center;
+}
+.justify-end {
+    justify-content: flex-end;
+}
+.justify-between {
+    justify-content: space-between;
+}
+.justify-around {
+    justify-content: space-around;
+}
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+/* ---------- Grid ---------- */
+.grid {
+    display: grid;
+}
+.inline-grid {
+    display: inline-grid;
+}
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+}

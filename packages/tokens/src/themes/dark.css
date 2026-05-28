@@ -1,0 +1,67 @@
+/*
+ * Dark theme — stackable on top of any brand theme.
+ *
+ * Flips the semantic neutral palette (text / background / border), the
+ * status colors, and shadow elevations to dark-mode appropriate values.
+ * Brand colors are left alone, so whichever brand theme is loaded
+ * (terracotta, navy, emerald, etc.) keeps its primary / hover / fg /
+ * subtle / emphasis vars unchanged.
+ *
+ * Apply via two imports — load the brand theme first, dark second so
+ * its rules win:
+ *
+ *   import '@mfp-design-system/tokens/css';
+ *   import '@mfp-design-system/tokens/themes/terracotta';
+ *   import '@mfp-design-system/tokens/themes/dark';
+ *
+ * Or auto-apply with prefers-color-scheme by wrapping the body in a
+ * media query in your app's own CSS — the file is a flat :root block
+ * so it's easy to copy into a media query if you want it gated.
+ */
+:root {
+    /* Text — light end of the neutral ramp */
+    --color-text-default: var(--color-neutral-50);
+    --color-text-muted: var(--color-neutral-400);
+    --color-text-inverse: var(--color-neutral-900);
+    --color-text-inverse-muted: var(--color-neutral-600);
+    --color-text-brand: var(--color-brand-300);
+
+    /* Backgrounds — dark grays. neutral-900 is the page base. */
+    --color-background-default: var(--color-neutral-900);
+    --color-background-subtle: var(--color-neutral-800);
+    --color-background-muted: var(--color-neutral-700);
+
+    /* Borders — mid gray so they read on dark backgrounds */
+    --color-border-default: var(--color-neutral-700);
+    --color-border-strong: var(--color-neutral-500);
+
+    /* Status — dark bg, light fg, mid border. Solid stays high-saturation
+       for badges/dots that need to pop. */
+    --color-status-success-bg: #052e1c;
+    --color-status-success-fg: #86efac;
+    --color-status-success-border: #166534;
+    --color-status-success-solid: #22c55e;
+
+    --color-status-warning-bg: #3b2106;
+    --color-status-warning-fg: #fcd34d;
+    --color-status-warning-border: #92400e;
+    --color-status-warning-solid: #fbbf24;
+
+    --color-status-error-bg: #3b0a0a;
+    --color-status-error-fg: #fca5a5;
+    --color-status-error-border: #991b1b;
+    --color-status-error-solid: #ef4444;
+
+    --color-status-info-bg: #0c1e3b;
+    --color-status-info-fg: #93c5fd;
+    --color-status-info-border: #1e40af;
+    --color-status-info-solid: #3b82f6;
+
+    /* Shadows need more opacity on dark bg to be visible at all */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.55);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.65);
+    --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}

@@ -36,7 +36,7 @@ export class MfpInput extends LitElement {
             display: flex;
             align-items: center;
             gap: var(--space-inline-sm, 8px);
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-background-default, #ffffff);
             border: var(--size-border-width-thin, 1px) solid var(--color-border-default, #e5e7eb);
             border-radius: var(--radius-control, 8px);
             transition:
@@ -81,6 +81,10 @@ export class MfpInput extends LitElement {
             font: inherit;
             color: inherit;
             padding: var(--space-component-sm, 8px) var(--space-component-md, 12px);
+            /* Let browser-native UI on the input (autofill background, date
+               picker popup, spelling-error underlines) follow the page's
+               color-scheme. */
+            color-scheme: light dark;
         }
 
         input::placeholder {

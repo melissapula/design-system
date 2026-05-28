@@ -151,6 +151,142 @@ export const ThemeRows: Story = {
 };
 
 /**
+ * Each theme rendered in both light and dark mode, side by side.
+ * Reveals contrast or color issues that wouldn't show up in light only.
+ *
+ * Each cell sets BOTH data-theme and data-mode locally, so the toolbar's
+ * Mode toggle is ignored here — this story always compares the two.
+ */
+export const LightVsDark: Story = {
+    render: () => html`
+        <div
+            style="
+                padding: 32px;
+                background: #f4f4f5;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            "
+        >
+            ${themes.flatMap((t) =>
+                (['light', 'dark'] as const).map(
+                    (mode) => html`
+                        <div data-theme=${t.name} data-mode=${mode}>
+                            <div
+                                style="
+                                    background: var(--color-background-default);
+                                    color: var(--color-text-default);
+                                    padding: 20px 24px;
+                                    border-radius: 12px;
+                                    border: 1px solid var(--color-border-default);
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 12px;
+                                "
+                            >
+                                <header
+                                    style="
+                                        font-size: 12px;
+                                        font-weight: 600;
+                                        color: var(--color-text-muted);
+                                        text-transform: uppercase;
+                                        letter-spacing: 0.08em;
+                                    "
+                                >
+                                    ${t.label} — ${mode}
+                                </header>
+                                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                    <mfp-button variant="primary" size="sm">Primary</mfp-button>
+                                    <mfp-button variant="secondary" size="sm">Secondary</mfp-button>
+                                    <mfp-button variant="danger" size="sm">Danger</mfp-button>
+                                    <mfp-button variant="ghost" size="sm">Ghost</mfp-button>
+                                </div>
+                                <mfp-input label="Email" placeholder="you@example.com"></mfp-input>
+                                <div style="display: flex; gap: 16px; align-items: center;">
+                                    <mfp-checkbox label="Remember me" checked></mfp-checkbox>
+                                    <mfp-switch label="Notifications" checked></mfp-switch>
+                                </div>
+                            </div>
+                        </div>
+                    `,
+                ),
+            )}
+        </div>
+    `,
+};
+
+/**
+ * Status semantic tokens (success/warning/error/info) need to look
+ * legible in both light and dark mode. This story side-by-sides each
+ * status under both modes for the default blue theme — the same dark
+ * status overrides apply to every brand theme.
+ */
+export const StatusColorsLightVsDark: Story = {
+    render: () => {
+        const statuses = ['success', 'warning', 'error', 'info'] as const;
+        return html`
+            <div
+                style="
+                    padding: 32px;
+                    background: #f4f4f5;
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 24px;
+                "
+            >
+                ${(['light', 'dark'] as const).map(
+                    (mode) => html`
+                        <div data-theme="blue" data-mode=${mode}>
+                            <div
+                                style="
+                                    background: var(--color-background-default);
+                                    padding: 24px;
+                                    border-radius: 12px;
+                                    border: 1px solid var(--color-border-default);
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 12px;
+                                "
+                            >
+                                <header
+                                    style="
+                                        font-size: 12px;
+                                        font-weight: 600;
+                                        color: var(--color-text-muted);
+                                        text-transform: uppercase;
+                                        letter-spacing: 0.08em;
+                                    "
+                                >
+                                    ${mode}
+                                </header>
+                                ${statuses.map(
+                                    (status) => html`
+                                        <div
+                                            style="
+                                                padding: 12px 16px;
+                                                background: var(--color-status-${status}-bg);
+                                                color: var(--color-status-${status}-fg);
+                                                border: 1px solid var(--color-status-${status}-border);
+                                                border-radius: 8px;
+                                                font-size: 14px;
+                                                font-weight: 500;
+                                            "
+                                        >
+                                            ${status.charAt(0).toUpperCase() + status.slice(1)} —
+                                            sample message
+                                        </div>
+                                    `,
+                                )}
+                            </div>
+                        </div>
+                    `,
+                )}
+            </div>
+        `;
+    },
+};
+
+/**
  * Focus rings are the easiest thing to forget when adding components,
  * so this story makes them very visible. Click into each input to see
  * how the focus ring color shifts with the active theme.

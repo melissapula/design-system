@@ -195,7 +195,7 @@ export class MfpStep extends LitElement {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-background-default, #ffffff);
             border: var(--size-border-width-medium, 2px) solid var(--color-border-default, #e5e7eb);
             color: var(--color-text-muted, #6b7280);
             font-size: var(--text-button, 14px);
@@ -218,7 +218,7 @@ export class MfpStep extends LitElement {
         }
 
         :host([status='current']) .circle {
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-background-default, #ffffff);
             border-color: var(--color-status-warning-solid, #f59e0b);
             color: var(--color-status-warning-fg, #92400e);
         }

@@ -66,7 +66,7 @@ export class MfpDatePicker extends LitElement {
             width: 100%;
             min-height: var(--size-control-md, 40px);
             padding: var(--space-component-sm, 8px) var(--space-component-md, 12px);
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-background-default, #ffffff);
             border: var(--size-border-width-thin, 1px) solid var(--color-border-default, #e5e7eb);
             border-radius: var(--radius-control, 8px);
             color: inherit;

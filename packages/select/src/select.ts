@@ -48,7 +48,7 @@ export class MfpSelect extends LitElement {
             position: relative;
             display: flex;
             align-items: center;
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-background-default, #ffffff);
             border: var(--size-border-width-thin, 1px) solid var(--color-border-default, #e5e7eb);
             border-radius: var(--radius-control, 8px);
             transition:
@@ -82,6 +82,12 @@ export class MfpSelect extends LitElement {
             cursor: pointer;
             padding: var(--space-component-sm, 8px) var(--size-spacing-9, 36px)
                 var(--space-component-sm, 8px) var(--space-component-md, 12px);
+            /* Lets the browser-native dropdown popup follow the page's
+               color-scheme. Without this, the option list stays the
+               OS-default light even when the page is in dark mode, because
+               color-scheme from <html> doesn't always reach native form
+               controls inside a shadow DOM. */
+            color-scheme: light dark;
         }
 
         select:disabled {

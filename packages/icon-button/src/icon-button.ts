@@ -88,7 +88,7 @@ export class MfpIconButton extends LitElement {
         }
 
         :host([variant='secondary']) button {
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-background-default, #ffffff);
             color: var(--color-text-default, #111827);
             border-color: var(--color-border-default, #e5e7eb);
         }

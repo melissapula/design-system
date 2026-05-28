@@ -42,7 +42,7 @@ export class MfpRadio extends LitElement {
             flex: none;
             border: 1.5px solid var(--color-border-strong, #9ca3af);
             border-radius: 50%;
-            background: var(--color-neutral-0, #ffffff);
+            background: var(--color-background-default, #ffffff);
             display: inline-flex;
             align-items: center;
             justify-content: center;

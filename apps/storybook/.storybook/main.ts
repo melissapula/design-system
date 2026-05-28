@@ -23,6 +23,7 @@ const componentPackages = [
     'form-field',
     'icon-button',
     'input',
+    'layout',
     'modal',
     'nav',
     'radio',
