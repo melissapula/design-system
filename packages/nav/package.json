@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/nav",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "Nav primitives: mfp-nav-bar, mfp-side-nav, mfp-nav-item. Slot-driven shells; bring your own router.",
     "license": "MIT",
     "type": "module",

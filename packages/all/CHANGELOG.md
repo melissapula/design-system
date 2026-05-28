@@ -1,5 +1,16 @@
 # @mfp-design-system/all
 
+## 4.0.3
+
+### Patch Changes
+
+- Updated dependencies [69484c8]
+    - @mfp-design-system/nav@4.0.1
+    - @mfp-design-system/tabs@4.0.1
+    - @mfp-design-system/stepper@4.0.1
+    - @mfp-design-system/accordion@5.0.1
+    - @mfp-design-system/footer@4.0.1
+
 ## 4.0.2
 
 ### Patch Changes
