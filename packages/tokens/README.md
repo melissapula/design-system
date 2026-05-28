@@ -83,6 +83,50 @@ Semantic tokens only cover **size**; pair with `--font-weight-*` and `--font-lin
 | `--elevation-float`   | `--shadow-lg` | Modals, sheets                 |
 | `--elevation-popover` | `--shadow-xl` | Large floating panels          |
 
+### Border widths
+
+| Token                        | Value | Use for                                        |
+| ---------------------------- | ----- | ---------------------------------------------- |
+| `--size-border-width-0`      | 0px   | Reset / no border                              |
+| `--size-border-width-thin`   | 1px   | Default — hairlines, dividers, control borders |
+| `--size-border-width-medium` | 2px   | Emphasis borders, focus rings                  |
+| `--size-border-width-thick`  | 4px   | Heavy emphasis, indicator bars                 |
+
+### Focus ring
+
+Use these together (or just `outline: var(--focus-ring-width) var(--focus-ring-style) var(--focus-ring-color); outline-offset: var(--focus-ring-offset);`) to render a consistent focus state across every interactive component. The color flips with the active theme automatically.
+
+| Token                 | Default value                        |
+| --------------------- | ------------------------------------ |
+| `--focus-ring-width`  | 2px (= `--size-border-width-medium`) |
+| `--focus-ring-offset` | 2px                                  |
+| `--focus-ring-color`  | `--color-brand-primary`              |
+| `--focus-ring-style`  | `solid`                              |
+
+### Control heights
+
+For form inputs, buttons, selects — anything you'd put in a row and want to line up.
+
+| Token               | Value | Typical use                   |
+| ------------------- | ----- | ----------------------------- |
+| `--size-control-xs` | 24px  | Compact density tables, chips |
+| `--size-control-sm` | 32px  | Compact form rows             |
+| `--size-control-md` | 40px  | Default button / input height |
+| `--size-control-lg` | 48px  | Hero CTAs, touch targets      |
+| `--size-control-xl` | 56px  | Extra-large form rows         |
+
+### Icon sizes
+
+For icon-only buttons, badges with icons, inline icons in text.
+
+| Token            | Value | Typical use                             |
+| ---------------- | ----- | --------------------------------------- |
+| `--size-icon-xs` | 12px  | Inline-with-caption                     |
+| `--size-icon-sm` | 16px  | Inline-with-body-text                   |
+| `--size-icon-md` | 20px  | Default button icons                    |
+| `--size-icon-lg` | 24px  | Standalone icon button                  |
+| `--size-icon-xl` | 32px  | Large icon button, empty-state graphics |
+
 ## Themes
 
 Each app can pick a brand theme that overrides the design system's default brand colors. Components consume semantic tokens (`--color-brand-primary`, `--color-brand-primary-hover`, `--color-brand-primary-fg`, etc.) so a single import re-themes every primary button, focus ring, checked state, and switch.
