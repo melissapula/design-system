@@ -1,5 +1,15 @@
 # @mfp-design-system/all
 
+## 4.0.6
+
+### Patch Changes
+
+- Updated dependencies [87505eb]
+    - @mfp-design-system/form-field@6.0.1
+    - @mfp-design-system/stepper@4.0.2
+    - @mfp-design-system/modal@6.0.3
+    - @mfp-design-system/card@6.0.3
+
 ## 4.0.5
 
 ### Patch Changes
