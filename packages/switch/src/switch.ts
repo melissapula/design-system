@@ -11,7 +11,7 @@ export class MfpSwitch extends LitElement {
         :host {
             display: inline-flex;
             align-items: center;
-            gap: var(--size-spacing-3, 12px);
+            gap: var(--space-inline-md, 12px);
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
             font-size: var(--font-size-base, 16px);
             color: var(--color-text-default, #111827);
@@ -21,7 +21,7 @@ export class MfpSwitch extends LitElement {
 
         :host([disabled]) {
             cursor: not-allowed;
-            opacity: 0.5;
+            opacity: var(--opacity-disabled, 0.5);
         }
 
         .track {
@@ -43,7 +43,7 @@ export class MfpSwitch extends LitElement {
             height: 16px;
             background: var(--color-brand-primary-fg, #ffffff);
             border-radius: 50%;
-            box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.08));
+            box-shadow: var(--elevation-raised, 0 2px 8px rgba(0, 0, 0, 0.08));
             transition: transform var(--motion-duration-fast, 150ms)
                 var(--motion-easing-standard, ease);
         }
@@ -67,8 +67,9 @@ export class MfpSwitch extends LitElement {
         }
 
         input:focus-visible + .track {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
-            outline-offset: 2px;
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
+            outline-offset: var(--focus-ring-offset, 2px);
         }
 
         @media (prefers-reduced-motion: reduce) {

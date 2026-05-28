@@ -18,26 +18,26 @@ export class MfpTextarea extends LitElement {
         }
 
         :host([disabled]) {
-            opacity: 0.6;
+            opacity: var(--opacity-disabled, 0.5);
         }
 
         label {
             display: block;
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-label, 14px);
             font-weight: var(--font-weight-medium, 500);
             line-height: var(--font-line-height-tight, 1.2);
-            margin-bottom: var(--size-spacing-2, 8px);
+            margin-bottom: var(--space-stack-sm, 8px);
         }
 
         .required {
             color: var(--color-status-error-solid, #dc2626);
-            margin-left: var(--size-spacing-1, 4px);
+            margin-left: var(--space-inline-xs, 4px);
         }
 
         .control {
             background: var(--color-neutral-0, #ffffff);
-            border: 1px solid var(--color-border-default, #e5e7eb);
-            border-radius: var(--size-radius-md, 8px);
+            border: var(--size-border-width-thin, 1px) solid var(--color-border-default, #e5e7eb);
+            border-radius: var(--radius-control, 8px);
             transition:
                 border-color var(--motion-duration-fast, 150ms) var(--motion-easing-standard, ease),
                 box-shadow var(--motion-duration-fast, 150ms) var(--motion-easing-standard, ease);
@@ -68,7 +68,7 @@ export class MfpTextarea extends LitElement {
             font: inherit;
             color: inherit;
             resize: vertical;
-            padding: var(--size-spacing-2, 8px) var(--size-spacing-3, 12px);
+            padding: var(--space-component-sm, 8px) var(--space-component-md, 12px);
         }
 
         :host([resize='none']) textarea {
@@ -83,7 +83,7 @@ export class MfpTextarea extends LitElement {
 
         textarea::placeholder {
             color: var(--color-text-muted, #6b7280);
-            opacity: 1;
+            opacity: var(--opacity-full, 1);
         }
 
         textarea:disabled,
@@ -107,8 +107,8 @@ export class MfpTextarea extends LitElement {
 
         .hint,
         .error {
-            margin: var(--size-spacing-2, 8px) 0 0;
-            font-size: var(--font-size-sm, 14px);
+            margin: var(--space-stack-sm, 8px) 0 0;
+            font-size: var(--text-body-sm, 14px);
             line-height: var(--font-line-height-tight, 1.2);
         }
 

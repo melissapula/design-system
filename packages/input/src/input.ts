@@ -16,29 +16,29 @@ export class MfpInput extends LitElement {
         }
 
         :host([disabled]) {
-            opacity: 0.6;
+            opacity: var(--opacity-disabled, 0.5);
         }
 
         label {
             display: block;
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-label, 14px);
             font-weight: var(--font-weight-medium, 500);
             line-height: var(--font-line-height-tight, 1.2);
-            margin-bottom: var(--size-spacing-2, 8px);
+            margin-bottom: var(--space-stack-sm, 8px);
         }
 
         .required {
             color: var(--color-status-error-solid, #dc2626);
-            margin-left: var(--size-spacing-1, 4px);
+            margin-left: var(--space-inline-xs, 4px);
         }
 
         .control {
             display: flex;
             align-items: center;
-            gap: var(--size-spacing-2, 8px);
+            gap: var(--space-inline-sm, 8px);
             background: var(--color-neutral-0, #ffffff);
-            border: 1px solid var(--color-border-default, #e5e7eb);
-            border-radius: var(--size-radius-md, 8px);
+            border: var(--size-border-width-thin, 1px) solid var(--color-border-default, #e5e7eb);
+            border-radius: var(--radius-control, 8px);
             transition:
                 border-color var(--motion-duration-fast, 150ms) var(--motion-easing-standard, ease),
                 box-shadow var(--motion-duration-fast, 150ms) var(--motion-easing-standard, ease);
@@ -66,10 +66,10 @@ export class MfpInput extends LitElement {
         }
 
         ::slotted([slot='prefix']) {
-            padding-left: var(--size-spacing-3, 12px);
+            padding-left: var(--space-component-md, 12px);
         }
         ::slotted([slot='suffix']) {
-            padding-right: var(--size-spacing-3, 12px);
+            padding-right: var(--space-component-md, 12px);
         }
 
         input {
@@ -80,12 +80,12 @@ export class MfpInput extends LitElement {
             outline: none;
             font: inherit;
             color: inherit;
-            padding: var(--size-spacing-2, 8px) var(--size-spacing-3, 12px);
+            padding: var(--space-component-sm, 8px) var(--space-component-md, 12px);
         }
 
         input::placeholder {
             color: var(--color-text-muted, #6b7280);
-            opacity: 1;
+            opacity: var(--opacity-full, 1);
         }
 
         input:disabled,
@@ -97,23 +97,23 @@ export class MfpInput extends LitElement {
         :host(:not([size])) input,
         :host([size='md']) input {
             font-size: var(--font-size-base, 16px);
-            min-height: 40px;
+            min-height: var(--size-control-md, 40px);
         }
         :host([size='sm']) input {
-            font-size: var(--font-size-sm, 14px);
-            min-height: 32px;
-            padding: var(--size-spacing-1, 4px) var(--size-spacing-3, 12px);
+            font-size: var(--text-button, 14px);
+            min-height: var(--size-control-sm, 32px);
+            padding: var(--space-component-xs, 4px) var(--space-component-md, 12px);
         }
         :host([size='lg']) input {
-            font-size: var(--font-size-lg, 18px);
-            min-height: 48px;
-            padding: var(--size-spacing-3, 12px) var(--size-spacing-4, 16px);
+            font-size: var(--text-body-lg, 18px);
+            min-height: var(--size-control-lg, 48px);
+            padding: var(--space-component-md, 12px) var(--space-component-lg, 16px);
         }
 
         .hint,
         .error {
-            margin: var(--size-spacing-2, 8px) 0 0;
-            font-size: var(--font-size-sm, 14px);
+            margin: var(--space-stack-sm, 8px) 0 0;
+            font-size: var(--text-body-sm, 14px);
             line-height: var(--font-line-height-tight, 1.2);
         }
 

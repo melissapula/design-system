@@ -30,13 +30,13 @@ export class MfpButton extends LitElement {
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
             font-weight: var(--font-weight-medium, 500);
             line-height: var(--font-line-height-tight, 1.2);
-            border: 1px solid transparent;
-            border-radius: var(--size-radius-md, 8px);
+            border: var(--size-border-width-thin, 1px) solid transparent;
+            border-radius: var(--radius-control, 8px);
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: var(--size-spacing-2, 8px);
+            gap: var(--space-inline-sm, 8px);
             white-space: nowrap;
             user-select: none;
             transition:
@@ -47,31 +47,32 @@ export class MfpButton extends LitElement {
         }
 
         button:focus-visible {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
-            outline-offset: 2px;
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
+            outline-offset: var(--focus-ring-offset, 2px);
         }
 
         button:disabled {
             cursor: not-allowed;
-            opacity: 0.5;
+            opacity: var(--opacity-disabled, 0.5);
         }
 
         /* Sizes — fall back to medium when no [size] attribute is set */
         :host(:not([size])) button,
         :host([size='md']) button {
-            padding: var(--size-spacing-2, 8px) var(--size-spacing-4, 16px);
+            padding: var(--space-component-sm, 8px) var(--space-component-md, 16px);
             font-size: var(--font-size-base, 16px);
-            min-height: 40px;
+            min-height: var(--size-control-md, 40px);
         }
         :host([size='sm']) button {
-            padding: var(--size-spacing-1, 4px) var(--size-spacing-3, 12px);
-            font-size: var(--font-size-sm, 14px);
-            min-height: 32px;
+            padding: var(--space-component-xs, 4px) var(--space-component-md, 12px);
+            font-size: var(--text-button, 14px);
+            min-height: var(--size-control-sm, 32px);
         }
         :host([size='lg']) button {
-            padding: var(--size-spacing-3, 12px) var(--size-spacing-5, 20px);
-            font-size: var(--font-size-lg, 18px);
-            min-height: 48px;
+            padding: var(--space-component-md, 12px) var(--space-component-lg, 20px);
+            font-size: var(--text-body-lg, 18px);
+            min-height: var(--size-control-lg, 48px);
         }
 
         /* Variants — fall back to primary when no [variant] attribute is set */
@@ -117,7 +118,7 @@ export class MfpButton extends LitElement {
         .spinner {
             width: 1em;
             height: 1em;
-            border: 2px solid currentColor;
+            border: var(--size-border-width-medium, 2px) solid currentColor;
             border-top-color: transparent;
             border-radius: 50%;
             animation: mfp-button-spin 0.6s linear infinite;

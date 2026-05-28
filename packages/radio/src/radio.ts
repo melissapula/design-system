@@ -23,7 +23,7 @@ export class MfpRadio extends LitElement {
         :host {
             display: inline-flex;
             align-items: center;
-            gap: var(--size-spacing-2, 8px);
+            gap: var(--space-inline-sm, 8px);
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
             font-size: var(--font-size-base, 16px);
             color: var(--color-text-default, #111827);
@@ -33,7 +33,7 @@ export class MfpRadio extends LitElement {
 
         :host([disabled]) {
             cursor: not-allowed;
-            opacity: 0.5;
+            opacity: var(--opacity-disabled, 0.5);
         }
 
         .ring {
@@ -79,8 +79,9 @@ export class MfpRadio extends LitElement {
         }
 
         input:focus-visible + .ring {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
-            outline-offset: 2px;
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
+            outline-offset: var(--focus-ring-offset, 2px);
         }
 
         @media (prefers-reduced-motion: reduce) {

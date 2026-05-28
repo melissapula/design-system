@@ -15,8 +15,8 @@ export class MfpIconButton extends LitElement {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid transparent;
-            border-radius: var(--size-radius-md, 8px);
+            border: var(--size-border-width-thin, 1px) solid transparent;
+            border-radius: var(--radius-control, 8px);
             cursor: pointer;
             padding: 0;
             font: inherit;
@@ -30,13 +30,14 @@ export class MfpIconButton extends LitElement {
         }
 
         button:focus-visible {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
-            outline-offset: 2px;
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
+            outline-offset: var(--focus-ring-offset, 2px);
         }
 
         button:disabled {
             cursor: not-allowed;
-            opacity: 0.5;
+            opacity: var(--opacity-disabled, 0.5);
         }
 
         ::slotted(*) {
@@ -54,22 +55,22 @@ export class MfpIconButton extends LitElement {
             line-height: 1;
         }
 
-        /* Sizes — square aspect, font-size sets icon size */
+        /* Sizes — square aspect (control height), font-size sets icon size */
         :host(:not([size])) button,
         :host([size='md']) button {
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
+            width: var(--size-control-md, 40px);
+            height: var(--size-control-md, 40px);
+            font-size: var(--size-icon-md, 20px);
         }
         :host([size='sm']) button {
-            width: 32px;
-            height: 32px;
-            font-size: 16px;
+            width: var(--size-control-sm, 32px);
+            height: var(--size-control-sm, 32px);
+            font-size: var(--size-icon-sm, 16px);
         }
         :host([size='lg']) button {
-            width: 48px;
-            height: 48px;
-            font-size: 24px;
+            width: var(--size-control-lg, 48px);
+            height: var(--size-control-lg, 48px);
+            font-size: var(--size-icon-lg, 24px);
         }
 
         /*

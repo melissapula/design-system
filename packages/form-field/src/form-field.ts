@@ -31,15 +31,15 @@ export class MfpFormField extends LitElement {
 
         label {
             display: block;
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-label, 14px);
             font-weight: var(--font-weight-medium, 500);
             line-height: var(--font-line-height-tight, 1.2);
-            margin-bottom: var(--size-spacing-2, 8px);
+            margin-bottom: var(--space-stack-sm, 8px);
         }
 
         .required {
             color: var(--color-status-error-solid, #dc2626);
-            margin-left: var(--size-spacing-1, 4px);
+            margin-left: var(--space-inline-xs, 4px);
         }
 
         .control {
@@ -48,8 +48,8 @@ export class MfpFormField extends LitElement {
 
         .hint,
         .error {
-            margin: var(--size-spacing-2, 8px) 0 0;
-            font-size: var(--font-size-sm, 14px);
+            margin: var(--space-stack-sm, 8px) 0 0;
+            font-size: var(--text-body-sm, 14px);
             line-height: var(--font-line-height-tight, 1.2);
         }
 
@@ -68,8 +68,8 @@ export class MfpFormField extends LitElement {
             grid-template-areas:
                 'control label'
                 '. hint';
-            column-gap: var(--size-spacing-3, 12px);
-            row-gap: var(--size-spacing-1, 4px);
+            column-gap: var(--space-inline-md, 12px);
+            row-gap: var(--space-stack-xs, 4px);
             align-items: center;
         }
         :host([orientation='horizontal']) .control {
