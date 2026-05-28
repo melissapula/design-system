@@ -1,5 +1,12 @@
 # @mfp-design-system/form-field
 
+## 7.0.0
+
+### Patch Changes
+
+- Updated dependencies [3187544]
+    - @mfp-design-system/tokens@0.9.0
+
 ## 6.0.1
 
 ### Patch Changes
