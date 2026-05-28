@@ -115,6 +115,17 @@ For form inputs, buttons, selects — anything you'd put in a row and want to li
 | `--size-control-lg` | 48px  | Hero CTAs, touch targets      |
 | `--size-control-xl` | 56px  | Extra-large form rows         |
 
+### Opacity
+
+For state styling — disabled, muted secondary controls. Standardizes the 0.5/0.6/0.7 drift that had crept in across the components.
+
+| Token                | Value | Typical use                                                |
+| -------------------- | ----- | ---------------------------------------------------------- |
+| `--opacity-0`        | 0     | Reset / hidden but layout-preserving                       |
+| `--opacity-disabled` | 0.5   | Disabled inputs, buttons, items                            |
+| `--opacity-muted`    | 0.7   | Secondary controls (dismiss buttons, less-emphasized text) |
+| `--opacity-full`     | 1     | Reset / fully visible                                      |
+
 ### Icon sizes
 
 For icon-only buttons, badges with icons, inline icons in text.

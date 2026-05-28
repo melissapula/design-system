@@ -1,0 +1,8 @@
+{
+    "opacity": {
+        "0": { "$value": "0", "$type": "number" },
+        "disabled": { "$value": "0.5", "$type": "number" },
+        "muted": { "$value": "0.7", "$type": "number" },
+        "full": { "$value": "1", "$type": "number" }
+    }
+}
