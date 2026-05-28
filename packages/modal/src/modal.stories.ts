@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import './modal.js';
+import '@mfp-design-system/button';
 import type { ModalSize } from './modal.js';
 
 interface Args {
@@ -24,13 +25,9 @@ const meta: Meta<Args> = {
         noCloseButton: false,
     },
     render: (args) => html`
-        <button
-            type="button"
-            onclick="this.nextElementSibling.show()"
-            style="padding: 8px 16px; cursor: pointer;"
-        >
+        <mfp-button variant="primary" onclick="this.nextElementSibling.show()">
             Open modal
-        </button>
+        </mfp-button>
         <mfp-modal
             size=${args.size}
             ?dismissible=${args.dismissible}
@@ -66,33 +63,21 @@ export const NonDismissible: Story = {
 export const ConfirmDelete: Story = {
     parameters: { controls: { disable: true } },
     render: () => html`
-        <button
-            type="button"
-            onclick="this.nextElementSibling.show()"
-            style="padding: 8px 16px; cursor: pointer;"
-        >
+        <mfp-button variant="danger" onclick="this.nextElementSibling.show()">
             Delete account
-        </button>
+        </mfp-button>
         <mfp-modal>
             <span slot="header">Delete account?</span>
             <p style="margin: 0;">
                 This action is permanent. All your data will be lost and cannot be recovered.
             </p>
             <div slot="footer">
-                <button
-                    type="button"
-                    onclick="this.closest('mfp-modal').close()"
-                    style="padding: 8px 16px;"
-                >
+                <mfp-button variant="ghost" onclick="this.closest('mfp-modal').close()">
                     Cancel
-                </button>
-                <button
-                    type="button"
-                    onclick="this.closest('mfp-modal').close()"
-                    style="padding: 8px 16px; background: #dc2626; color: white; border: none; border-radius: 8px;"
-                >
+                </mfp-button>
+                <mfp-button variant="danger" onclick="this.closest('mfp-modal').close()">
                     Delete
-                </button>
+                </mfp-button>
             </div>
         </mfp-modal>
     `,
@@ -101,13 +86,9 @@ export const ConfirmDelete: Story = {
 export const LongContent: Story = {
     parameters: { controls: { disable: true } },
     render: () => html`
-        <button
-            type="button"
-            onclick="this.nextElementSibling.show()"
-            style="padding: 8px 16px; cursor: pointer;"
-        >
+        <mfp-button variant="primary" onclick="this.nextElementSibling.show()">
             Open terms
-        </button>
+        </mfp-button>
         <mfp-modal size="lg">
             <span slot="header">Terms of Service</span>
             ${Array.from(
@@ -121,13 +102,9 @@ export const LongContent: Story = {
                     </p>`,
             )}
             <div slot="footer">
-                <button
-                    type="button"
-                    onclick="this.closest('mfp-modal').close()"
-                    style="padding: 8px 16px;"
-                >
+                <mfp-button variant="primary" onclick="this.closest('mfp-modal').close()">
                     I agree
-                </button>
+                </mfp-button>
             </div>
         </mfp-modal>
     `,

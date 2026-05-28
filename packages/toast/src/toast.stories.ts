@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import { showToast } from './toast.js';
+import '@mfp-design-system/button';
 import type { ToastVariant } from './toast.js';
 
 const meta: Meta = {
@@ -21,31 +22,29 @@ export const Programmatic: Story = {
             </p>
             ${(['info', 'success', 'warning', 'error'] as const).map(
                 (variant: ToastVariant) => html`
-                    <button
-                        type="button"
+                    <mfp-button
+                        variant=${variant === 'error' ? 'danger' : 'secondary'}
                         @click=${() =>
                             showToast({
                                 message: `${variant} toast — auto-dismisses in 4s.`,
                                 variant,
                             })}
-                        style="padding: 8px 16px; cursor: pointer;"
                     >
                         Show ${variant} toast
-                    </button>
+                    </mfp-button>
                 `,
             )}
-            <button
-                type="button"
+            <mfp-button
+                variant="ghost"
                 @click=${() =>
                     showToast({
                         message: 'Sticky — only goes away on dismiss',
                         variant: 'info',
                         duration: 0,
                     })}
-                style="padding: 8px 16px; cursor: pointer;"
             >
                 Show sticky toast (duration: 0)
-            </button>
+            </mfp-button>
         </div>
     `,
 };

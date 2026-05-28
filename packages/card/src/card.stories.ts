@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import './card.js';
+import '@mfp-design-system/button';
 import type { CardPadding, CardVariant } from './card.js';
 
 interface Args {
@@ -38,7 +39,8 @@ const meta: Meta<Args> = {
                       slot="footer"
                       style="display: flex; gap: 8px; justify-content: flex-end;"
                   >
-                      <button>Cancel</button><button>Save</button>
+                      <mfp-button variant="ghost">Cancel</mfp-button>
+                      <mfp-button variant="primary">Save</mfp-button>
                   </div>`
                 : ''}
         </mfp-card>
@@ -99,8 +101,8 @@ export const WithFooterActions: Story = {
                 slot="footer"
                 style="display: flex; gap: 8px; justify-content: flex-end; width: 100%;"
             >
-                <button>Cancel</button>
-                <button>Delete</button>
+                <mfp-button variant="ghost">Cancel</mfp-button>
+                <mfp-button variant="danger">Delete</mfp-button>
             </div>
         </mfp-card>
     `,

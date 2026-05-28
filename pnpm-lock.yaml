@@ -346,6 +346,9 @@ importers:
         specifier: ^3.2.1
         version: 3.3.3
     devDependencies:
+      '@mfp-design-system/button':
+        specifier: workspace:*
+        version: link:../button
       '@mfp-design-system/tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -458,6 +461,9 @@ importers:
         specifier: ^3.2.1
         version: 3.3.3
     devDependencies:
+      '@mfp-design-system/button':
+        specifier: workspace:*
+        version: link:../button
       '@mfp-design-system/tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -602,6 +608,9 @@ importers:
         specifier: ^3.2.1
         version: 3.3.3
     devDependencies:
+      '@mfp-design-system/button':
+        specifier: workspace:*
+        version: link:../button
       '@mfp-design-system/tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -630,6 +639,9 @@ importers:
         specifier: ^3.2.1
         version: 3.3.3
     devDependencies:
+      '@mfp-design-system/button':
+        specifier: workspace:*
+        version: link:../button
       '@mfp-design-system/tokens':
         specifier: workspace:*
         version: link:../tokens

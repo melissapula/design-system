@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import './tooltip.js';
+import '@mfp-design-system/button';
 import type { TooltipPlacement } from './tooltip.js';
 
 interface Args {
@@ -17,7 +18,7 @@ const meta: Meta<Args> = {
     render: (a) => html`
         <div style="padding: 60px; display: inline-block;">
             <mfp-tooltip content=${a.content} placement=${a.placement}>
-                <button>Hover or focus me</button>
+                <mfp-button variant="secondary">Hover or focus me</mfp-button>
             </mfp-tooltip>
         </div>
     `,
@@ -37,10 +38,10 @@ export const ShortLabel: Story = {
     render: () => html`
         <div style="padding: 60px; display: flex; gap: 60px; align-items: flex-end;">
             <mfp-tooltip content="Save">
-                <button>Save (default min-width)</button>
+                <mfp-button variant="secondary">Save (default min-width)</mfp-button>
             </mfp-tooltip>
             <mfp-tooltip content="Save" min-width="0">
-                <button>Save (no min)</button>
+                <mfp-button variant="secondary">Save (no min)</mfp-button>
             </mfp-tooltip>
         </div>
     `,
@@ -51,25 +52,25 @@ export const CustomWidth: Story = {
     render: () => html`
         <div style="padding: 60px; display: flex; gap: 60px; align-items: flex-end;">
             <mfp-tooltip content="Default 240px max-width. Lorem ipsum dolor sit amet consectetur.">
-                <button>Default</button>
+                <mfp-button variant="secondary">Default</mfp-button>
             </mfp-tooltip>
             <mfp-tooltip
                 max-width="120"
                 content="Narrow 120px. Lorem ipsum dolor sit amet consectetur adipiscing elit."
             >
-                <button>Narrow (120)</button>
+                <mfp-button variant="secondary">Narrow (120)</mfp-button>
             </mfp-tooltip>
             <mfp-tooltip
                 max-width="400"
                 content="Wide 400px. Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
             >
-                <button>Wide (400)</button>
+                <mfp-button variant="secondary">Wide (400)</mfp-button>
             </mfp-tooltip>
             <mfp-tooltip
                 max-width="20rem"
                 content="String unit (20rem). Lorem ipsum dolor sit amet consectetur adipiscing elit."
             >
-                <button>String (20rem)</button>
+                <mfp-button variant="secondary">String (20rem)</mfp-button>
             </mfp-tooltip>
         </div>
     `,
@@ -84,7 +85,7 @@ export const Placements: Story = {
             ${(['top', 'bottom', 'left', 'right'] as const).map(
                 (p) => html`
                     <mfp-tooltip content="placement=${p}" placement=${p}>
-                        <button>${p}</button>
+                        <mfp-button variant="secondary">${p}</mfp-button>
                     </mfp-tooltip>
                 `,
             )}

@@ -40,6 +40,7 @@
         }
     },
     "devDependencies": {
+        "@mfp-design-system/button": "workspace:*",
         "@mfp-design-system/tokens": "workspace:*",
         "rimraf": "^6.0.1",
         "typescript": "^5.6.3"
