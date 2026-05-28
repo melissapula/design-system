@@ -1,5 +1,12 @@
 # @mfp-design-system/tabs
 
+## 3.0.0
+
+### Patch Changes
+
+- Updated dependencies [267cebf]
+    - @mfp-design-system/tokens@0.7.0
+
 ## 2.0.0
 
 ### Patch Changes
