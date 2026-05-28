@@ -9,8 +9,8 @@ export class MfpCard extends LitElement {
     static override styles = css`
         :host {
             display: block;
-            background: var(--color-neutral-0, #ffffff);
-            border-radius: var(--size-radius-lg, 12px);
+            background: var(--color-background-default, #ffffff);
+            border-radius: var(--radius-surface, 12px);
             color: var(--color-text-default, #111827);
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
         }
@@ -18,16 +18,16 @@ export class MfpCard extends LitElement {
         /* Variants — fall back to default when no [variant] attribute is set */
         :host(:not([variant])),
         :host([variant='default']) {
-            border: 1px solid var(--color-border-default, #e5e7eb);
-            box-shadow: var(--shadow-xs, 0 1px 2px rgba(0, 0, 0, 0.05));
+            border: var(--size-border-width-thin, 1px) solid var(--color-border-default, #e5e7eb);
+            box-shadow: var(--elevation-subtle, 0 1px 2px rgba(0, 0, 0, 0.05));
         }
         :host([variant='flat']) {
-            border: 1px solid var(--color-border-default, #e5e7eb);
+            border: var(--size-border-width-thin, 1px) solid var(--color-border-default, #e5e7eb);
             box-shadow: none;
         }
         :host([variant='elevated']) {
             border: none;
-            box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.1));
+            box-shadow: var(--elevation-overlay, 0 4px 12px rgba(0, 0, 0, 0.1));
         }
 
         .surface {
@@ -38,16 +38,16 @@ export class MfpCard extends LitElement {
         /* Padding tiers — fall back to default when no [padding] attribute is set */
         :host(:not([padding])) .surface,
         :host([padding='default']) .surface {
-            padding: var(--size-spacing-5, 20px);
-            gap: var(--size-spacing-4, 16px);
+            padding: var(--space-component-lg, 20px);
+            gap: var(--space-stack-md, 16px);
         }
         :host([padding='compact']) .surface {
-            padding: var(--size-spacing-3, 12px);
-            gap: var(--size-spacing-2, 8px);
+            padding: var(--space-component-md, 12px);
+            gap: var(--space-stack-sm, 8px);
         }
         :host([padding='roomy']) .surface {
-            padding: var(--size-spacing-8, 32px);
-            gap: var(--size-spacing-5, 20px);
+            padding: var(--space-component-xl, 32px);
+            gap: var(--space-component-lg, 20px);
         }
         :host([padding='none']) .surface {
             padding: 0;
@@ -55,14 +55,15 @@ export class MfpCard extends LitElement {
         }
 
         .header {
-            font-size: var(--font-size-lg, 18px);
+            font-size: var(--text-heading-xs, 18px);
             font-weight: var(--font-weight-semibold, 600);
             line-height: var(--font-line-height-tight, 1.2);
         }
 
         .footer {
-            border-top: 1px solid var(--color-border-default, #e5e7eb);
-            padding-top: var(--size-spacing-4, 16px);
+            border-top: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
+            padding-top: var(--space-stack-md, 16px);
         }
 
         :host([padding='none']) .footer {

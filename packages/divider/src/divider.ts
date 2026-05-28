@@ -18,13 +18,14 @@ export class MfpDivider extends LitElement {
             display: flex;
             align-items: center;
             width: 100%;
-            gap: var(--size-spacing-3, 12px);
+            gap: var(--space-inline-md, 12px);
         }
         :host(:not([orientation])) hr,
         :host([orientation='horizontal']) hr {
             flex: 1 1 auto;
             border: none;
-            border-top: 1px solid var(--color-border-default, #e5e7eb);
+            border-top: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
             margin: 0;
         }
 
@@ -34,18 +35,19 @@ export class MfpDivider extends LitElement {
             flex-direction: column;
             align-items: center;
             align-self: stretch;
-            gap: var(--size-spacing-2, 8px);
+            gap: var(--space-stack-sm, 8px);
         }
         :host([orientation='vertical']) hr {
             flex: 1 1 auto;
             border: none;
-            border-left: 1px solid var(--color-border-default, #e5e7eb);
+            border-left: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
             margin: 0;
             min-height: 1em;
         }
 
         .label {
-            font-size: var(--font-size-xs, 12px);
+            font-size: var(--text-caption, 12px);
             font-weight: var(--font-weight-medium, 500);
             text-transform: uppercase;
             letter-spacing: var(--font-letter-spacing-wider, 0.05em);

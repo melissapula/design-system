@@ -22,13 +22,13 @@ export class MfpSpinner extends LitElement {
 
         :host(:not([size])),
         :host([size='md']) {
-            font-size: 24px;
+            font-size: var(--size-icon-lg, 24px);
         }
         :host([size='sm']) {
-            font-size: 16px;
+            font-size: var(--size-icon-sm, 16px);
         }
         :host([size='lg']) {
-            font-size: 32px;
+            font-size: var(--size-icon-xl, 32px);
         }
         :host([size='xl']) {
             font-size: 48px;

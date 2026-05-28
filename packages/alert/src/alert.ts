@@ -18,13 +18,13 @@ export class MfpAlert extends LitElement {
         :host {
             display: flex;
             align-items: flex-start;
-            gap: var(--size-spacing-3, 12px);
+            gap: var(--space-inline-md, 12px);
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-body-sm, 14px);
             line-height: var(--font-line-height-normal, 1.5);
-            padding: var(--size-spacing-3, 12px) var(--size-spacing-4, 16px);
-            border-radius: var(--size-radius-md, 8px);
-            border: 1px solid transparent;
+            padding: var(--space-component-md, 12px) var(--space-component-lg, 16px);
+            border-radius: var(--radius-control, 8px);
+            border: var(--size-border-width-thin, 1px) solid transparent;
         }
 
         :host(:not([variant])),
@@ -51,8 +51,8 @@ export class MfpAlert extends LitElement {
 
         .icon {
             flex: none;
-            width: 20px;
-            height: 20px;
+            width: var(--size-icon-md, 20px);
+            height: var(--size-icon-md, 20px);
         }
 
         .body {
@@ -66,7 +66,7 @@ export class MfpAlert extends LitElement {
         }
 
         .title + .message {
-            margin-top: var(--size-spacing-1, 4px);
+            margin-top: var(--space-stack-xs, 4px);
         }
 
         .message {
@@ -77,16 +77,17 @@ export class MfpAlert extends LitElement {
             flex: none;
             background: none;
             border: none;
-            padding: var(--size-spacing-1, 4px);
-            margin: calc(-1 * var(--size-spacing-1, 4px)) calc(-1 * var(--size-spacing-1, 4px)) 0 0;
+            padding: var(--space-component-xs, 4px);
+            margin: calc(-1 * var(--space-component-xs, 4px))
+                calc(-1 * var(--space-component-xs, 4px)) 0 0;
             cursor: pointer;
             color: inherit;
             border-radius: var(--size-radius-sm, 4px);
-            opacity: 0.7;
+            opacity: var(--opacity-muted, 0.7);
             line-height: 0;
         }
         .close:hover {
-            opacity: 1;
+            opacity: var(--opacity-full, 1);
         }
     `;
 

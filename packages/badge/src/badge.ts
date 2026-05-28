@@ -10,26 +10,26 @@ export class MfpBadge extends LitElement {
         :host {
             display: inline-flex;
             align-items: center;
-            gap: var(--size-spacing-1, 4px);
+            gap: var(--space-inline-xs, 4px);
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
             font-weight: var(--font-weight-medium, 500);
             line-height: var(--font-line-height-tight, 1.2);
-            border-radius: var(--size-radius-full, 9999px);
-            padding: 2px var(--size-spacing-2, 8px);
+            border-radius: var(--radius-pill, 9999px);
+            padding: 2px var(--space-component-sm, 8px);
             white-space: nowrap;
             background: var(--color-background-muted, #f3f4f6);
             color: var(--color-text-default, #111827);
-            border: 1px solid transparent;
+            border: var(--size-border-width-thin, 1px) solid transparent;
         }
 
         :host([size='sm']),
         :host(:not([size])) {
             font-size: var(--font-size-2xs, 10px);
-            padding: 2px var(--size-spacing-2, 8px);
+            padding: 2px var(--space-component-sm, 8px);
         }
         :host([size='md']) {
-            font-size: var(--font-size-xs, 12px);
-            padding: 4px var(--size-spacing-3, 12px);
+            font-size: var(--text-caption, 12px);
+            padding: 4px var(--space-component-md, 12px);
         }
 
         :host([variant='brand']) {

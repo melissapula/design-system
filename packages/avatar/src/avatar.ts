@@ -36,11 +36,11 @@ export class MfpAvatar extends LitElement {
         }
 
         :host([shape='square']) .avatar {
-            border-radius: var(--size-radius-md, 8px);
+            border-radius: var(--radius-control, 8px);
         }
         :host(:not([shape])) .avatar,
         :host([shape='circle']) .avatar {
-            border-radius: 50%;
+            border-radius: var(--radius-pill, 50%);
         }
 
         img {
@@ -52,29 +52,29 @@ export class MfpAvatar extends LitElement {
 
         :host(:not([size])),
         :host([size='md']) {
-            font-size: 14px;
+            font-size: var(--text-label, 14px);
         }
         :host(:not([size])) .avatar,
         :host([size='md']) .avatar {
-            width: 40px;
-            height: 40px;
+            width: var(--size-control-md, 40px);
+            height: var(--size-control-md, 40px);
         }
         :host([size='sm']) {
-            font-size: 12px;
+            font-size: var(--text-caption, 12px);
         }
         :host([size='sm']) .avatar {
             width: 28px;
             height: 28px;
         }
         :host([size='lg']) {
-            font-size: 18px;
+            font-size: var(--text-heading-xs, 18px);
         }
         :host([size='lg']) .avatar {
-            width: 56px;
-            height: 56px;
+            width: var(--size-control-xl, 56px);
+            height: var(--size-control-xl, 56px);
         }
         :host([size='xl']) {
-            font-size: 24px;
+            font-size: var(--text-heading-md, 24px);
         }
         :host([size='xl']) .avatar {
             width: 80px;
@@ -89,8 +89,9 @@ export class MfpAvatar extends LitElement {
             height: 30%;
             min-width: 8px;
             min-height: 8px;
-            border-radius: 50%;
-            border: 2px solid var(--color-background-default, #ffffff);
+            border-radius: var(--radius-pill, 50%);
+            border: var(--size-border-width-medium, 2px) solid
+                var(--color-background-default, #ffffff);
             box-sizing: content-box;
         }
 
