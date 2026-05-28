@@ -1,5 +1,16 @@
 # @mfp-design-system/all
 
+## 4.0.5
+
+### Patch Changes
+
+- Updated dependencies [0be1bed]
+    - @mfp-design-system/card@6.0.3
+    - @mfp-design-system/button@6.0.1
+    - @mfp-design-system/tooltip@4.0.3
+    - @mfp-design-system/modal@6.0.2
+    - @mfp-design-system/toast@4.0.2
+
 ## 4.0.4
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/card",
-    "version": "6.0.2",
+    "version": "6.0.3",
     "description": "Card container web component for the mfp-design-system, built with Lit.",
     "license": "MIT",
     "type": "module",
