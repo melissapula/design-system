@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/date-picker",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Custom date picker web component for the mfp-design-system, built with Lit. Native form-association, popover calendar, full keyboard nav.",
     "license": "MIT",
     "type": "module",
