@@ -1,0 +1,9 @@
+{
+    "elevation": {
+        "subtle": { "$value": "{shadow.xs}", "$type": "string" },
+        "raised": { "$value": "{shadow.sm}", "$type": "string" },
+        "overlay": { "$value": "{shadow.md}", "$type": "string" },
+        "float": { "$value": "{shadow.lg}", "$type": "string" },
+        "popover": { "$value": "{shadow.xl}", "$type": "string" }
+    }
+}

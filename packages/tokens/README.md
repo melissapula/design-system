@@ -19,6 +19,70 @@ import { color, size } from '@mfp-design-system/tokens';
 console.log(color.brand[500]);
 ```
 
+## Semantic tokens
+
+Two layers ship side-by-side:
+
+- **Primitives** — raw values (`--size-spacing-3`, `--font-size-2xl`, `--shadow-md`). Use these when you genuinely need a specific value.
+- **Semantic** — purpose-named aliases (`--space-stack-md`, `--text-heading-lg`, `--elevation-overlay`). Use these by default — they describe **intent**, not measurement, so the design system can re-tune values without breaking call sites.
+
+### Spacing — by purpose
+
+| Token                        | Resolves to                | Use for                                       |
+| ---------------------------- | -------------------------- | --------------------------------------------- |
+| `--space-component-{xs..xl}` | spacing 1 → 8 (4–32px)     | Padding **inside** a component                |
+| `--space-stack-{xs..xl}`     | spacing 1 → 10 (4–40px)    | Vertical gap between block elements           |
+| `--space-inline-{xs..lg}`    | spacing 1 → 6 (4–24px)     | Horizontal gap between inline / flex children |
+| `--space-layout-{sm..xl}`    | spacing 10 → 30 (40–120px) | Gap between major page sections               |
+
+```css
+.card {
+    padding: var(--space-component-md); /* inside the card */
+}
+.card + .card {
+    margin-top: var(--space-stack-md); /* between cards */
+}
+.button-row {
+    display: flex;
+    gap: var(--space-inline-sm); /* between buttons */
+}
+section + section {
+    margin-top: var(--space-layout-md); /* between sections */
+}
+```
+
+### Typography — by role
+
+| Token                      | Resolves to              | Use for                          |
+| -------------------------- | ------------------------ | -------------------------------- |
+| `--text-caption`           | `--font-size-xs` (12px)  | Captions, footnotes, small print |
+| `--text-body-{sm,md,lg}`   | xs → lg (14 / 16 / 18px) | Paragraphs, default body text    |
+| `--text-label`             | `--font-size-sm` (14px)  | Form labels                      |
+| `--text-button`            | `--font-size-sm` (14px)  | Button labels                    |
+| `--text-code`              | `--font-size-sm` (14px)  | Inline `<code>` and `<kbd>`      |
+| `--text-heading-{xs..2xl}` | lg → 5xl (18 → 48px)     | h6 → h1 progression              |
+| `--text-display`           | `--font-size-6xl` (60px) | Hero / landing page              |
+
+Semantic tokens only cover **size**; pair with `--font-weight-*` and `--font-line-height-*` primitives as needed.
+
+### Radius — by surface kind
+
+| Token              | Resolves to                   | Use for                |
+| ------------------ | ----------------------------- | ---------------------- |
+| `--radius-control` | `--size-radius-md` (8px)      | Buttons, inputs, chips |
+| `--radius-surface` | `--size-radius-lg` (12px)     | Cards, modals, sheets  |
+| `--radius-pill`    | `--size-radius-full` (9999px) | Pills, avatars, badges |
+
+### Elevation — by relationship
+
+| Token                 | Resolves to   | Use for                        |
+| --------------------- | ------------- | ------------------------------ |
+| `--elevation-subtle`  | `--shadow-xs` | Barely-visible separation      |
+| `--elevation-raised`  | `--shadow-sm` | Resting cards, hovered buttons |
+| `--elevation-overlay` | `--shadow-md` | Dropdowns, menus               |
+| `--elevation-float`   | `--shadow-lg` | Modals, sheets                 |
+| `--elevation-popover` | `--shadow-xl` | Large floating panels          |
+
 ## Themes
 
 Each app can pick a brand theme that overrides the design system's default brand colors. Components consume semantic tokens (`--color-brand-primary`, `--color-brand-primary-hover`, `--color-brand-primary-fg`, etc.) so a single import re-themes every primary button, focus ring, checked state, and switch.

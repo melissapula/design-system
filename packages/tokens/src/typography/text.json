@@ -1,0 +1,22 @@
+{
+    "text": {
+        "caption": { "$value": "{font.size.xs}", "$type": "dimension" },
+        "body": {
+            "sm": { "$value": "{font.size.sm}", "$type": "dimension" },
+            "md": { "$value": "{font.size.base}", "$type": "dimension" },
+            "lg": { "$value": "{font.size.lg}", "$type": "dimension" }
+        },
+        "label": { "$value": "{font.size.sm}", "$type": "dimension" },
+        "button": { "$value": "{font.size.sm}", "$type": "dimension" },
+        "code": { "$value": "{font.size.sm}", "$type": "dimension" },
+        "heading": {
+            "xs": { "$value": "{font.size.lg}", "$type": "dimension" },
+            "sm": { "$value": "{font.size.xl}", "$type": "dimension" },
+            "md": { "$value": "{font.size.2xl}", "$type": "dimension" },
+            "lg": { "$value": "{font.size.3xl}", "$type": "dimension" },
+            "xl": { "$value": "{font.size.4xl}", "$type": "dimension" },
+            "2xl": { "$value": "{font.size.5xl}", "$type": "dimension" }
+        },
+        "display": { "$value": "{font.size.6xl}", "$type": "dimension" }
+    }
+}

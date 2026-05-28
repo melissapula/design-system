@@ -1,0 +1,7 @@
+{
+    "radius": {
+        "control": { "$value": "{size.radius.md}", "$type": "dimension" },
+        "surface": { "$value": "{size.radius.lg}", "$type": "dimension" },
+        "pill": { "$value": "{size.radius.full}", "$type": "dimension" }
+    }
+}
