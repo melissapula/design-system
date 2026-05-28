@@ -36,6 +36,7 @@
         "@mfp-design-system/button": "workspace:*",
         "@mfp-design-system/card": "workspace:*",
         "@mfp-design-system/checkbox": "workspace:*",
+        "@mfp-design-system/date-picker": "workspace:*",
         "@mfp-design-system/divider": "workspace:*",
         "@mfp-design-system/footer": "workspace:*",
         "@mfp-design-system/form-field": "workspace:*",

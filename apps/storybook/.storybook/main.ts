@@ -17,6 +17,7 @@ const componentPackages = [
     'button',
     'card',
     'checkbox',
+    'date-picker',
     'divider',
     'footer',
     'form-field',

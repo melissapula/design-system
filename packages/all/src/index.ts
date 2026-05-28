@@ -20,6 +20,7 @@ export * from '@mfp-design-system/badge';
 export * from '@mfp-design-system/button';
 export * from '@mfp-design-system/card';
 export * from '@mfp-design-system/checkbox';
+export * from '@mfp-design-system/date-picker';
 export * from '@mfp-design-system/divider';
 export * from '@mfp-design-system/footer';
 export * from '@mfp-design-system/form-field';

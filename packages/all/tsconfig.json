@@ -18,6 +18,7 @@
             "@mfp-design-system/button": ["../button/src/index.ts"],
             "@mfp-design-system/card": ["../card/src/index.ts"],
             "@mfp-design-system/checkbox": ["../checkbox/src/index.ts"],
+            "@mfp-design-system/date-picker": ["../date-picker/src/index.ts"],
             "@mfp-design-system/divider": ["../divider/src/index.ts"],
             "@mfp-design-system/footer": ["../footer/src/index.ts"],
             "@mfp-design-system/form-field": ["../form-field/src/index.ts"],
