@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import './form-field.js';
+import '@mfp-design-system/input';
+import '@mfp-design-system/select';
+import '@mfp-design-system/checkbox';
 
 interface Args {
     label: string;
@@ -96,6 +99,38 @@ export const WrappingTextarea: Story = {
         >
             <textarea rows="4" style="width: 100%; padding: 8px; font: inherit;"></textarea>
         </mfp-form-field>
+    `,
+};
+
+export const WithMfpComponents: Story = {
+    parameters: { controls: { disable: true } },
+    render: () => html`
+        <p style="margin: 0 0 16px; color: #6b7280; font-size: 14px; max-width: 480px;">
+            form-field is designed to wrap native controls, but you <em>can</em> compose it around
+            <code>mfp-input</code> / <code>mfp-select</code> too — useful when you want one row to
+            use form-field's label/hint/error and the row beneath to use the input's built-ins, but
+            keep the visual rhythm consistent. (Note: this double-labels for screen readers; in
+            production prefer one or the other per field.)
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 16px; max-width: 360px;">
+            <mfp-form-field label="Email address" hint="We'll only use it for receipts.">
+                <mfp-input type="email" placeholder="name@example.com"></mfp-input>
+            </mfp-form-field>
+            <mfp-form-field label="Country" required>
+                <mfp-select placeholder="Pick one…">
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                </mfp-select>
+            </mfp-form-field>
+            <mfp-form-field
+                label="Subscribe to product updates"
+                hint="Weekly digest, no spam."
+                orientation="horizontal"
+            >
+                <mfp-checkbox></mfp-checkbox>
+            </mfp-form-field>
+        </div>
     `,
 };
 

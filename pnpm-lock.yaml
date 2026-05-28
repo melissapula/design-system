@@ -419,6 +419,15 @@ importers:
         specifier: ^3.2.1
         version: 3.3.3
     devDependencies:
+      '@mfp-design-system/checkbox':
+        specifier: workspace:*
+        version: link:../checkbox
+      '@mfp-design-system/input':
+        specifier: workspace:*
+        version: link:../input
+      '@mfp-design-system/select':
+        specifier: workspace:*
+        version: link:../select
       '@mfp-design-system/tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -470,6 +479,12 @@ importers:
       '@mfp-design-system/button':
         specifier: workspace:*
         version: link:../button
+      '@mfp-design-system/input':
+        specifier: workspace:*
+        version: link:../input
+      '@mfp-design-system/textarea':
+        specifier: workspace:*
+        version: link:../textarea
       '@mfp-design-system/tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -550,6 +565,15 @@ importers:
         specifier: ^3.2.1
         version: 3.3.3
     devDependencies:
+      '@mfp-design-system/button':
+        specifier: workspace:*
+        version: link:../button
+      '@mfp-design-system/input':
+        specifier: workspace:*
+        version: link:../input
+      '@mfp-design-system/select':
+        specifier: workspace:*
+        version: link:../select
       '@mfp-design-system/tokens':
         specifier: workspace:*
         version: link:../tokens

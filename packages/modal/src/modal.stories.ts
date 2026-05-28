@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import './modal.js';
 import '@mfp-design-system/button';
+import '@mfp-design-system/input';
+import '@mfp-design-system/textarea';
 import type { ModalSize } from './modal.js';
 
 interface Args {
@@ -77,6 +79,53 @@ export const ConfirmDelete: Story = {
                 </mfp-button>
                 <mfp-button variant="danger" onclick="this.closest('mfp-modal').close()">
                     Delete
+                </mfp-button>
+            </div>
+        </mfp-modal>
+    `,
+};
+
+export const WithFormSubmit: Story = {
+    parameters: { controls: { disable: true } },
+    render: () => html`
+        <mfp-button variant="primary" onclick="this.nextElementSibling.show()">
+            Send feedback
+        </mfp-button>
+        <mfp-modal id="feedback-modal">
+            <span slot="header">Send feedback</span>
+            <form
+                id="feedback-form"
+                style="display: flex; flex-direction: column; gap: 12px;"
+                onsubmit="event.preventDefault();
+                         const data = new FormData(event.target);
+                         alert('Submitted:\\n' + JSON.stringify(Object.fromEntries(data), null, 2));
+                         event.target.closest('mfp-modal').close();"
+            >
+                <mfp-input
+                    name="email"
+                    label="Your email"
+                    type="email"
+                    placeholder="name@example.com"
+                    required
+                ></mfp-input>
+                <mfp-textarea
+                    name="message"
+                    label="What's on your mind?"
+                    placeholder="Tell us anything…"
+                    rows="4"
+                    required
+                ></mfp-textarea>
+            </form>
+            <div slot="footer">
+                <mfp-button variant="ghost" onclick="this.closest('mfp-modal').close()">
+                    Cancel
+                </mfp-button>
+                <mfp-button
+                    variant="primary"
+                    type="submit"
+                    onclick="document.getElementById('feedback-form').requestSubmit()"
+                >
+                    Send
                 </mfp-button>
             </div>
         </mfp-modal>
