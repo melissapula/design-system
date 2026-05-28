@@ -35,9 +35,9 @@ export class MfpModal extends LitElement {
         dialog[open] {
             padding: 0;
             border: none;
-            background: var(--color-neutral-0, #ffffff);
-            border-radius: var(--size-radius-lg, 12px);
-            box-shadow: var(--shadow-xl, 0 16px 48px rgba(0, 0, 0, 0.2));
+            background: var(--color-background-default, #ffffff);
+            border-radius: var(--radius-surface, 12px);
+            box-shadow: var(--elevation-popover, 0 16px 48px rgba(0, 0, 0, 0.2));
             color: var(--color-text-default, #111827);
             font: inherit;
             max-width: min(calc(100vw - 32px), 480px);
@@ -82,37 +82,39 @@ export class MfpModal extends LitElement {
         }
 
         .header {
-            padding: var(--size-spacing-5, 20px) var(--size-spacing-5, 20px)
-                var(--size-spacing-3, 12px);
-            font-size: var(--font-size-lg, 18px);
+            padding: var(--space-component-lg, 20px) var(--space-component-lg, 20px)
+                var(--space-component-md, 12px);
+            font-size: var(--text-heading-xs, 18px);
             font-weight: var(--font-weight-semibold, 600);
             line-height: var(--font-line-height-tight, 1.2);
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            gap: var(--size-spacing-3, 12px);
+            gap: var(--space-inline-md, 12px);
         }
 
         .body {
-            padding: 0 var(--size-spacing-5, 20px) var(--size-spacing-5, 20px);
+            padding: 0 var(--space-component-lg, 20px) var(--space-component-lg, 20px);
             overflow-y: auto;
             flex: 1 1 auto;
         }
 
         .footer {
-            padding: var(--size-spacing-4, 16px) var(--size-spacing-5, 20px);
-            border-top: 1px solid var(--color-border-default, #e5e7eb);
+            padding: var(--space-component-md, 16px) var(--space-component-lg, 20px);
+            border-top: var(--size-border-width-thin, 1px) solid
+                var(--color-border-default, #e5e7eb);
             display: flex;
             justify-content: flex-end;
-            gap: var(--size-spacing-2, 8px);
+            gap: var(--space-inline-sm, 8px);
             background: var(--color-background-subtle, #f9fafb);
         }
 
         .close {
             background: none;
             border: none;
-            padding: var(--size-spacing-1, 4px);
-            margin: calc(-1 * var(--size-spacing-1, 4px)) calc(-1 * var(--size-spacing-1, 4px)) 0 0;
+            padding: var(--space-component-xs, 4px);
+            margin: calc(-1 * var(--space-component-xs, 4px))
+                calc(-1 * var(--space-component-xs, 4px)) 0 0;
             cursor: pointer;
             color: var(--color-text-muted, #6b7280);
             border-radius: var(--size-radius-sm, 4px);
@@ -123,8 +125,9 @@ export class MfpModal extends LitElement {
             color: var(--color-text-default, #111827);
         }
         .close:focus-visible {
-            outline: 2px solid var(--color-brand-primary, #2563eb);
-            outline-offset: 2px;
+            outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid)
+                var(--focus-ring-color, #2563eb);
+            outline-offset: var(--focus-ring-offset, 2px);
         }
 
         /* Hide section wrappers that have no slotted content */

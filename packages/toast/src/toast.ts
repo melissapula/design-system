@@ -9,18 +9,18 @@ export class MfpToast extends LitElement {
         :host {
             display: block;
             font-family: var(--font-family-sans, system-ui, -apple-system, sans-serif);
-            font-size: var(--font-size-sm, 14px);
+            font-size: var(--text-body-sm, 14px);
             line-height: var(--font-line-height-normal, 1.5);
             background: var(--color-neutral-900, #111827);
             color: var(--color-neutral-0, #ffffff);
-            padding: var(--size-spacing-3, 12px) var(--size-spacing-4, 16px);
-            border-radius: var(--size-radius-md, 8px);
-            box-shadow: var(--shadow-lg, 0 8px 24px rgba(0, 0, 0, 0.15));
+            padding: var(--space-component-md, 12px) var(--space-component-lg, 16px);
+            border-radius: var(--radius-control, 8px);
+            box-shadow: var(--elevation-float, 0 8px 24px rgba(0, 0, 0, 0.15));
             min-width: 240px;
             max-width: 360px;
             display: flex;
             align-items: center;
-            gap: var(--size-spacing-3, 12px);
+            gap: var(--space-inline-md, 12px);
             animation: mfp-toast-in var(--motion-duration-normal, 200ms)
                 var(--motion-easing-decelerate, ease-out);
         }
@@ -45,16 +45,16 @@ export class MfpToast extends LitElement {
         .close {
             background: none;
             border: none;
-            padding: var(--size-spacing-1, 4px);
-            margin: calc(-1 * var(--size-spacing-1, 4px));
+            padding: var(--space-component-xs, 4px);
+            margin: calc(-1 * var(--space-component-xs, 4px));
             cursor: pointer;
             color: inherit;
             border-radius: var(--size-radius-sm, 4px);
-            opacity: 0.7;
+            opacity: var(--opacity-muted, 0.7);
             line-height: 0;
         }
         .close:hover {
-            opacity: 1;
+            opacity: var(--opacity-full, 1);
         }
 
         @keyframes mfp-toast-in {

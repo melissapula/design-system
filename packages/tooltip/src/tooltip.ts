@@ -34,9 +34,9 @@ export class MfpTooltip extends LitElement {
             z-index: var(--z-tooltip, 700);
             background: var(--color-neutral-900, #111827);
             color: var(--color-neutral-0, #ffffff);
-            font-size: var(--font-size-xs, 12px);
+            font-size: var(--text-caption, 12px);
             line-height: var(--font-line-height-tight, 1.2);
-            padding: var(--size-spacing-2, 8px) var(--size-spacing-3, 12px);
+            padding: var(--space-component-sm, 8px) var(--space-component-md, 12px);
             border-radius: var(--size-radius-sm, 4px);
             /* max-width comes from the maxWidth property, applied as an
                inline style in render(). The 240px default lives there. */
@@ -45,31 +45,31 @@ export class MfpTooltip extends LitElement {
             pointer-events: none;
             transition: opacity var(--motion-duration-fast, 150ms)
                 var(--motion-easing-standard, ease);
-            box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.1));
+            box-shadow: var(--elevation-overlay, 0 4px 12px rgba(0, 0, 0, 0.1));
         }
 
         .bubble[data-visible='true'] {
-            opacity: 1;
+            opacity: var(--opacity-full, 1);
         }
 
         :host(:not([placement])) .bubble,
         :host([placement='top']) .bubble {
-            bottom: calc(100% + var(--size-spacing-2, 8px));
+            bottom: calc(100% + var(--space-inline-sm, 8px));
             left: 50%;
             transform: translateX(-50%);
         }
         :host([placement='bottom']) .bubble {
-            top: calc(100% + var(--size-spacing-2, 8px));
+            top: calc(100% + var(--space-inline-sm, 8px));
             left: 50%;
             transform: translateX(-50%);
         }
         :host([placement='left']) .bubble {
-            right: calc(100% + var(--size-spacing-2, 8px));
+            right: calc(100% + var(--space-inline-sm, 8px));
             top: 50%;
             transform: translateY(-50%);
         }
         :host([placement='right']) .bubble {
-            left: calc(100% + var(--size-spacing-2, 8px));
+            left: calc(100% + var(--space-inline-sm, 8px));
             top: 50%;
             transform: translateY(-50%);
         }
