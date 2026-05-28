@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import './button.js';
+import { showToast } from '@mfp-design-system/toast';
 import type { ButtonSize, ButtonVariant } from './button.js';
 
 interface Args {
@@ -98,6 +99,47 @@ export const Disabled: Story = {
 
 export const Loading: Story = {
     args: { loading: true, label: 'Saving…' },
+};
+
+export const FiresToast: Story = {
+    parameters: { controls: { disable: true } },
+    render: () => html`
+        <p style="margin: 0 0 12px; color: #6b7280; font-size: 14px;">
+            Each button fires a toast on click. Toggle the Theme toolbar to see them rebrand.
+        </p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <mfp-button
+                variant="primary"
+                @click=${() => showToast({ message: 'Profile saved.', variant: 'success' })}
+            >
+                Save profile
+            </mfp-button>
+            <mfp-button
+                variant="ghost"
+                @click=${() => showToast({ message: 'Nothing to undo.', variant: 'info' })}
+            >
+                Undo
+            </mfp-button>
+            <mfp-button
+                variant="secondary"
+                @click=${() =>
+                    showToast({ message: 'Connection unstable — retrying.', variant: 'warning' })}
+            >
+                Reconnect
+            </mfp-button>
+            <mfp-button
+                variant="danger"
+                @click=${() =>
+                    showToast({
+                        message: 'Account deleted. This action cannot be undone.',
+                        variant: 'error',
+                        duration: 6000,
+                    })}
+            >
+                Delete account
+            </mfp-button>
+        </div>
+    `,
 };
 
 export const LoadingStates: Story = {

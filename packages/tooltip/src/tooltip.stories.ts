@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
 import './tooltip.js';
 import '@mfp-design-system/button';
+import '@mfp-design-system/icon-button';
 import type { TooltipPlacement } from './tooltip.js';
 
 interface Args {
@@ -71,6 +72,47 @@ export const CustomWidth: Story = {
                 content="String unit (20rem). Lorem ipsum dolor sit amet consectetur adipiscing elit."
             >
                 <mfp-button variant="secondary">String (20rem)</mfp-button>
+            </mfp-tooltip>
+        </div>
+    `,
+};
+
+export const OnIconButton: Story = {
+    parameters: { controls: { disable: true } },
+    render: () => html`
+        <p style="margin: 0 0 12px; color: #6b7280; font-size: 14px;">
+            Icon-only buttons need an accessible label (the <code>label</code> attribute on
+            <code>mfp-icon-button</code> sets <code>aria-label</code>). A tooltip with the same text
+            also gives sighted users a hover/focus hint of what the icon does — the canonical a11y
+            pattern for icon toolbars.
+        </p>
+        <div
+            style="display: flex; gap: 8px; padding: 32px 24px; background: #f9fafb; border-radius: 8px; width: max-content;"
+        >
+            <mfp-tooltip content="Bold (Ctrl+B)">
+                <mfp-icon-button label="Bold">
+                    <strong>B</strong>
+                </mfp-icon-button>
+            </mfp-tooltip>
+            <mfp-tooltip content="Italic (Ctrl+I)">
+                <mfp-icon-button label="Italic">
+                    <em>I</em>
+                </mfp-icon-button>
+            </mfp-tooltip>
+            <mfp-tooltip content="Underline (Ctrl+U)">
+                <mfp-icon-button label="Underline">
+                    <span style="text-decoration: underline;">U</span>
+                </mfp-icon-button>
+            </mfp-tooltip>
+            <mfp-tooltip content="Strikethrough">
+                <mfp-icon-button label="Strikethrough">
+                    <span style="text-decoration: line-through;">S</span>
+                </mfp-icon-button>
+            </mfp-tooltip>
+            <mfp-tooltip content="Delete selection" placement="bottom">
+                <mfp-icon-button label="Delete" variant="danger">
+                    <span aria-hidden="true">🗑</span>
+                </mfp-icon-button>
             </mfp-tooltip>
         </div>
     `,
