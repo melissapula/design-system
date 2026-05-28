@@ -1,5 +1,17 @@
 # @mfp-design-system/all
 
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [8260bcb]
+    - @mfp-design-system/badge@4.0.1
+    - @mfp-design-system/alert@4.0.1
+    - @mfp-design-system/card@6.0.1
+    - @mfp-design-system/avatar@4.0.1
+    - @mfp-design-system/divider@4.0.1
+    - @mfp-design-system/spinner@4.0.1
+
 ## 4.0.1
 
 ### Patch Changes
