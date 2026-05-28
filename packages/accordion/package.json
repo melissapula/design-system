@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/accordion",
-    "version": "4.0.0",
+    "version": "5.0.0",
     "description": "Accordion (mfp-accordion + mfp-accordion-item) for disclosure UIs like FAQs and settings sections.",
     "license": "MIT",
     "type": "module",
@@ -32,7 +32,7 @@
         "lit": "^3.2.1"
     },
     "peerDependencies": {
-        "@mfp-design-system/tokens": "^0.7.0"
+        "@mfp-design-system/tokens": "^0.8.0"
     },
     "peerDependenciesMeta": {
         "@mfp-design-system/tokens": {

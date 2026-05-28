@@ -1,5 +1,36 @@
 # @mfp-design-system/all
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [099729f]
+- Updated dependencies [6f8aec7]
+    - @mfp-design-system/button@6.0.0
+    - @mfp-design-system/icon-button@6.0.0
+    - @mfp-design-system/input@6.0.0
+    - @mfp-design-system/textarea@4.0.0
+    - @mfp-design-system/select@6.0.0
+    - @mfp-design-system/checkbox@6.0.0
+    - @mfp-design-system/radio@4.0.0
+    - @mfp-design-system/switch@6.0.0
+    - @mfp-design-system/form-field@6.0.0
+    - @mfp-design-system/tokens@0.8.0
+    - @mfp-design-system/accordion@5.0.0
+    - @mfp-design-system/alert@4.0.0
+    - @mfp-design-system/avatar@4.0.0
+    - @mfp-design-system/badge@4.0.0
+    - @mfp-design-system/card@6.0.0
+    - @mfp-design-system/divider@4.0.0
+    - @mfp-design-system/footer@4.0.0
+    - @mfp-design-system/modal@6.0.0
+    - @mfp-design-system/nav@4.0.0
+    - @mfp-design-system/spinner@4.0.0
+    - @mfp-design-system/stepper@4.0.0
+    - @mfp-design-system/tabs@4.0.0
+    - @mfp-design-system/toast@4.0.0
+    - @mfp-design-system/tooltip@4.0.0
+
 ## 3.0.0
 
 ### Patch Changes

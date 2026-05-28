@@ -1,5 +1,12 @@
 # @mfp-design-system/stepper
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [6f8aec7]
+    - @mfp-design-system/tokens@0.8.0
+
 ## 3.0.0
 
 ### Patch Changes
