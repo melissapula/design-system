@@ -1,6 +1,6 @@
 {
     "name": "@mfp-design-system/input",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "description": "Input web component for the mfp-design-system, built with Lit.",
     "license": "MIT",
     "type": "module",
@@ -33,7 +33,7 @@
         "lit": "^3.2.1"
     },
     "peerDependencies": {
-        "@mfp-design-system/tokens": "^0.5.0"
+        "@mfp-design-system/tokens": "^0.6.0"
     },
     "peerDependenciesMeta": {
         "@mfp-design-system/tokens": {
